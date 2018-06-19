@@ -1,31 +1,30 @@
+function anita(p)
 a = arduino;
 
-readings = 4;
+readings = 100;
 five = zeros(1, readings);
 three = zeros(1, readings);
 indexFive = 1;
 indexThree = 1;
+
+depth = linspace(0, p);
 
 i = 1;
 while i < 2
     
     for index = 1:readings
        
-        dibuja(five, three);
+        dibuja(five, three, depth);
         
-        %first, conmute the relay
-        writePWMVoltage(a, 'D9', 5);
-        five(indexFive) = readVoltage(a, 'A1');
+        %lectura de 5V
+        five(indexFive) = readVoltage(a, 'A0');
         indexFive = indexFive + 1;
-        pause(1);
         
-        %conmute the relay again and perform the second read
-        writePWMVoltage(a, 'D9', 0);
-        three(indexThree) = readVoltage(a, 'A0');
+        %lectura de 3V
+        three(indexThree) = readVoltage(a, 'A1');
         indexThree = indexThree + 1;
-        pause(1);
 
-        pause(.1); %permite visualizar la grafica cada n segundos
+        pause(.1); %permite dar tiempo a que se dibuje la gráfica
         
         if(indexFive == 101)
             indexFive = 1;
@@ -34,7 +33,8 @@ while i < 2
             indexThree = 1;
         end
     end
-    dibuja(five, three);
+    %dibuja(five, three, depth);
     i = i + 1;
 end
 clear;
+end

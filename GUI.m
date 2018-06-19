@@ -22,7 +22,7 @@ function varargout = GUI(varargin)
 
 % Edit the above text to modify the response to help GUI
 
-% Last Modified by GUIDE v2.5 11-Jun-2018 15:49:44
+% Last Modified by GUIDE v2.5 19-Jun-2018 14:55:25
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -72,7 +72,6 @@ function varargout = GUI_OutputFcn(hObject, eventdata, handles)
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
 % Get default command line output from handles structure
 varargout{1} = handles.output;
 
@@ -100,4 +99,57 @@ function pushbutton3_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton3 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-anita;
+if(isempty(get(handles.inputDepth,'String')))
+  warndlg('Debe ingresar un valor en el campo profundidad');
+else
+  if(isnan(str2double(get(handles.inputDepth,'String'))))
+    warndlg('Debe ingresar un valor en el campo profundidad');
+  else
+    anita(str2double(get(handles.inputDepth,'String')));
+  end
+end
+
+
+% --- Executes on button press in exitButton.
+function exitButton_Callback(hObject, eventdata, handles)
+% hObject    handle to exitButton (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+close;
+
+
+
+function inputDepth_Callback(hObject, eventdata, handles)
+% hObject    handle to inputDepth (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of inputDepth as text
+%        str2double(get(hObject,'String')) returns contents of inputDepth as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function inputDepth_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to inputDepth (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on button press in checkbox1.
+function checkbox1_Callback(hObject, eventdata, handles)
+% hObject    handle to checkbox1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of checkbox1
+if(get(hObject, 'Value') == 1)
+  disp('checked')
+else
+  disp('unchecked')
+end
