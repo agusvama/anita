@@ -22,7 +22,7 @@ function varargout = GUI(varargin)
 
 % Edit the above text to modify the response to help GUI
 
-% Last Modified by GUIDE v2.5 19-Jun-2018 14:55:25
+% Last Modified by GUIDE v2.5 04-Jul-2018 17:32:59
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -51,11 +51,6 @@ function GUI_OpeningFcn(hObject, eventdata, handles, varargin)
 % handles    structure with handles and user data (see GUIDATA)
 % varargin   command line arguments to GUI (see VARARGIN)
 
-set(handles.panel2, 'visible','off');
-%camroll(270);
-set(handles.axes1, 'visible', 'off');
-set(handles.axes2, 'visible', 'off');
-
 % Choose default command line output for GUI
 handles.output = hObject;
 
@@ -82,7 +77,6 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 set(handles.panel2,'visible','off');
-set(handles.panel1,'visible','on');
 
 
 % --- Executes on button press in pushbutton2.
@@ -91,14 +85,14 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 set(handles.panel2,'visible','on');
-set(handles.panel1,'visible','off');
 
 
-% --- Executes on button press in pushbutton3.
-function pushbutton3_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton3 (see GCBO)
+% --- Executes on button press in startButton.
+function startButton_Callback(hObject, eventdata, handles)
+% hObject    handle to startButton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+figure('Toolbar', 'none', 'Menubar', 'none', 'Name', 'Gráficas', 'Tag', 'plotsFigure');
 if(isempty(get(handles.inputDepth,'String')))
   warndlg('Debe ingresar un valor en el campo profundidad');
 else
@@ -153,3 +147,22 @@ if(get(hObject, 'Value') == 1)
 else
   disp('unchecked')
 end
+
+
+% --- Executes on button press in pushbutton5.
+function pushbutton5_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton5 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+%abre un cuadro de diálogo y usuario selecciona ruta para guardar su PDF
+[file, path] = uiputfile('*.pdf', 'Guardar gráficas como...');
+%te crea 2 variables, ...
+%file -> es el nombre del archivo
+%path -> es la ruta seleccionada
+
+print(findobj('Tag', 'plotsFigure'), strcat(path, file), '-dpdf');
+%print requiere como primer argumento un nombre para el archivo, por eso
+%se manda primero la ruta seleccionada previamente concatenada al nombre
+%del archivo elegido, estos comandos se pueden probar en consola para tener
+%un mejor entendimiento se sus salidas

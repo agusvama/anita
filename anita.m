@@ -1,20 +1,20 @@
-function anita(p)
+function anita(muestras)
 a = arduino;
 
-readings = 100;
+readings = muestras;
 five = zeros(1, readings);
 three = zeros(1, readings);
 indexFive = 1;
 indexThree = 1;
 
-depth = linspace(0, p);
+%depth = linspace(0, p);
 
 i = 1;
 while i < 2
     
     for index = 1:readings
        
-        dibuja(five, three, depth);
+        dibuja(five, three);
         
         %lectura de 5V
         five(indexFive) = readVoltage(a, 'A0');
@@ -36,5 +36,6 @@ while i < 2
     %dibuja(five, three, depth);
     i = i + 1;
 end
+
 clear;
 end

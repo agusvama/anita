@@ -1,7 +1,7 @@
-function dibuja(v, r, p)
+function dibuja(v, r)
     
     subplot(1, 2, 1); %(x, y, position in grid)
-    plot(p, v);
+    plot(v);
     ylim([-1 5]);
     xlabel('Profundidad');
     ylabel('Potencial Natural');
@@ -9,7 +9,7 @@ function dibuja(v, r, p)
     pbaspect ([2 0.7 1]);
 
     subplot(1, 2, 2);
-    plot(p, r, 'r');
+    plot(r, 'r');
     ylim([-1 5]);
     xlabel('Profundidad');
     ylabel('Resistividad');
