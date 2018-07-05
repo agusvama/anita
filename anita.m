@@ -36,6 +36,7 @@ while i < 2
     %dibuja(five, three, depth);
     i = i + 1;
 end
+dibuja(five, three);
 
 clear;
 end
