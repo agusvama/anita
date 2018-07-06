@@ -22,7 +22,6 @@ end
 function GUI_OpeningFcn(hObject, eventdata, handles, varargin)
 % This function has no output args, see OutputFcn.
 % handles    structure with handles and user data (see GUIDATA)
-set(handles.saveButton,'enable','off');
 % Choose default command line output for GUI
 handles.output = hObject;
 % Update handles structure
@@ -62,6 +61,11 @@ close;
 
 % --- Executes on button press in saveButton.
 function saveButton_Callback(hObject, eventdata, handles)
+if(isempty(findobj('Tag', 'plotsFigure')))
+  warndlg('No hay gráficas que guardar');
+  return;
+end
+
 %abre un cuadro de diálogo y usuario selecciona ruta para guardar su PDF
 [file, path] = uiputfile('*.pdf', 'Guardar gráficas como...');
 %te crea 2 variables, ...
@@ -73,6 +77,4 @@ print(findobj('Tag', 'plotsFigure'), strcat(path, file), '-dpdf');
 %se manda primero la ruta seleccionada previamente concatenada al nombre
 %del archivo elegido, estos comandos se pueden probar en consola para tener
 %un mejor entendimiento se sus salidas
-
-set(handles.saveButton, 'enable', 'off'); %bloquea el botón de guardado
 
