@@ -44,18 +44,17 @@ end
 % --- Executes on button press in startButton.
 function startButton_Callback(hObject, eventdata, handles)
 
-figure('Toolbar', 'none', 'Menubar', 'none', 'Name', 'Gráficas', 'Tag', 'plotsFigure');
-
 if(isempty(get(handles.inputDepth,'String')))
   warndlg('Debe ingresar un valor en el campo profundidad');
+  return;
 else
   if(isnan(str2double(get(handles.inputDepth,'String'))))
-    warndlg('Debe ingresar un valor en el campo profundidad');
+    warndlg('Debe ingresar un valor numérico');
+    return;
   else
     anita(str2double(get(handles.inputDepth,'String')));
   end
 end
-set(handles.saveButton, 'enable', 'on');
 
 % --- Executes on button press in exitButton.
 function exitButton_Callback(hObject, eventdata, handles)
@@ -75,6 +74,5 @@ print(findobj('Tag', 'plotsFigure'), strcat(path, file), '-dpdf');
 %del archivo elegido, estos comandos se pueden probar en consola para tener
 %un mejor entendimiento se sus salidas
 
-close('Gráficas'); %cierra la figura para no crear más y más con el mismo tag
 set(handles.saveButton, 'enable', 'off'); %bloquea el botón de guardado
 

@@ -1,5 +1,16 @@
 function anita(muestras)
-a = arduino;
+try
+  a = arduino;
+catch
+  warndlg('Arduino no conectado, conecte e intente de nuevo por favor :)');
+  return;
+end
+
+try
+  close('Gráficas'); %cierra la figura para no crear más y más con el mismo tags
+catch
+end
+figure('Toolbar', 'none', 'Menubar', 'none', 'Name', 'Gráficas', 'Tag', 'plotsFigure');
 
 readings = muestras;
 five = zeros(1, readings);
