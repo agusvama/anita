@@ -2,7 +2,7 @@ function dibuja(v, r)
     
     subplot(1, 2, 1); %(x, y, position in grid)
     plot(v);
-    ylim([-1 5]);
+    ylim([0 15]);
     xlabel('Profundidad');
     ylabel('Potencial Natural');
     camroll(270);
@@ -10,7 +10,7 @@ function dibuja(v, r)
 
     subplot(1, 2, 2);
     plot(r, 'r');
-    ylim([-1 5]);
+    ylim([0 27]);
     xlabel('Profundidad');
     ylabel('Resistividad');
     camroll(270);

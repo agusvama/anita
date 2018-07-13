@@ -51,13 +51,13 @@ else
     warndlg('Debe ingresar un valor numérico');
     return;
   else
-    anita(str2double(get(handles.inputDepth,'String')));
+    anita();
   end
 end
 
 % --- Executes on button press in exitButton.
 function exitButton_Callback(hObject, eventdata, handles)
-close;
+close all;
 
 % --- Executes on button press in saveButton.
 function saveButton_Callback(hObject, eventdata, handles)
