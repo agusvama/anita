@@ -16,6 +16,7 @@ if nargout
 else
     gui_mainfcn(gui_State, varargin{:});
 end
+end
 % End initialization code - DO NOT EDIT
 
 % --- Executes just before GUI is made visible.
@@ -23,58 +24,46 @@ function GUI_OpeningFcn(hObject, eventdata, handles, varargin)
 % This function has no output args, see OutputFcn.
 % handles    structure with handles and user data (see GUIDATA)
 % Choose default command line output for GUI
+assignin('base', 'flag', true);
 handles.output = hObject;
 % Update handles structure
 guidata(hObject, handles);
 % UIWAIT makes GUI wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
+end
 
 % --- Outputs from this function are returned to the command line.
 function varargout = GUI_OutputFcn(hObject, eventdata, handles) 
-varargout{1} = handles.output;
-
-% --- Executes during object creation, after setting all properties.
-function inputDepth_CreateFcn(hObject, eventdata, handles)
-
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
+  varargout{1} = handles.output;
 end
 
 % --- Executes on button press in startButton.
 function startButton_Callback(hObject, eventdata, handles)
-
-if(isempty(get(handles.inputDepth,'String')))
-  warndlg('Debe ingresar un valor en el campo profundidad');
-  return;
-else
-  if(isnan(str2double(get(handles.inputDepth,'String'))))
-    warndlg('Debe ingresar un valor numérico');
+    v = [];
+    r = [];
+  try
+    placa = iniciarArduino('COM3');
+    for i = 1:10
+      [izq, der] = anita(placa);
+      v(i) = izq;
+      r(i) = der;
+      dibuja(v, r);
+      pause(1);
+    end
+  catch
+    warndlg('Arduino no conectado');
     return;
-  else
-    anita();
   end
+  disp('éxito');
 end
 
 % --- Executes on button press in exitButton.
 function exitButton_Callback(hObject, eventdata, handles)
-close all;
-
-% --- Executes on button press in saveButton.
-function saveButton_Callback(hObject, eventdata, handles)
-if(isempty(findobj('Tag', 'plotsFigure')))
-  warndlg('No hay gráficas que guardar');
-  return;
+  close all;
 end
 
-%abre un cuadro de diálogo y usuario selecciona ruta para guardar su PDF
-[file, path] = uiputfile('*.pdf', 'Guardar gráficas como...');
-%te crea 2 variables, ...
-%file -> es el nombre del archivo
-%path -> es la ruta seleccionada
 
-print(findobj('Tag', 'plotsFigure'), strcat(path, file), '-dpdf');
-%print requiere como primer argumento un nombre para el archivo, por eso
-%se manda primero la ruta seleccionada previamente concatenada al nombre
-%del archivo elegido, estos comandos se pueden probar en consola para tener
-%un mejor entendimiento se sus salidas
-
+% --- Executes on button press in stopButton.
+function stopButton_Callback(hObject, eventdata, handles)
+  flag = false;
+end
