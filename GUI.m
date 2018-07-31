@@ -24,7 +24,6 @@ function GUI_OpeningFcn(hObject, eventdata, handles, varargin)
 % This function has no output args, see OutputFcn.
 % handles    structure with handles and user data (see GUIDATA)
 % Choose default command line output for GUI
-assignin('base', 'flag', true);
 handles.output = hObject;
 % Update handles structure
 guidata(hObject, handles);
@@ -37,33 +36,56 @@ function varargout = GUI_OutputFcn(hObject, eventdata, handles)
   varargout{1} = handles.output;
 end
 
-% --- Executes on button press in startButton.
-function startButton_Callback(hObject, eventdata, handles)
-    v = [];
-    r = [];
+function [success] = openArduino()
   try
-    placa = iniciarArduino('COM3');
-    for i = 1:10
-      [izq, der] = anita(placa);
-      v(i) = izq;
-      r(i) = der;
-      dibuja(v, r);
-      pause(1);
-    end
+    assignin('base', 'placa', iniciarArduino('COM3'));
   catch
-    warndlg('Arduino no conectado');
+    warndlg('arduino no conectado');
+    success = false;
     return;
   end
-  disp('éxito');
+  success = true;
+end
+
+% --- Executes on button press in startButton.
+function startButton_Callback(hObject, eventdata, handles)
+    try
+      placa = iniciarArduino('COM3');
+    catch
+      warndlg('arduino no conectado');
+      return;
+    end
+    reading(placa);
+end
+
+function reading(pArduino)
+  v = [];
+  r = [];
+  i = 1;
+  warning('');
+  while(true)
+    try
+      [izq, der] = anita(pArduino);
+      v(i) = izq;
+      r(i) = der;
+      i = i + 1;
+      dibuja(v, r, i);
+      pause(1);
+      
+      if( strcmp('Unsuccessful read: A timeout occurred before the Terminator was reached..', lastwarn) )
+        fclose(placa);
+        return;
+      end
+      
+    catch
+      disp('unplugged arduino');
+      clear;
+      return;
+    end
+  end
 end
 
 % --- Executes on button press in exitButton.
 function exitButton_Callback(hObject, eventdata, handles)
   close all;
-end
-
-
-% --- Executes on button press in stopButton.
-function stopButton_Callback(hObject, eventdata, handles)
-  flag = false;
 end
