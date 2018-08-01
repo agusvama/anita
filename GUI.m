@@ -36,17 +36,6 @@ function varargout = GUI_OutputFcn(hObject, eventdata, handles)
   varargout{1} = handles.output;
 end
 
-function [success] = openArduino()
-  try
-    assignin('base', 'placa', iniciarArduino('COM3'));
-  catch
-    warndlg('arduino no conectado');
-    success = false;
-    return;
-  end
-  success = true;
-end
-
 % --- Executes on button press in startButton.
 function startButton_Callback(hObject, eventdata, handles)
     try
@@ -55,7 +44,9 @@ function startButton_Callback(hObject, eventdata, handles)
       warndlg('arduino no conectado');
       return;
     end
+    set(handles.text5, 'visible', 'on');
     reading(placa);
+    set(handles.text5, 'visible', 'off');
 end
 
 function reading(pArduino)
