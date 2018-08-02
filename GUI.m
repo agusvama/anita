@@ -44,30 +44,35 @@ function startButton_Callback(hObject, eventdata, handles)
       warndlg('arduino no conectado');
       return;
     end
+    
+    d = fix(clock);
+    nombreArchivo = strcat('projects/', int2str(d(1)), '-', int2str(d(2)), '-', ...
+                    int2str(d(3)), '@', int2str(d(4)), '_', int2str(d(5)),...
+                    '_', int2str(d(6)), '.csv');
+    archivo = fopen(nombreArchivo, 'a');
+    
     set(handles.text5, 'visible', 'on');
-    reading(placa);
+    reading(placa, archivo, nombreArchivo);
     set(handles.text5, 'visible', 'off');
+    fclose(archivo);
 end
 
-function reading(pArduino)
-  v = [];
-  r = [];
-  i = 1;
+function reading(pArduino, archivo, nombreArchivo)
   warning('');
   while(true)
     try
       [izq, der] = anita(pArduino);
-      v(i) = izq;
-      r(i) = der;
-      i = i + 1;
-      dibuja(v, r, i);
+      fprintf(archivo, '%.3f,\t', izq);
+      fprintf(archivo, '%.3f\r\n', der);
+      
+      dibuja(nombreArchivo);
       pause(1);
       
       if( strcmp('Unsuccessful read: A timeout occurred before the Terminator was reached..', lastwarn) )
         fclose(placa);
         return;
       end
-      
+    
     catch
       disp('unplugged arduino');
       clear;
