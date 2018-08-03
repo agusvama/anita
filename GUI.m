@@ -45,16 +45,36 @@ function startButton_Callback(hObject, eventdata, handles)
       return;
     end
     
-    d = fix(clock);
-    nombreArchivo = strcat('projects/', int2str(d(1)), '-', int2str(d(2)), '-', ...
-                    int2str(d(3)), '@', int2str(d(4)), '_', int2str(d(5)),...
-                    '_', int2str(d(6)), '.csv');
+    fecha = fix(clock);
+    nombreArchivo = strcat('projects/', int2str(fecha(1)), '-', ... %año
+                                        int2str(fecha(2)), '-', ... %mes
+                                        int2str(fecha(3)), '@', ... %dia
+                                        int2str(fecha(4)), '_', ... %hora
+                                        int2str(fecha(5)), '_', ... %minuto
+                                        int2str(fecha(6)),      ... %segundo
+                                        '.csv'                  ... %formato
+                          );                                 
     archivo = fopen(nombreArchivo, 'a');
-    
+    %colocar fecha automáticamente
+    set(handles.datefield, 'String', strcat(int2str(fecha(3)), '/', ...
+                                            int2str(fecha(2)), '/', ...
+                                            int2str(fecha(1))       ...
+        ));
+    if(fecha(5) <= 9)
+      set(handles.timefield, 'String', strcat(int2str(fecha(4)), ':0', ...
+                                              int2str(fecha(5))       ...
+        ));
+    else
+      set(handles.timefield, 'String', strcat(int2str(fecha(4)), ':', ...
+                                              int2str(fecha(5))       ...
+        ));
+    end
     set(handles.text5, 'visible', 'on');
+    %leer información
     reading(placa, archivo, nombreArchivo);
     set(handles.text5, 'visible', 'off');
     fclose(archivo);
+    delete(instrfind({'Port'},{'COM3'}));
 end
 
 function reading(pArduino, archivo, nombreArchivo)
@@ -62,11 +82,12 @@ function reading(pArduino, archivo, nombreArchivo)
   while(true)
     try
       [izq, der] = anita(pArduino);
+      %escribir información
       fprintf(archivo, '%.3f,\t', izq);
       fprintf(archivo, '%.3f\r\n', der);
       
       dibuja(nombreArchivo);
-      pause(1);
+      pause(.1);
       
       if( strcmp('Unsuccessful read: A timeout occurred before the Terminator was reached..', lastwarn) )
         fclose(placa);
@@ -79,9 +100,4 @@ function reading(pArduino, archivo, nombreArchivo)
       return;
     end
   end
-end
-
-% --- Executes on button press in exitButton.
-function exitButton_Callback(hObject, eventdata, handles)
-  close all;
 end
