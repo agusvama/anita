@@ -101,3 +101,23 @@ function reading(pArduino, archivo, nombreArchivo)
     end
   end
 end
+
+
+% --- Executes on button press in readCheck.
+function readCheck_Callback(hObject, eventdata, handles)
+  
+end
+
+
+% --- Executes on button press in pushbutton8.
+function pushbutton8_Callback(hObject, eventdata, handles)
+  while(true)
+  if(get(handles.readCheck, 'Value'))
+     disp('checked');
+     pause(2);
+  else
+    clc;
+    return;
+  end
+  end
+end
