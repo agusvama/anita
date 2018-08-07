@@ -48,18 +48,18 @@ function startButton_Callback(hObject, eventdata, handles)
     nombreArchivo = crearArchivo(fix(clock));
     archivo = fopen(nombreArchivo, 'a');
     mostrarFecha(handles, fix(clock));
-    set(handles.text5, 'visible', 'on');
+    set(handles.statusText, 'Visible', 'on');
+    set(handles.statusText, 'String', 'Leyendo');
     
     %leer información
-    reading(placa, archivo, nombreArchivo);
-    set(handles.text5, 'visible', 'off');
-    fclose(archivo);
-    delete(instrfind({'Port'},{'COM3'}));
+    reading(placa, archivo, nombreArchivo, handles);
 end
 
-function reading(pArduino, archivo, nombreArchivo)
+function reading(pArduino, archivo, nombreArchivo, handles)
+  set(handles.startButton, 'Enable', 'off');
+  set(handles.pauseButton, 'Enable', 'on');
   warning('');
-  while(true)
+  while( strcmp(get(handles.statusText, 'String'), 'Leyendo') )
     try
       [izq, der] = anita(pArduino);
       %escribir información
@@ -80,6 +80,7 @@ function reading(pArduino, archivo, nombreArchivo)
       return;
     end
   end
+  disp('exiting reading function, unclosed file, unclosed serial port');
 end
 
 
@@ -89,15 +90,7 @@ function readCheck_Callback(hObject, eventdata, handles)
 end
 
 
-% --- Executes on button press in pushbutton8.
-function pushbutton8_Callback(hObject, eventdata, handles)
-  while(true)
-  if(get(handles.readCheck, 'Value'))
-     disp('checked');
-     pause(2);
-  else
-    clc;
-    return;
-  end
-  end
+% --- Executes on button press in pauseButton.
+function pauseButton_Callback(hObject, eventdata, handles)
+  set(handles.statusText, 'String', 'Detenido');
 end
