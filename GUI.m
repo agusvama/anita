@@ -45,31 +45,11 @@ function startButton_Callback(hObject, eventdata, handles)
       return;
     end
     
-    fecha = fix(clock);
-    nombreArchivo = strcat('projects/', int2str(fecha(1)), '-', ... %año
-                                        int2str(fecha(2)), '-', ... %mes
-                                        int2str(fecha(3)), '@', ... %dia
-                                        int2str(fecha(4)), '_', ... %hora
-                                        int2str(fecha(5)), '_', ... %minuto
-                                        int2str(fecha(6)),      ... %segundo
-                                        '.csv'                  ... %formato
-                          );                                 
+    nombreArchivo = crearArchivo(fix(clock));
     archivo = fopen(nombreArchivo, 'a');
-    %colocar fecha automáticamente
-    set(handles.datefield, 'String', strcat(int2str(fecha(3)), '/', ...
-                                            int2str(fecha(2)), '/', ...
-                                            int2str(fecha(1))       ...
-        ));
-    if(fecha(5) <= 9)
-      set(handles.timefield, 'String', strcat(int2str(fecha(4)), ':0', ...
-                                              int2str(fecha(5))       ...
-        ));
-    else
-      set(handles.timefield, 'String', strcat(int2str(fecha(4)), ':', ...
-                                              int2str(fecha(5))       ...
-        ));
-    end
+    mostrarFecha(handles, fix(clock));
     set(handles.text5, 'visible', 'on');
+    
     %leer información
     reading(placa, archivo, nombreArchivo);
     set(handles.text5, 'visible', 'off');
