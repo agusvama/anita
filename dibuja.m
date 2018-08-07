@@ -1,14 +1,8 @@
 function dibuja(archivo)
-    disp('dentro de la funcion dibujar');
     dataset = load(archivo);
-    disp(dataset);
     [filas, columnas] = size(dataset);
     v = dataset(1:filas);
     r = dataset(filas+1:end);
-    disp('izq dtst: ');
-    disp(v);
-    disp('der dtst: ');
-    disp(r);
 
     subplot(1, 2, 1); %(x, y, position in grid)
     plot(v);
