@@ -38,6 +38,9 @@ end
 
 % --- Executes on button press in startButton.
 function startButton_Callback(hObject, eventdata, handles)
+    global placa;
+    global nombreArchivo;
+    global archivo;
     try
       placa = iniciarArduino('COM3');
     catch
@@ -47,6 +50,7 @@ function startButton_Callback(hObject, eventdata, handles)
     
     nombreArchivo = crearArchivo(fix(clock));
     archivo = fopen(nombreArchivo, 'a');
+    
     mostrarFecha(handles, fix(clock));
     set(handles.statusText, 'Visible', 'on');
     set(handles.statusText, 'String', 'Leyendo');
@@ -56,8 +60,10 @@ function startButton_Callback(hObject, eventdata, handles)
 end
 
 function reading(pArduino, archivo, nombreArchivo, handles)
+  set(handles.pauseButton, 'String', 'Pausar');
   set(handles.startButton, 'Enable', 'off');
   set(handles.pauseButton, 'Enable', 'on');
+  set(handles.stopButton, 'Enable', 'on');
   warning('');
   while( strcmp(get(handles.statusText, 'String'), 'Leyendo') )
     try
@@ -67,7 +73,7 @@ function reading(pArduino, archivo, nombreArchivo, handles)
       fprintf(archivo, '%.3f\r\n', der);
       
       dibuja(nombreArchivo);
-      pause(.1);
+      pause(.1); %dibujar la gráfica cada .1 segundos
       
       if( strcmp('Unsuccessful read: A timeout occurred before the Terminator was reached..', lastwarn) )
         fclose(placa);
@@ -81,16 +87,32 @@ function reading(pArduino, archivo, nombreArchivo, handles)
     end
   end
   disp('exiting reading function, unclosed file, unclosed serial port');
+  set(handles.pauseButton, 'String', 'Reaunudar');
 end
-
-
-% --- Executes on button press in readCheck.
-function readCheck_Callback(hObject, eventdata, handles)
-  
-end
-
 
 % --- Executes on button press in pauseButton.
 function pauseButton_Callback(hObject, eventdata, handles)
-  set(handles.statusText, 'String', 'Detenido');
+  global placa;
+  global archivo;
+  global nombreArchivo;
+  if(strcmp(get(handles.statusText, 'String'), 'Pausado'))
+    set(handles.statusText, 'String', 'Leyendo');
+    fopen(placa);
+    reading(placa, archivo, nombreArchivo, handles);% como vuelvo a invocarla con todos sus parámetros?
+    return;
+  end
+  set(handles.statusText, 'String', 'Pausado');
+  fclose(placa);
+end
+
+
+% --- Executes on button press in stopButton.
+function stopButton_Callback(hObject, eventdata, handles)
+  global placa;
+  global archivo;
+  %cerrar conexiones serial y de archivo
+  fclose(archivo);
+  fclose(placa);
+  set(handles.statusText, 'Visible', 'off');
+  set(handles.pauseButton, 'Enable', 'off');
 end
