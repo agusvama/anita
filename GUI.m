@@ -81,12 +81,11 @@ function reading(pArduino, archivo, nombreArchivo, handles)
       end
     
     catch
-      disp('unplugged arduino');
+      disp('fin de la sesión');
       clear;
       return;
     end
   end
-  disp('exiting reading function, unclosed file, unclosed serial port');
   set(handles.pauseButton, 'String', 'Reanudar');
 end
 
@@ -120,4 +119,79 @@ function stopButton_Callback(hObject, eventdata, handles)
   clear global placa;
   clear global archivo;
   clear global nombreArchivo;
+end
+
+
+% --- Executes on button press in plotButton.
+function plotButton_Callback(hObject, eventdata, handles)
+  set(handles.analizePanel, 'Visible', 'off');
+  set(handles.plotPanel, 'Visible', 'on');
+end
+
+% --- Executes on button press in analizeButton.
+function analizeButton_Callback(hObject, eventdata, handles)
+  set(handles.analizePanel, 'Visible', 'on');
+  set(handles.plotPanel, 'Visible', 'off');
+end
+
+
+function loadButton1_Callback(hObject, eventdata, handles)
+
+end
+
+function loadButton3_Callback(hObject, eventdata, handles)
+
+end
+
+function loadButton2_Callback(hObject, eventdata, handles)
+
+end
+
+function hide1_Callback(hObject, eventdata, handles)
+  if(get(handles.hide1, 'Value'))
+    set(handles.axes9, 'Visible', 'off')
+  else
+    set(handles.axes9, 'Visible', 'on')
+  end
+end
+
+function hide2_Callback(hObject, eventdata, handles)
+  if(get(handles.hide2, 'Value'))
+    set(handles.axes10, 'Visible', 'off')
+  else
+    set(handles.axes10, 'Visible', 'on')
+  end
+end
+
+
+function hide3_Callback(hObject, eventdata, handles)
+  if(get(handles.hide3, 'Value'))
+    set(handles.axes11, 'Visible', 'off')
+  else
+    set(handles.axes11, 'Visible', 'on')
+  end
+end
+
+function hide4_Callback(hObject, eventdata, handles)
+  if(get(handles.hide4, 'Value'))
+    set(handles.axes12, 'Visible', 'off')
+  else
+    set(handles.axes12, 'Visible', 'on')
+  end
+end
+
+function hide5_Callback(hObject, eventdata, handles)
+  if(get(handles.hide5, 'Value'))
+    set(handles.axes13, 'Visible', 'off')
+  else
+    set(handles.axes13, 'Visible', 'on')
+  end
+end
+
+function hide6_Callback(hObject, eventdata, handles)
+  if(get(handles.hide6, 'Value'))
+    set(handles.axes14, 'Visible', 'off')
+  else
+    set(handles.axes14, 'Visible', 'on')
+  end
 end

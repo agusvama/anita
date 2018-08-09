@@ -7,7 +7,7 @@ function dibuja(archivo)
     subplot(1, 2, 1); %(x, y, position in grid)
     plot(v);
     ylim([2 8]);
-    xlim([0 filas]);
+    xlim([filas-20 filas]);
     xlabel('Lecturas');
     ylabel('Potencial Natural');
     camroll(270);
@@ -17,7 +17,7 @@ function dibuja(archivo)
     subplot(1, 2, 2);
     plot(r, 'r');
     ylim([-20 0]);
-    xlim([0 filas]);
+    xlim([filas-20 filas]);
     xlabel('Lecturas');
     ylabel('Resistividad');
     camroll(270);
