@@ -70,7 +70,7 @@ function reading(pArduino, archivo, nombreArchivo, handles)
       [izq, der] = anita(pArduino);
       %escribir información
       fprintf(archivo, '%.3f,\t', izq);
-      fprintf(archivo, '%.3f\r\n', der);
+      fprintf(archivo, '%.3f\r\n', der*-1);
       
       dibuja(nombreArchivo);
       pause(.1); %dibujar la gráfica cada .1 segundos
@@ -87,7 +87,7 @@ function reading(pArduino, archivo, nombreArchivo, handles)
     end
   end
   disp('exiting reading function, unclosed file, unclosed serial port');
-  set(handles.pauseButton, 'String', 'Reaunudar');
+  set(handles.pauseButton, 'String', 'Reanudar');
 end
 
 % --- Executes on button press in pauseButton.
@@ -115,4 +115,9 @@ function stopButton_Callback(hObject, eventdata, handles)
   fclose(placa);
   set(handles.statusText, 'Visible', 'off');
   set(handles.pauseButton, 'Enable', 'off');
+  set(handles.startButton, 'Enable', 'on');
+  set(handles.stopButton, 'Enable', 'off');
+  clear global placa;
+  clear global archivo;
+  clear global nombreArchivo;
 end
