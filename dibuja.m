@@ -12,7 +12,7 @@ function dibuja(archivo)
     ylabel('Potencial Natural');
     camroll(270);
     pbaspect ([2 0.7 1]);
-    set(gca,'XTick',[], 'YTick', []);
+    set(gca,'XTick',[1:10:filas], 'YTick', []);
 
     subplot(1, 2, 2);
     plot(r, 'r');
@@ -22,6 +22,6 @@ function dibuja(archivo)
     ylabel('Resistividad');
     camroll(270);
     pbaspect ([2 0.7 1]);
-    set(gca,'XTick',[], 'YTick', []);
+    set(gca,'XTick',[1:10:filas], 'YTick', []);
 
 end
