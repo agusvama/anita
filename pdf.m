@@ -13,7 +13,7 @@ function pdf(csv)
     ylabel('Potencial Natural');
     camroll(270);
     pbaspect ([2 0.7 1]);
-    set(gca,'XTick',[1:10:filas], 'YTick', []);
+    set(gca, 'YTick', []);
 
     subplot(1, 2, 2);
     plot(r, 'r');
@@ -23,7 +23,7 @@ function pdf(csv)
     ylabel('Resistividad');
     camroll(270);
     pbaspect ([2 0.7 1]);
-    set(gca,'XTick',[1:10:filas], 'YTick', []);
+    set(gca, 'YTick', []);
     
   [file, path] = uiputfile('*.pdf', 'Guardar gráficas como...');
   
@@ -37,4 +37,6 @@ function pdf(csv)
     %del archivo elegido, estos comandos se pueden probar en consola para tener
     %un mejor entendimiento se sus salidas
   end
+  
+  close('Gráficas');
 end
