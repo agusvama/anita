@@ -129,3 +129,8 @@ function stopButton_Callback(hObject, eventdata, handles)
   clear global archivo;
   clear global nombreArchivo;
 end
+
+function pdfButton_Callback(hObject, eventdata, handles)
+  [file, path] = uigetfile('.csv', 'Abrir archivo de datos');
+  pdf(strcat(path, file));
+end
