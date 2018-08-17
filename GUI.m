@@ -131,8 +131,7 @@ function stopButton_Callback(hObject, eventdata, handles)
 end
 
 function pdfButton_Callback(hObject, eventdata, handles)
-  [file, path] = uigetfile('.csv', 'Abrir archivo de datos');
-  pdf(strcat(path, file));
+  pdfGUI();
 end
 
 function fourierButton_Callback(hObject, eventdata, handles)

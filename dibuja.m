@@ -13,6 +13,8 @@ function dibuja(archivo)
     camroll(270);
     pbaspect ([2 0.7 1]);
     set(gca,'XTick',[1:10:filas], 'YTick', []);
+    grid on;
+    grid minor;
 
     subplot(1, 2, 2);
     plot(r, 'r');
@@ -23,5 +25,7 @@ function dibuja(archivo)
     camroll(270);
     pbaspect ([2 0.7 1]);
     set(gca,'XTick',[1:10:filas], 'YTick', []);
+    grid on;
+    grid minor;
 
 end
