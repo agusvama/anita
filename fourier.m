@@ -35,34 +35,41 @@ function fourier(csv)
   %now we plot :sunglasses:
   subplot(4, 2, [1, 2]);
     plot(v);
+    ylim([0 20]);
     xlabel('Potencial Natural');
     grid on;
     grid minor;
     
   subplot(4, 2, 3);
-    plot(espectroAmplitudVoltaje);
+    stem(espectroAmplitudVoltaje, 'filled');
     xlabel('Espectro de amplitudes');
+    xlim([0 longitud]);
     grid on;
     grid minor;
     
   subplot(4, 2, 4);
-    plot(espectroFrecuenciasVoltaje);
+    stem(espectroFrecuenciasVoltaje, 'filled');
     xlabel('Espectro de frecuencias');
+    xlim([0 nuevaLongitud]);
     grid on;
     grid minor;
+  
   subplot(4, 2, [5, 6]);
     plot(r, 'r');
+    ylim([-20 0]);
     xlabel('Resistividad');
     grid on;
     grid minor;
   subplot(4, 2, 7);
-    plot(espectroAmplitudResistivo, 'r');
+    stem(espectroAmplitudResistivo, 'r', 'filled');
     xlabel('Espectro de amplitudes');
+    xlim([0 longitud]);
     grid on;
     grid minor;
   subplot(4, 2, 8);
-    plot(espectroFrecuenciasResistivo, 'r');
+    stem(espectroFrecuenciasResistivo, 'r', 'filled');
     xlabel('Espectro de frecuencias');
+    xlim([0 nuevaLongitud]);
     grid on;
     grid minor;
 end

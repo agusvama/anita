@@ -6,7 +6,7 @@ function dibuja(archivo)
     
     subplot(1, 2, 1); %(x, y, position in grid)
     plot(v);
-    ylim([0 10]);
+    ylim([0 20]);
     xlim([filas-20 filas]);
     xlabel('Lecturas');
     ylabel('Potencial Natural');
