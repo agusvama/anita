@@ -47,9 +47,6 @@ function startButton_Callback(hObject, eventdata, handles)
       return;
     end
     
-    nombreArchivo = crearArchivo(fix(clock));
-    archivo = fopen(nombreArchivo, 'a');
-    
     mostrarFecha(handles, fix(clock));
     set(handles.statusText, 'Visible', 'on');
     set(handles.statusText, 'String', 'Leyendo');
@@ -63,6 +60,8 @@ function reading(pArduino, archivo, nombreArchivo, handles)
   set(handles.startButton, 'Enable', 'off');
   set(handles.pauseButton, 'Enable', 'on');
   set(handles.stopButton, 'Enable', 'on');
+  set(handles.loadButton, 'Enable', 'off');
+  set(handles.newButton, 'Enable', 'off');
   warning('');
   try
   while( strcmp(get(handles.statusText, 'String'), 'Leyendo') )
@@ -128,11 +127,13 @@ function stopButton_Callback(hObject, eventdata, handles)
   fclose(placa);
   set(handles.statusText, 'Visible', 'off');
   set(handles.pauseButton, 'Enable', 'off');
-  set(handles.startButton, 'Enable', 'on');
+  set(handles.startButton, 'Enable', 'off');
   set(handles.stopButton, 'Enable', 'off');
   clear global placa;
   clear global archivo;
   clear global nombreArchivo;
+  set(handles.loadButton, 'Enable', 'on');
+  set(handles.newButton, 'Enable', 'on');
 end
 
 function pdfButton_Callback(hObject, eventdata, handles)
@@ -144,6 +145,23 @@ function fourierButton_Callback(hObject, eventdata, handles)
   fourier(strcat(path, file));
 end
 
+function loadButton_Callback(hObject, eventdata, handles)
+  global nombreArchivo;
+  global archivo;
+  [file, path] = uigetfile('.csv', 'Abrir archivo de datos...');
+  nombreArchivo = strcat(path, file);
+  archivo = fopen(nombreArchivo, 'a');
+  set(handles.startButton, 'enable', 'on');
+  dibuja(nombreArchivo, 10, 10);
+end
+
+function newButton_Callback(hObject, eventdata, handles)
+  global nombreArchivo;
+  global archivo;
+  nombreArchivo = crearArchivo(fix(clock)); %es el nombre del archivo
+  archivo = fopen(nombreArchivo, 'w');      %es el apuntador del archivo
+  set(handles.startButton, 'enable', 'on');
+end
 
 % --- Executes on selection change in popV.
 function popV_Callback(hObject, eventdata, handles)
