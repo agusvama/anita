@@ -1,12 +1,11 @@
-function dibuja(archivo)
+function dibuja(archivo, ev, er)
     dataset = load(archivo);
     [filas, columnas] = size(dataset);
     v = dataset(1:filas);
     v = v.*-1;
     r = dataset(filas+1:end);
-    %r = r.*-1;
     
-    escalaV = 10;
+    escalaV = ev;
     subplot(1, 2, 1); %(x, y, position in grid)
     plot(v);
     ylim([-escalaV 0]);
@@ -20,7 +19,7 @@ function dibuja(archivo)
     set(gca, 'YTick', [-escalaV:escalaV/10:0]);
     grid on;
 
-    escalaR = 20;
+    escalaR = er;
     subplot(1, 2, 2);
     plot(r, 'r');
     ylim([0 escalaR]);

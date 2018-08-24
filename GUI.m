@@ -69,15 +69,15 @@ function reading(pArduino, archivo, nombreArchivo, handles)
     try
       [izq, der] = anita(pArduino);
       %escribir información
-      escalaV = 10;
+      escalaV = getScale(get(handles.popV, 'Value'));
       disV = 7.7;
       fprintf(archivo, '%.3f,\t', (disV - (izq - 4))*escalaV / disV);
       
-      escalaR = 20;
+      escalaR = getScale(get(handles.popR, 'Value'));
       disI = 15.2;
       fprintf(archivo, '%.3f\r\n', (disI - (der - 4))*escalaR / disI);
       
-      dibuja(nombreArchivo);
+      dibuja(nombreArchivo, escalaV, escalaR);
       pause(.1); %dibujar la gráfica cada .1 segundos
       
       if( strcmp('Unsuccessful read: A timeout occurred before the Terminator was reached..', lastwarn) )
@@ -142,4 +142,28 @@ end
 function fourierButton_Callback(hObject, eventdata, handles)
   [file, path] = uigetfile('.csv', 'Abrir archivo de datos');
   fourier(strcat(path, file));
+end
+
+
+% --- Executes on selection change in popV.
+function popV_Callback(hObject, eventdata, handles)
+end
+
+% --- Executes during object creation, after setting all properties.
+function popV_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+end
+
+% --- Executes on selection change in popR.
+function popR_Callback(hObject, eventdata, handles)
+
+end
+
+% --- Executes during object creation, after setting all properties.
+function popR_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
 end
