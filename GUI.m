@@ -69,8 +69,13 @@ function reading(pArduino, archivo, nombreArchivo, handles)
     try
       [izq, der] = anita(pArduino);
       %escribir información
-      fprintf(archivo, '%.3f,\t', izq);
-      fprintf(archivo, '%.3f\r\n', der*-1);
+      escalaV = 10;
+      disV = 7.7;
+      fprintf(archivo, '%.3f,\t', (disV - (izq - 4))*escalaV / disV);
+      
+      escalaR = 20;
+      disI = 15.2;
+      fprintf(archivo, '%.3f\r\n', (disI - (der - 4))*escalaR / disI);
       
       dibuja(nombreArchivo);
       pause(.1); %dibujar la gráfica cada .1 segundos
