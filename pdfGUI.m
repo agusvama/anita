@@ -22,7 +22,7 @@ function varargout = pdfGUI(varargin)
 
 % Edit the above text to modify the response to help pdfGUI
 
-% Last Modified by GUIDE v2.5 17-Aug-2018 11:54:58
+% Last Modified by GUIDE v2.5 24-Aug-2018 17:53:59
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -77,8 +77,10 @@ varargout{1} = handles.output;
 % --- Executes on button press in pushbutton1.
 function pushbutton1_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton1 (see GCBO)
+global path;
+global file;
 [file, path] = uigetfile('.csv', 'Abrir archivo de datos');
-pdf(strcat(path, file), handles);
+pdf(strcat(path, file), getScale(get(handles.popV, 'Value')), getScale(get(handles.popR, 'Value')));
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
@@ -104,3 +106,55 @@ set(handles.pushbutton3, 'Visible', 'off');
   close('Gráficas');
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on selection change in popV.
+function popV_Callback(hObject, eventdata, handles)
+global path;
+global file;
+% hObject    handle to popV (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+pdf(strcat(path, file), getScale(get(handles.popV, 'Value')), getScale(get(handles.popR, 'Value')));
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: contents = cellstr(get(hObject,'String')) returns popV contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from popV
+
+
+% --- Executes during object creation, after setting all properties.
+function popV_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to popV (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: popupmenu controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on selection change in popR.
+function popR_Callback(hObject, eventdata, handles)
+global path;
+global file;
+% hObject    handle to popR (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+pdf(strcat(path, file), getScale(get(handles.popV, 'Value')), getScale(get(handles.popR, 'Value')));
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: contents = cellstr(get(hObject,'String')) returns popR contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from popR
+
+
+% --- Executes during object creation, after setting all properties.
+function popR_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to popR (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: popupmenu controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
