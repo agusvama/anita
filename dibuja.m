@@ -2,12 +2,14 @@ function dibuja(archivo, ev, er)
     dataset = load(archivo);
     [filas, columnas] = size(dataset);
     v = dataset(1:filas);
-    v = v.*-1;
+    %v = v.*-1;
     r = dataset(filas+1:end);
     
+    axes('Tag', 'axes27');
     escalaV = ev;
-    subplot(1, 2, 1); %(x, y, position in grid)
-    plot(v);
+    %subplot(1, 2, 1); %(x, y, position in grid)
+    plot(1:filas, v);
+    %{
     ylim([-escalaV 0]);
     xlim([filas-20 filas]);
     xlabel('Lecturas');
@@ -18,7 +20,8 @@ function dibuja(archivo, ev, er)
     set(gca, 'YTickLabel', []);
     set(gca, 'YTick', [-escalaV:escalaV/10:0]);
     grid on;
-
+    %}
+    %{
     escalaR = er;
     subplot(1, 2, 2);
     plot(r, 'r');
@@ -32,5 +35,5 @@ function dibuja(archivo, ev, er)
     set(gca, 'YTick', [0:escalaR/10:escalaR]);
     set(gca, 'YTickLabel', [])
     grid on;
-
+    %}
 end

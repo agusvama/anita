@@ -22,7 +22,41 @@ end
 % --- Executes just before GUI is made visible.
 function GUI_OpeningFcn(hObject, eventdata, handles, varargin)
 % This function has no output args, see OutputFcn.
+axes(handles.axes27);
+xlabel('Potencial Natural (mV)');
+ylabel('Lecturas realizadas');
+xlim([0 10]);
+set(handles.axes27, 'YTick', [0:0:0]);
+set(handles.axes27, 'XTick', []);
+set(handles.axes27, 'CameraUpVector', [0 -1 0]);
+set(handles.axes27, 'FontSize', 12);
+set(handles.axes27, 'FontWeight', 'bold');
+set(handles.axes27, 'XColor', [1 1 1]);
+set(handles.axes27, 'YColor', [1 1 1]);
+set(handles.axes27, 'YAxisLocation', 'right');
+set(handles.axes27, 'GridColor', [0 0 0]);
+grid on;
+
+axes(handles.axes28);
+ylabel('Resistividad (Ohms)');
+xlabel('Lecturas realizadas');
+xlim([0 10]);
+set(handles.axes28, 'YTick', [0:0:0]);
+set(handles.axes28, 'XTick', []);
+%set(handles.axes28, 'CameraUpVector', [0 0.5 0]);
+camroll(270);
+set(handles.axes28, 'FontSize', 12);
+set(handles.axes28, 'FontWeight', 'bold');
+set(handles.axes28, 'XColor', [1 1 1]);
+set(handles.axes28, 'YColor', [1 1 1]);
+set(handles.axes28, 'YAxisLocation', 'left');
+set(handles.axes28, 'GridColor', [0 0 0]);
+grid on;
+
 % handles    structure with handles and user data (see GUIDATA)
+warning('off','MATLAB:HandleGraphics:ObsoletedProperty:JavaFrame');
+javaFrame = get(hObject,'JavaFrame');
+javaFrame.setFigureIcon(javax.swing.ImageIcon('logo/icon.png'));
 % Choose default command line output for GUI
 handles.output = hObject;
 % Update handles structure
@@ -76,6 +110,7 @@ function reading(pArduino, archivo, nombreArchivo, handles)
       disI = 15.2;
       fprintf(archivo, '%.3f\r\n', (disI - (der - 4))*escalaR / disI);
       
+      axes(handles.axes27);
       dibuja(nombreArchivo, escalaV, escalaR);
       pause(.1); %dibujar la gráfica cada .1 segundos
       
@@ -151,7 +186,7 @@ function loadButton_Callback(hObject, eventdata, handles)
   nombreArchivo = strcat(path, file);
   archivo = fopen(nombreArchivo, 'a');
   set(handles.startButton, 'enable', 'on');
-  dibuja(nombreArchivo, 10, 10);
+  dibuja(handles, nombreArchivo, 10, 10);
 end
 
 function newButton_Callback(hObject, eventdata, handles)
@@ -164,6 +199,11 @@ end
 
 % --- Executes on selection change in popV.
 function popV_Callback(hObject, eventdata, handles)
+global nombreArchivo;  
+dibuja(handles, nombreArchivo, ...
+        getScale(get(handles.popV, 'Value')),...
+        getScale(get(handles.popR, 'Value'))...
+      );
 end
 
 % --- Executes during object creation, after setting all properties.
@@ -175,7 +215,11 @@ end
 
 % --- Executes on selection change in popR.
 function popR_Callback(hObject, eventdata, handles)
-
+global nombreArchivo;  
+dibuja(handles, nombreArchivo, ...
+        getScale(get(handles.popV, 'Value')),...
+        getScale(get(handles.popR, 'Value'))...
+      );
 end
 
 % --- Executes during object creation, after setting all properties.
@@ -183,4 +227,28 @@ function popR_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+end
+
+function dibuja(handles, archivo, escalaV, escalaR)
+    dataset = load(archivo);
+    [filas, columnas] = size(dataset);
+    v = dataset(1:filas);
+    r = dataset(filas+1:end);
+    
+    axes(handles.axes27);
+    plot(handles.axes27, v, 1:filas);
+    xlim([0 escalaV]);
+    ylim([1 filas]);
+    set(gca,'YTick', [1:fix(filas/20):filas]);
+    set(gca, 'XTick', [0:escalaV/10:escalaV]);
+    grid on;
+   
+    axes(handles.axes28);
+    plot(handles.axes28, 1:filas, r, 'r');
+    xlim([1 filas])
+    ylim([0 escalaR]);
+    set(gca,'XTick', [1:fix(filas/20):filas]);
+    %set(gca, 'XTickLabel', []); %esto quita valores numéricos en el eje X
+    set(gca, 'YTick', [0:escalaR/10:escalaR]); %esto dibuja los cuadritos
+    grid on;
 end
