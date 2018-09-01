@@ -22,8 +22,8 @@ end
 % --- Executes just before GUI is made visible.
 function GUI_OpeningFcn(hObject, eventdata, handles, varargin)
 % This function has no output args, see OutputFcn.
-set(handles.axes27, 'NextPlot', 'add');
-set(handles.axes28, 'NextPlot', 'add');
+set(handles.axes27, 'NextPlot', 'replacechildren');
+set(handles.axes28, 'NextPlot', 'replacechildren');
 xlabel(handles.axes27, 'Potencial Natural (mV)');
 ylabel(handles.axes27, 'Lecturas realizadas');
 set(handles.axes27, 'YLim', [0 10]);
@@ -237,18 +237,6 @@ function dibujaPotencial(handles, archivo, escalaV)
     set(handles.axes27, 'YLim', [1 filas]);
     set(handles.axes27,'YTick', [1:fix(filas/20):filas]);
     set(handles.axes27, 'XTick', [0:escalaV/10:escalaV]);
-    
-    set(handles.axes27, 'CameraUpVector', [0 -1 0]);
-set(handles.axes27, 'FontSize', 12);
-set(handles.axes27, 'FontWeight', 'bold');
-set(handles.axes27, 'XColor', [1 1 1]);
-set(handles.axes27, 'YColor', [1 1 1]);
-set(handles.axes27, 'YAxisLocation', 'right');
-set(handles.axes27, 'GridColor', [0 0 0]);
-set(handles.axes27, 'XGrid', 'on');
-set(handles.axes27, 'YGrid', 'on');
-xlabel(handles.axes27, 'Potencial Natural (mV)');
-ylabel(handles.axes27, 'Lecturas realizadas');
 end
 
 function dibujaResistividad(handles, archivo, escalaR)
@@ -261,15 +249,4 @@ function dibujaResistividad(handles, archivo, escalaR)
     set(handles.axes28, 'YLim', [0 escalaR]);
     set(handles.axes28,'XTick', [1:fix(filas/20):filas]);
     set(handles.axes28, 'YTick', [0:escalaR/10:escalaR]); %esto dibuja los cuadritos
-    set(handles.axes28, 'CameraUpVector', [-1 0 0]);
-set(handles.axes28, 'FontSize', 12);
-set(handles.axes28, 'FontWeight', 'bold');
-set(handles.axes28, 'XColor', [1 1 1]);
-set(handles.axes28, 'YColor', [1 1 1]);
-set(handles.axes28, 'YAxisLocation', 'left');
-set(handles.axes28, 'GridColor', [0 0 0]);
-set(handles.axes28, 'XGrid', 'on');
-set(handles.axes28, 'YGrid', 'on');
-ylabel(handles.axes28, 'Resistividad (Ohms)');
-xlabel(handles.axes28, 'Lecturas realizadas');
 end
