@@ -40,6 +40,7 @@ set(handles.axes27, 'GridColor', [0 0 0]);
 set(handles.axes27, 'XGrid', 'on');
 set(handles.axes27, 'YGrid', 'on');
 
+set(handles.axes28, 'FontName', 'MS Sans Serif');
 ylabel(handles.axes28, 'Resistividad (Ohms)');
 xlabel(handles.axes28, 'Lecturas realizadas');
 set(handles.axes28, 'YLim', [0 10]);
@@ -185,20 +186,63 @@ end
 function loadButton_Callback(hObject, eventdata, handles)
   global nombreArchivo;
   global archivo;
+  if(archivo >= 3) %identificador de archivo mayor o igual a 3, significan archivo OK
+    fclose(archivo); %cerrar el viejo archivo
+  end
   [file, path] = uigetfile('.csv', 'Abrir archivo de datos...');
   nombreArchivo = strcat(path, file);
   archivo = fopen(nombreArchivo, 'a');
   set(handles.startButton, 'enable', 'on');
   dibujaPotencial(handles, nombreArchivo, getScale(get(handles.popV, 'Value')));
   dibujaResistividad(handles, nombreArchivo, getScale(get(handles.popR, 'Value')));
+  set(handles.popV, 'Enable', 'on');
+  set(handles.popR, 'Enable', 'on');
 end
 
 function newButton_Callback(hObject, eventdata, handles)
   global nombreArchivo;
   global archivo;
+  if(archivo >= 3) %identificador de archivo mayor o igual a 3, significan archivo OK
+    fclose(archivo); %cerrar el viejo archivo
+  end
   nombreArchivo = crearArchivo(fix(clock)); %es el nombre del archivo
   archivo = fopen(nombreArchivo, 'w');      %es el apuntador del archivo
   set(handles.startButton, 'enable', 'on');
+    
+  plot(handles.axes27, [0]);
+  xlabel(handles.axes27, 'Potencial Natural (mV)');
+  ylabel(handles.axes27, 'Lecturas realizadas');
+  set(handles.axes27, 'YLim', [0 10]);
+  set(handles.axes27, 'YTick', [0:1:10]);
+  set(handles.axes27, 'XLim', [0 10]);
+  set(handles.axes27, 'XTick', [0:1:10]);
+  set(handles.axes27, 'CameraUpVector', [0 -1 0]);
+  set(handles.axes27, 'FontSize', 12);
+  set(handles.axes27, 'FontWeight', 'bold');
+  set(handles.axes27, 'XColor', [1 1 1]);
+  set(handles.axes27, 'YColor', [1 1 1]);
+  set(handles.axes27, 'YAxisLocation', 'right');
+  set(handles.axes27, 'GridColor', [0 0 0]);
+  set(handles.axes27, 'XGrid', 'on');
+  set(handles.axes27, 'YGrid', 'on');
+  
+  plot(handles.axes28, [0]);
+  set(handles.axes28, 'FontName', 'MS Sans Serif');
+  ylabel(handles.axes28, 'Resistividad (Ohms)');
+  xlabel(handles.axes28, 'Lecturas realizadas');
+  set(handles.axes28, 'YLim', [0 10]);
+  set(handles.axes28, 'YTick', [0:1:10]);
+  set(handles.axes28, 'XLim', [0 10]);
+  set(handles.axes28, 'XTick', [0:1:10]);
+  set(handles.axes28, 'CameraUpVector', [-1 0 0]);
+  set(handles.axes28, 'FontSize', 12);
+  set(handles.axes28, 'FontWeight', 'bold');
+  set(handles.axes28, 'XColor', [1 1 1]);
+  set(handles.axes28, 'YColor', [1 1 1]);
+  set(handles.axes28, 'YAxisLocation', 'left');
+  set(handles.axes28, 'GridColor', [0 0 0]);
+  set(handles.axes28, 'XGrid', 'on');
+  set(handles.axes28, 'YGrid', 'on');
 end
 
 % --- Executes on selection change in popV.
