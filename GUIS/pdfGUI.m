@@ -55,6 +55,13 @@ set(handles.axes6, 'XTick', []);
 set(handles.axes6, 'XColor', [1 1 1]);
 set(handles.axes6, 'YColor', [1 1 1]);
 
+axes(handles.axes9);
+image(imread('logo/footer2.png'));
+set(handles.axes9, 'YTick', []);
+set(handles.axes9, 'XTick', []);
+set(handles.axes9, 'XColor', [1 1 1]);
+set(handles.axes9, 'YColor', [1 1 1]);
+
 set(handles.axes4, 'NextPlot', 'replacechildren');
 set(handles.axes5, 'NextPlot', 'replacechildren');
 xlabel(handles.axes4, 'Potencial Natural (mV)');
@@ -127,6 +134,8 @@ global file;
 [file, path] = uigetfile('.csv', 'Abrir archivo de datos');
 dibujaPotencial(handles, strcat(path, file), getScale(get(handles.popV, 'Value')));
 dibujaResistividad(handles, strcat(path, file), getScale(get(handles.popR, 'Value')));
+set(handles.popV, 'Enable', 'on');
+set(handles.popR, 'Enable', 'on');
 end
 
 
