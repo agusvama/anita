@@ -42,26 +42,54 @@ else
     gui_mainfcn(gui_State, varargin{:});
 end
 % End initialization code - DO NOT EDIT
+end
 
 
 % --- Executes just before fourierGUI is made visible.
 function fourierGUI_OpeningFcn(hObject, eventdata, handles, varargin)
-% This function has no output args, see OutputFcn.
-% hObject    handle to figure
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
+set(handles.axes1, 'NextPlot', 'replacechildren');
+set(handles.axes4, 'NextPlot', 'replacechildren');
+
+xlabel(handles.axes1, 'Potencial Natural (mV)');
+ylabel(handles.axes1, 'Lecturas realizadas');
+set(handles.axes1, 'YLim', [0 10]);
+set(handles.axes1, 'YTick', [0:1:10]);
+set(handles.axes1, 'XLim', [0 10]);
+set(handles.axes1, 'XTick', [0:1:10]);
+set(handles.axes1, 'CameraUpVector', [0 -1 0]);
+set(handles.axes1, 'FontSize', 12);
+set(handles.axes1, 'FontWeight', 'bold');
+set(handles.axes1, 'XColor', [1 1 1]);
+set(handles.axes1, 'YColor', [1 1 1]);
+set(handles.axes1, 'YAxisLocation', 'right');
+set(handles.axes1, 'GridColor', [0 0 0]);
+set(handles.axes1, 'XGrid', 'on');
+set(handles.axes1, 'YGrid', 'on');
+
+set(handles.axes4, 'FontName', 'MS Sans Serif');
+ylabel(handles.axes4, 'Resistividad (Ohms)');
+xlabel(handles.axes4, 'Lecturas realizadas');
+set(handles.axes4, 'YLim', [0 10]);
+set(handles.axes4, 'YTick', [0:1:10]);
+set(handles.axes4, 'XLim', [0 10]);
+set(handles.axes4, 'XTick', [0:1:10]);
+set(handles.axes4, 'CameraUpVector', [-1 0 0]);
+set(handles.axes4, 'FontSize', 12);
+set(handles.axes4, 'FontWeight', 'bold');
+set(handles.axes4, 'XColor', [1 1 1]);
+set(handles.axes4, 'YColor', [1 1 1]);
+set(handles.axes4, 'YAxisLocation', 'left');
+set(handles.axes4, 'GridColor', [0 0 0]);
+set(handles.axes4, 'XGrid', 'on');
+set(handles.axes4, 'YGrid', 'on');
+
+warning('off','MATLAB:HandleGraphics:ObsoletedProperty:JavaFrame');
 javaFrame = get(hObject,'JavaFrame');
 javaFrame.setFigureIcon(javax.swing.ImageIcon('logo/icon.png'));
-% varargin   command line arguments to fourierGUI (see VARARGIN)
-
-% Choose default command line output for fourierGUI
 handles.output = hObject;
 
-% Update handles structure
 guidata(hObject, handles);
-
-% UIWAIT makes fourierGUI wait for user response (see UIRESUME)
-% uiwait(handles.figure1);
+end
 
 
 % --- Outputs from this function are returned to the command line.
@@ -73,6 +101,7 @@ function varargout = fourierGUI_OutputFcn(hObject, eventdata, handles)
 
 % Get default command line output from handles structure
 varargout{1} = handles.output;
+end
 
 
 % --- Executes on button press in pushbutton1.
@@ -81,9 +110,28 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 global path;
 global file;
 [file, path] = uigetfile('.csv', 'Abrir archivo de datos');
-fourier(strcat(path, file), getScale(get(handles.popV, 'Value')), getScale(get(handles.popR, 'Value')));
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
+
+dibujaPotencial(handles, strcat(path, file), getScale(get(handles.popV, 'Value')));
+dibujaResistividad(handles, strcat(path, file), getScale(get(handles.popR, 'Value')));
+set(handles.popV, 'Enable', 'on');
+set(handles.popR, 'Enable', 'on');
+
+figure('Name', 'Transformada de Fourier: Potencial Natural', 'Toolbar', 'None',...
+      'NumberTitle', 'off', 'Menubar', 'None', 'position', [50, 120, 600, 500],...
+      'color', [0.463, 0.153, 0.267], 'Tag', 'fourier1');
+warning('off','MATLAB:HandleGraphics:ObsoletedProperty:JavaFrame');
+javaFrame = get(findobj('Tag', 'fourier1'),'JavaFrame');
+javaFrame.setFigureIcon(javax.swing.ImageIcon('logo/icon.png'));
+transPotencial(strcat(path, file));
+
+figure('Name', 'Transformada de Fourier: Resistividad', 'Toolbar', 'None',...
+      'NumberTitle', 'off', 'Menubar', 'None', 'position', [700, 120, 600, 500],...
+      'color', [0.463, 0.153, 0.267], 'Tag', 'fourier2');
+transResistividad(strcat(path, file));
+warning('off','MATLAB:HandleGraphics:ObsoletedProperty:JavaFrame');
+javaFrame = get(findobj('Tag', 'fourier2'),'JavaFrame');
+javaFrame.setFigureIcon(javax.swing.ImageIcon('logo/icon.png'));
+end
 
 
 % --- Executes on selection change in popV.
@@ -91,48 +139,49 @@ function popV_Callback(hObject, eventdata, handles)
 % hObject    handle to popV (see GCBO)
 global path;
 global file;
-fourier(strcat(path, file), getScale(get(handles.popV, 'Value')), getScale(get(handles.popR, 'Value')));
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: contents = cellstr(get(hObject,'String')) returns popV contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from popV
-
-
-% --- Executes during object creation, after setting all properties.
-function popV_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to popV (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: popupmenu controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
+dibujaPotencial(handles, strcat(path, file), getScale(get(handles.popV, 'Value')));
 end
 
-
-% --- Executes on selection change in popR.
 function popR_Callback(hObject, eventdata, handles)
 % hObject    handle to popR (see GCBO)
 global path;
 global file;
-fourier(strcat(path, file), getScale(get(handles.popV, 'Value')), getScale(get(handles.popR, 'Value')));
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
+dibujaResistividad(handles, strcat(path, file), getScale(get(handles.popR, 'Value')));
+end
 
-% Hints: contents = cellstr(get(hObject,'String')) returns popR contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from popR
+function dibujaPotencial(handles, archivo, escalaV)
+    dataset = load(archivo);
+    [filas, columnas] = size(dataset);
+    v = dataset(1:filas);
 
+    plot(handles.axes1, v, 1:filas);
+    set(handles.axes1, 'XLim', [0 escalaV]);
+    set(handles.axes1, 'YLim', [1 filas]);
+    set(handles.axes1,'YTick', [1:fix(filas/20):filas]);
+    set(handles.axes1, 'XTick', [0:escalaV/10:escalaV]);
+    
+end
 
-% --- Executes during object creation, after setting all properties.
-function popR_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to popR (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
+function dibujaResistividad(handles, archivo, escalaR)
+    dataset = load(archivo);
+    [filas, columnas] = size(dataset);
+    r = dataset(filas+1:end);    
 
-% Hint: popupmenu controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
+    plot(handles.axes4, 1:filas, r, 'r');
+    set(handles.axes4, 'XLim', [1 filas]);
+    set(handles.axes4, 'YLim', [0 escalaR]);
+    set(handles.axes4,'XTick', [1:fix(filas/20):filas]);
+    set(handles.axes4, 'YTick', [0:escalaR/10:escalaR]); %esto dibuja los cuadritos
+end
+
+function popV_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
+end
+end
+
+function popR_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
 end
