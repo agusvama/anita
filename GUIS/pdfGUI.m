@@ -42,11 +42,51 @@ else
     gui_mainfcn(gui_State, varargin{:});
 end
 % End initialization code - DO NOT EDIT
+end
 
 
 % --- Executes just before pdfGUI is made visible.
 function pdfGUI_OpeningFcn(hObject, eventdata, handles, varargin)
 % This function has no output args, see OutputFcn.
+axes(handles.axes6);
+image(imread('logo/header.png'));
+set(handles.axes6, 'YTick', []);
+set(handles.axes6, 'XTick', []);
+set(handles.axes6, 'XColor', [1 1 1]);
+set(handles.axes6, 'YColor', [1 1 1]);
+
+set(handles.axes4, 'NextPlot', 'replacechildren');
+set(handles.axes5, 'NextPlot', 'replacechildren');
+xlabel(handles.axes4, 'Potencial Natural (mV)');
+ylabel(handles.axes4, 'Lecturas realizadas');
+set(handles.axes4, 'YLim', [0 10]);
+set(handles.axes4, 'YTick', [0:1:10]);
+set(handles.axes4, 'XLim', [0 10]);
+set(handles.axes4, 'XTick', [0:1:10]);
+set(handles.axes4, 'CameraUpVector', [0 -1 0]);
+set(handles.axes4, 'FontSize', 12);
+set(handles.axes4, 'XColor', [1 1 1]);
+set(handles.axes4, 'YColor', [1 1 1]);
+set(handles.axes4, 'YAxisLocation', 'right');
+set(handles.axes4, 'GridColor', [0 0 0]);
+set(handles.axes4, 'XGrid', 'on');
+set(handles.axes4, 'YGrid', 'on');
+
+set(handles.axes5, 'FontName', 'MS Sans Serif');
+ylabel(handles.axes5, 'Resistividad (Ohms)');
+xlabel(handles.axes5, 'Lecturas realizadas');
+set(handles.axes5, 'YLim', [0 10]);
+set(handles.axes5, 'YTick', [0:1:10]);
+set(handles.axes5, 'XLim', [0 10]);
+set(handles.axes5, 'XTick', [0:1:10]);
+set(handles.axes5, 'CameraUpVector', [-1 0 0]);
+set(handles.axes5, 'FontSize', 12);
+set(handles.axes5, 'XColor', [1 1 1]);
+set(handles.axes5, 'YColor', [1 1 1]);
+set(handles.axes5, 'YAxisLocation', 'left');
+set(handles.axes5, 'GridColor', [0 0 0]);
+set(handles.axes5, 'XGrid', 'on');
+set(handles.axes5, 'YGrid', 'on');
 % hObject    handle to figure
 mostrarFecha(handles, fix(clock));
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -63,6 +103,7 @@ guidata(hObject, handles);
 
 % UIWAIT makes pdfGUI wait for user response (see UIRESUME)
 % uiwait(handles.plotsFigure);
+end
 
 
 % --- Outputs from this function are returned to the command line.
@@ -74,6 +115,7 @@ function varargout = pdfGUI_OutputFcn(hObject, eventdata, handles)
 
 % Get default command line output from handles structure
 varargout{1} = handles.output;
+end
 
 
 % --- Executes on button press in pushbutton1.
@@ -82,9 +124,9 @@ function pushbutton1_Callback(hObject, eventdata, handles)
 global path;
 global file;
 [file, path] = uigetfile('.csv', 'Abrir archivo de datos');
-pdf(strcat(path, file), getScale(get(handles.popV, 'Value')), getScale(get(handles.popR, 'Value')));
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
+dibujaPotencial(handles, strcat(path, file), getScale(get(handles.popV, 'Value')));
+dibujaResistividad(handles, strcat(path, file), getScale(get(handles.popR, 'Value')));
+end
 
 
 % --- Executes on button press in pushbutton3.
@@ -104,35 +146,21 @@ set(handles.pushbutton3, 'Visible', 'off');
     %del archivo elegido, estos comandos se pueden probar en consola para tener
     %un mejor entendimiento se sus salidas
   end
-  
-  close('Gráficas');
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
+end
 
 
 % --- Executes on selection change in popV.
 function popV_Callback(hObject, eventdata, handles)
 global path;
 global file;
-% hObject    handle to popV (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-pdf(strcat(path, file), getScale(get(handles.popV, 'Value')), getScale(get(handles.popR, 'Value')));
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: contents = cellstr(get(hObject,'String')) returns popV contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from popV
-
+dibujaPotencial(handles, strcat(path, file), getScale(get(handles.popV, 'Value')));
+end
 
 % --- Executes during object creation, after setting all properties.
 function popV_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to popV (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: popupmenu controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
+end
 end
 
 
@@ -140,23 +168,37 @@ end
 function popR_Callback(hObject, eventdata, handles)
 global path;
 global file;
-% hObject    handle to popR (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-pdf(strcat(path, file), getScale(get(handles.popV, 'Value')), getScale(get(handles.popR, 'Value')));
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: contents = cellstr(get(hObject,'String')) returns popR contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from popR
+dibujaResistividad(handles, strcat(path, file), getScale(get(handles.popR, 'Value')));
+end
 
 
 % --- Executes during object creation, after setting all properties.
 function popR_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to popR (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: popupmenu controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
+end
+end
+
+function dibujaPotencial(handles, archivo, escalaV)
+    dataset = load(archivo);
+    [filas, columnas] = size(dataset);
+    v = dataset(1:filas);
+
+    plot(handles.axes4, v, 1:filas);
+    set(handles.axes4, 'XLim', [0 escalaV]);
+    set(handles.axes4, 'YLim', [1 filas]);
+    set(handles.axes4,'YTick', [1:fix(filas/20):filas]);
+    set(handles.axes4, 'XTick', [0:escalaV/10:escalaV]);
+end
+
+function dibujaResistividad(handles, archivo, escalaR)
+    dataset = load(archivo);
+    [filas, columnas] = size(dataset);
+    r = dataset(filas+1:end);    
+
+    plot(handles.axes5, 1:filas, r, 'r');
+    set(handles.axes5, 'XLim', [1 filas]);
+    set(handles.axes5, 'YLim', [0 escalaR]);
+    set(handles.axes5,'XTick', [1:fix(filas/20):filas]);
+    set(handles.axes5, 'YTick', [0:escalaR/10:escalaR]); %esto dibuja los cuadritos
 end
