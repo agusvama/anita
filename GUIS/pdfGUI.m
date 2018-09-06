@@ -91,6 +91,7 @@ set(handles.axes5, 'YGrid', 'on');
 mostrarFecha(handles, fix(clock));
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+warning('off','MATLAB:HandleGraphics:ObsoletedProperty:JavaFrame');
 javaFrame = get(hObject,'JavaFrame');
 javaFrame.setFigureIcon(javax.swing.ImageIcon('logo/icon.png'));
 % varargin   command line arguments to pdfGUI (see VARARGIN)
