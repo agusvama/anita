@@ -22,6 +22,10 @@ end
 % --- Executes just before GUI is made visible.
 function GUI_OpeningFcn(hObject, eventdata, handles, varargin)
 % This function has no output args, see OutputFcn.
+imshow('logo/ipn.png','Parent', handles.axes32);
+imshow('logo/ito2.png','Parent', handles.axes33);
+imshow('logo/ciidir.png','Parent', handles.axes34);
+
 set(handles.axes27, 'NextPlot', 'replacechildren');
 set(handles.axes28, 'NextPlot', 'replacechildren');
 xlabel(handles.axes27, 'Potencial Natural (mV)');

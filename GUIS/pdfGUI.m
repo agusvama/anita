@@ -48,19 +48,8 @@ end
 % --- Executes just before pdfGUI is made visible.
 function pdfGUI_OpeningFcn(hObject, eventdata, handles, varargin)
 % This function has no output args, see OutputFcn.
-axes(handles.axes6);
-image(imread('logo/header.png'));
-set(handles.axes6, 'YTick', []);
-set(handles.axes6, 'XTick', []);
-set(handles.axes6, 'XColor', [1 1 1]);
-set(handles.axes6, 'YColor', [1 1 1]);
-
-axes(handles.axes9);
-image(imread('logo/footer2.png'));
-set(handles.axes9, 'YTick', []);
-set(handles.axes9, 'XTick', []);
-set(handles.axes9, 'XColor', [1 1 1]);
-set(handles.axes9, 'YColor', [1 1 1]);
+imshow('logo/header.png','Parent', handles.axes6);
+imshow('logo/footer2.png','Parent', handles.axes9);
 
 set(handles.axes4, 'NextPlot', 'replacechildren');
 set(handles.axes5, 'NextPlot', 'replacechildren');
