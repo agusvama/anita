@@ -90,6 +90,9 @@ function startButton_Callback(hObject, eventdata, handles)
     end
     
     mostrarFecha(handles, fix(clock));
+    global horaInicio;
+    horaInicio = datetime('now');
+    
     set(handles.statusText, 'Visible', 'on');
     set(handles.statusText, 'String', 'Leyendo');
     
@@ -104,23 +107,33 @@ function reading(pArduino, archivo, nombreArchivo, handles)
   set(handles.stopButton, 'Enable', 'on');
   set(handles.loadButton, 'Enable', 'off');
   set(handles.newButton, 'Enable', 'off');
+  global bandera;
+  bandera = 1;
   warning('');
   try
   while( strcmp(get(handles.statusText, 'String'), 'Leyendo') )
     try
       [izq, der] = anita(pArduino);
-      %escribir información
-      escalaV = getScale(get(handles.popV, 'Value'));
-      disV = 7.7;
-      fprintf(archivo, '%.3f,\t', (disV - (izq - 4))*escalaV / disV);
+      if(bandera == getIntervalo(get(handles.popupmenu13, 'Value')))
+        %escribir información
+        escalaV = getScale(get(handles.popV, 'Value'));
+        disV = 7.7;
+        fprintf(archivo, '%.3f,\t', (disV - (izq - 4))*escalaV / disV);
       
-      escalaR = getScale(get(handles.popR, 'Value'));
-      disI = 15.2;
-      fprintf(archivo, '%.3f\r\n', (disI - (der - 4))*escalaR / disI);
+        escalaR = getScale(get(handles.popR, 'Value'));
+        disI = 15.2;
+        fprintf(archivo, '%.3f\r\n', (disI - (der - 4))*escalaR / disI);
+        bandera = 1;
+      else
+        bandera = bandera + 1;
+      end
       
-      axes(handles.axes27);
-      dibuja(nombreArchivo, escalaV, escalaR);
+      dibujaPotencial(handles, nombreArchivo, escalaV);
+      dibujaResistividad(handles, nombreArchivo, escalaR);
       pause(.1); %dibujar la gráfica cada .1 segundos
+      %ajustar el tiempo transcurrido
+      global horaInicio;
+      set(handles.elapsedTimeField, 'String', char(diff([horaInicio datetime('now')])));
       
       if( strcmp('Unsuccessful read: A timeout occurred before the Terminator was reached..', lastwarn) )
         fclose(placa);
@@ -282,7 +295,7 @@ function dibujaPotencial(handles, archivo, escalaV)
 
     plot(handles.axes27, v, 1:filas);
     set(handles.axes27, 'XLim', [0 escalaV]);
-    set(handles.axes27, 'YLim', [1 filas]);
+    set(handles.axes27, 'YLim', [0 filas]);
     set(handles.axes27,'YTick', [1:fix(filas/20):filas]);
     set(handles.axes27, 'XTick', [0:escalaV/10:escalaV]);
 end
@@ -293,8 +306,20 @@ function dibujaResistividad(handles, archivo, escalaR)
     r = dataset(filas+1:end);    
 
     plot(handles.axes28, 1:filas, r, 'r');
-    set(handles.axes28, 'XLim', [1 filas]);
+    set(handles.axes28, 'XLim', [0 filas]);
     set(handles.axes28, 'YLim', [0 escalaR]);
     set(handles.axes28,'XTick', [1:fix(filas/20):filas]);
     set(handles.axes28, 'YTick', [0:escalaR/10:escalaR]); %esto dibuja los cuadritos
+end
+
+% --- Executes on selection change in popupmenu13.
+function popupmenu13_Callback(hObject, eventdata, handles)
+  global bandera;
+  bandera = 1;
+end
+
+function popupmenu13_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
 end
