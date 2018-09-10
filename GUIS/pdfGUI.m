@@ -84,7 +84,9 @@ set(handles.axes5, 'GridColor', [0 0 0]);
 set(handles.axes5, 'XGrid', 'on');
 set(handles.axes5, 'YGrid', 'on');
 % hObject    handle to figure
-mostrarFecha(handles, fix(clock));
+f = fix(clock);
+mostrarFecha(handles, f);
+set(handles.datefield, 'String', strcat( int2str(f(3)), '/', int2str(f(2)), '/', int2str(f(1))) ); 
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 warning('off','MATLAB:HandleGraphics:ObsoletedProperty:JavaFrame');
@@ -200,4 +202,8 @@ function dibujaResistividad(handles, archivo, escalaR)
     set(handles.axes5, 'YLim', [0 escalaR]);
     set(handles.axes5,'XTick', [1:fix(filas/20):filas]);
     set(handles.axes5, 'YTick', [0:escalaR/10:escalaR]); %esto dibuja los cuadritos
+end
+
+function text7_ButtonDownFnc(hObject, eventdata, handles)
+  set(handles.text7, 'String', '');
 end

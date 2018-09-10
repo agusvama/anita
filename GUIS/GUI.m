@@ -97,6 +97,8 @@ function startButton_Callback(hObject, eventdata, handles)
     set(handles.statusText, 'String', 'Leyendo');
     
     %leer información
+    set(handles.popV, 'Enable', 'on');
+    set(handles.popR, 'Enable', 'on');
     reading(placa, archivo, nombreArchivo, handles);
 end
 
@@ -198,6 +200,10 @@ end
 
 function fourierButton_Callback(hObject, eventdata, handles)
   fourierGUI();
+end
+
+function aboutButton_Callback(hObject, eventdata, handles)
+  about();
 end
 
 function loadButton_Callback(hObject, eventdata, handles)
