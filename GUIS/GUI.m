@@ -85,7 +85,10 @@ function startButton_Callback(hObject, eventdata, handles)
     try
       placa = iniciarArduino('COM3');
     catch
-      warndlg('arduino no conectado');
+      warndlg('Conecte el módulo de adquisición de datos al puerto USB, si ya está conectado desconecte y vuelva a conectar.','Arduino no conectado');
+      warning('off','MATLAB:HandleGraphics:ObsoletedProperty:JavaFrame');
+      javaFrame = get(gcf,'JavaFrame');
+      javaFrame.setFigureIcon(javax.swing.ImageIcon('logo/icon.png'));
       return;
     end
     
@@ -213,9 +216,14 @@ function loadButton_Callback(hObject, eventdata, handles)
     fclose(archivo); %cerrar el viejo archivo
   end
   [file, path] = uigetfile('.csv', 'Abrir archivo de datos...');
+  if(file == 0) %se hizo clic en cancelar
+    return;
+  end
   nombreArchivo = strcat(path, file);
   archivo = fopen(nombreArchivo, 'a');
+  
   set(handles.startButton, 'enable', 'on');
+  
   dibujaPotencial(handles, nombreArchivo, getScale(get(handles.popV, 'Value')));
   dibujaResistividad(handles, nombreArchivo, getScale(get(handles.popR, 'Value')));
   set(handles.popV, 'Enable', 'on');
@@ -229,6 +237,9 @@ function newButton_Callback(hObject, eventdata, handles)
     fclose(archivo); %cerrar el viejo archivo
   end
   nombreArchivo = crearArchivo(fix(clock)); %es el nombre del archivo
+  if(strcmp(nombreArchivo, ''))%se hizo clic en cancelar y por tanto no hay archivo creado
+    return;
+  end
   archivo = fopen(nombreArchivo, 'w');      %es el apuntador del archivo
   set(handles.startButton, 'enable', 'on');
     
