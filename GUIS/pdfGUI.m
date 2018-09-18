@@ -102,6 +102,11 @@ guidata(hObject, handles);
 
 % UIWAIT makes pdfGUI wait for user response (see UIRESUME)
 % uiwait(handles.plotsFigure);
+global nombreArchivo;
+if(length(nombreArchivo) > 0)
+  % == 0 significa que nombreArchivo ha sido reservada, pero no asignada
+  procesarArchivoCargado(handles, nombreArchivo);
+end
 end
 
 
@@ -120,15 +125,24 @@ end
 % --- Executes on button press in pushbutton1.
 function pushbutton1_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton1 (see GCBO)
-global path;
-global file;
-[file, path] = uigetfile('.csv', 'Abrir archivo de datos');
-dibujaPotencial(handles, strcat(path, file), getScale(get(handles.popV, 'Value')));
-dibujaResistividad(handles, strcat(path, file), getScale(get(handles.popR, 'Value')));
-set(handles.popV, 'Enable', 'on');
-set(handles.popR, 'Enable', 'on');
+  global path;
+  global file;
+  [file, path] = uigetfile('.csv', 'Abrir archivo de datos');
+  if(file == 0) %se hizo clic en cancelar
+      return;
+  end
+  dibujaPotencial(handles, strcat(path, file), getScale(get(handles.popV, 'Value')));
+  dibujaResistividad(handles, strcat(path, file), getScale(get(handles.popR, 'Value')));
+  set(handles.popV, 'Enable', 'on');
+  set(handles.popR, 'Enable', 'on');
 end
 
+function procesarArchivoCargado(handles, nombreArchivo)
+  dibujaPotencial(handles, nombreArchivo, getScale(get(handles.popV, 'Value')));
+  dibujaResistividad(handles, nombreArchivo, getScale(get(handles.popR, 'Value')));
+  set(handles.popV, 'Enable', 'on');
+  set(handles.popR, 'Enable', 'on');
+end
 
 % --- Executes on button press in pushbutton3.
 function pushbutton3_Callback(hObject, eventdata, handles)
@@ -137,9 +151,8 @@ set(handles.pushbutton1, 'Visible', 'off');
 set(handles.pushbutton3, 'Visible', 'off');
 [file, path] = uiputfile('*.pdf', 'Guardar gráficas como...');
   
-  if(~file)
-    warndlg('introduzca un nombre de archivo')
-    return;
+  if(file == 0) %se hizo clic en cancelar
+      return;
   else
     print(findobj('Tag', 'plotsFigure'), strcat(path, file), '-dpdf');
     %print requiere como primer argumento un nombre para el archivo, por eso
@@ -190,6 +203,8 @@ function dibujaPotencial(handles, archivo, escalaV)
     set(handles.axes4, 'YLim', [1 filas]);
     set(handles.axes4,'YTick', [1:fix(filas/20):filas]);
     set(handles.axes4, 'XTick', [0:escalaV/10:escalaV]);
+    set(handles.maxV, 'String', sprintf('%.3f', max(v)) );
+    set(handles.minV, 'String', sprintf('%.3f', min(v)) );
 end
 
 function dibujaResistividad(handles, archivo, escalaR)
@@ -202,8 +217,7 @@ function dibujaResistividad(handles, archivo, escalaR)
     set(handles.axes5, 'YLim', [0 escalaR]);
     set(handles.axes5,'XTick', [1:fix(filas/20):filas]);
     set(handles.axes5, 'YTick', [0:escalaR/10:escalaR]); %esto dibuja los cuadritos
-end
-
-function text7_ButtonDownFnc(hObject, eventdata, handles)
-  set(handles.text7, 'String', '');
+    %y esto pone los valores máximo y mínimo
+    set(handles.maxR, 'String', sprintf('%.3f', max(r)) );
+    set(handles.minR, 'String', sprintf('%.3f', min(r)) );
 end

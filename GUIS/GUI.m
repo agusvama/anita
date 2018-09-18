@@ -202,6 +202,12 @@ function pdfButton_Callback(hObject, eventdata, handles)
 end
 
 function fourierButton_Callback(hObject, eventdata, handles)
+  global nombreArchivo;
+  if(length(nombreArchivo) == 0)
+    disp('no hay archivo cargado')
+  else
+    disp('hay un archivo actual');
+  end
   fourierGUI();
 end
 
@@ -236,7 +242,7 @@ function newButton_Callback(hObject, eventdata, handles)
   if(archivo >= 3) %identificador de archivo mayor o igual a 3, significan archivo OK
     fclose(archivo); %cerrar el viejo archivo
   end
-  nombreArchivo = crearArchivo(fix(clock)); %es el nombre del archivo
+  nombreArchivo = crearArchivo(); %es el nombre del archivo
   if(strcmp(nombreArchivo, ''))%se hizo clic en cancelar y por tanto no hay archivo creado
     return;
   end
@@ -315,6 +321,9 @@ function dibujaPotencial(handles, archivo, escalaV)
     set(handles.axes27, 'YLim', [0 filas]);
     set(handles.axes27,'YTick', [1:fix(filas/20):filas]);
     set(handles.axes27, 'XTick', [0:escalaV/10:escalaV]);
+    
+    set(handles.maxV, 'String', sprintf('%.3f', max(v)) );
+    set(handles.minV, 'String', sprintf('%.3f', min(v)) );
 end
 
 function dibujaResistividad(handles, archivo, escalaR)
@@ -327,6 +336,9 @@ function dibujaResistividad(handles, archivo, escalaR)
     set(handles.axes28, 'YLim', [0 escalaR]);
     set(handles.axes28,'XTick', [1:fix(filas/20):filas]);
     set(handles.axes28, 'YTick', [0:escalaR/10:escalaR]); %esto dibuja los cuadritos
+    
+    set(handles.maxR, 'String', sprintf('%.3f', max(r)) );
+    set(handles.minR, 'String', sprintf('%.3f', min(r)) );
 end
 
 % --- Executes on selection change in popupmenu13.
@@ -339,4 +351,17 @@ function popupmenu13_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+end
+
+% --- Executes when user attempts to close
+function GUI_CloseRequestFcn(hObject, eventdata, handles)
+  global archivo;
+  if(archivo >= 3) %identificador de archivo mayor o igual a 3, significan archivo cargado
+    fclose(archivo); %cerrar el viejo archivo
+    disp('cerrando apuntador de archivo');
+  end
+  clear global placa;
+  clear global archivo;
+  clear global nombreArchivo;
+  closereq;
 end

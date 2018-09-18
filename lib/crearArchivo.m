@@ -1,4 +1,4 @@
-function [ nombreArchivo ] = crearArchivo( fecha )
+function [ nombreArchivo ] = crearArchivo(  )
   %abre un cuadro de diálogo y usuario selecciona ruta para guardar su PDF
   [file, path] = uiputfile('*.csv', 'Guardar datos como...');
   %uiputfile te devuelve 2 variables

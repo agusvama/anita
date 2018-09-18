@@ -86,6 +86,7 @@ set(handles.axes4, 'YGrid', 'on');
 warning('off','MATLAB:HandleGraphics:ObsoletedProperty:JavaFrame');
 javaFrame = get(hObject,'JavaFrame');
 javaFrame.setFigureIcon(javax.swing.ImageIcon('logo/icon.png'));
+
 handles.output = hObject;
 
 guidata(hObject, handles);
@@ -98,7 +99,11 @@ function varargout = fourierGUI_OutputFcn(hObject, eventdata, handles)
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
+global nombreArchivo;
+if(length(nombreArchivo) > 0)
+  % == 0 significa que nombreArchivo ha sido reservada, pero no asignada
+  procesarArchivoCargado(handles, nombreArchivo);
+end
 % Get default command line output from handles structure
 varargout{1} = handles.output;
 end
@@ -107,12 +112,41 @@ end
 % --- Executes on button press in pushbutton1.
 function pushbutton1_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton1 (see GCBO)
-global path;
 global file;
+global path;
 [file, path] = uigetfile('.csv', 'Abrir archivo de datos');
+  if(file == 0) %se hizo clic en cancelar
+      return;
+  end
+nombreArchivo = strcat(path, file);
 
-dibujaPotencial(handles, strcat(path, file), getScale(get(handles.popV, 'Value')));
-dibujaResistividad(handles, strcat(path, file), getScale(get(handles.popR, 'Value')));
+dibujaPotencial(handles, nombreArchivo, getScale(get(handles.popV, 'Value')));
+dibujaResistividad(handles, nombreArchivo, getScale(get(handles.popR, 'Value')));
+set(handles.popV, 'Enable', 'on');
+set(handles.popR, 'Enable', 'on');
+
+close(findobj('Name', 'Transformada de Fourier: Potencial Natural'));
+close(findobj('Name', 'Transformada de Fourier: Resistividad'));
+figure('Name', 'Transformada de Fourier: Potencial Natural', 'Toolbar', 'None',...
+      'NumberTitle', 'off', 'Menubar', 'None', 'position', [50, 120, 600, 500],...
+      'color', [0.463, 0.153, 0.267], 'Tag', 'fourier1');
+warning('off','MATLAB:HandleGraphics:ObsoletedProperty:JavaFrame');
+javaFrame = get(findobj('Tag', 'fourier1'),'JavaFrame');
+javaFrame.setFigureIcon(javax.swing.ImageIcon('logo/icon.png'));
+transPotencial(nombreArchivo);
+
+figure('Name', 'Transformada de Fourier: Resistividad', 'Toolbar', 'None',...
+      'NumberTitle', 'off', 'Menubar', 'None', 'position', [700, 120, 600, 500],...
+      'color', [0.463, 0.153, 0.267], 'Tag', 'fourier2');
+transResistividad(nombreArchivo);
+warning('off','MATLAB:HandleGraphics:ObsoletedProperty:JavaFrame');
+javaFrame = get(findobj('Tag', 'fourier2'),'JavaFrame');
+javaFrame.setFigureIcon(javax.swing.ImageIcon('logo/icon.png'));
+end
+
+function procesarArchivoCargado(handles, nombreArchivo)
+dibujaPotencial(handles, nombreArchivo, getScale(get(handles.popV, 'Value')));
+dibujaResistividad(handles, nombreArchivo, getScale(get(handles.popR, 'Value')));
 set(handles.popV, 'Enable', 'on');
 set(handles.popR, 'Enable', 'on');
 
@@ -122,12 +156,12 @@ figure('Name', 'Transformada de Fourier: Potencial Natural', 'Toolbar', 'None',.
 warning('off','MATLAB:HandleGraphics:ObsoletedProperty:JavaFrame');
 javaFrame = get(findobj('Tag', 'fourier1'),'JavaFrame');
 javaFrame.setFigureIcon(javax.swing.ImageIcon('logo/icon.png'));
-transPotencial(strcat(path, file));
+transPotencial(nombreArchivo);
 
 figure('Name', 'Transformada de Fourier: Resistividad', 'Toolbar', 'None',...
       'NumberTitle', 'off', 'Menubar', 'None', 'position', [700, 120, 600, 500],...
       'color', [0.463, 0.153, 0.267], 'Tag', 'fourier2');
-transResistividad(strcat(path, file));
+transResistividad(nombreArchivo);
 warning('off','MATLAB:HandleGraphics:ObsoletedProperty:JavaFrame');
 javaFrame = get(findobj('Tag', 'fourier2'),'JavaFrame');
 javaFrame.setFigureIcon(javax.swing.ImageIcon('logo/icon.png'));
@@ -137,15 +171,15 @@ end
 % --- Executes on selection change in popV.
 function popV_Callback(hObject, eventdata, handles)
 % hObject    handle to popV (see GCBO)
-global path;
 global file;
+global path;
 dibujaPotencial(handles, strcat(path, file), getScale(get(handles.popV, 'Value')));
 end
 
 function popR_Callback(hObject, eventdata, handles)
 % hObject    handle to popR (see GCBO)
-global path;
 global file;
+global path;
 dibujaResistividad(handles, strcat(path, file), getScale(get(handles.popR, 'Value')));
 end
 
@@ -160,6 +194,8 @@ function dibujaPotencial(handles, archivo, escalaV)
     set(handles.axes1,'YTick', [1:fix(filas/20):filas]);
     set(handles.axes1, 'XTick', [0:escalaV/10:escalaV]);
     
+    set(handles.maxV, 'String', sprintf('%.3f', max(v)) );
+    set(handles.minV, 'String', sprintf('%.3f', min(v)) );
 end
 
 function dibujaResistividad(handles, archivo, escalaR)
@@ -172,6 +208,9 @@ function dibujaResistividad(handles, archivo, escalaR)
     set(handles.axes4, 'YLim', [0 escalaR]);
     set(handles.axes4,'XTick', [1:fix(filas/20):filas]);
     set(handles.axes4, 'YTick', [0:escalaR/10:escalaR]); %esto dibuja los cuadritos
+    
+    set(handles.maxR, 'String', sprintf('%.3f', max(r)) );
+    set(handles.minR, 'String', sprintf('%.3f', min(r)) );
 end
 
 function popV_CreateFcn(hObject, eventdata, handles)
