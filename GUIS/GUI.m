@@ -318,10 +318,15 @@ function dibujaPotencial(handles, archivo, escalaV)
 
     plot(handles.axes27, v, 1:filas);
     set(handles.axes27, 'XLim', [0 escalaV]);
-    set(handles.axes27, 'YLim', [0 filas]);
+    
+    if(filas == 0)
+      plot(handles.axes27, [0]);
+      return;
+    end
+    
     set(handles.axes27,'YTick', [1:fix(filas/20):filas]);
     set(handles.axes27, 'XTick', [0:escalaV/10:escalaV]);
-    
+    set(handles.axes27, 'YLim', [0 filas]);
     set(handles.maxV, 'String', sprintf('%.3f', max(v)) );
     set(handles.minV, 'String', sprintf('%.3f', min(v)) );
 end
@@ -330,6 +335,11 @@ function dibujaResistividad(handles, archivo, escalaR)
     dataset = load(archivo);
     [filas, columnas] = size(dataset);
     r = dataset(filas+1:end);    
+    
+    if(filas == 0)
+      plot(handles.axes27, [0]);
+      return;
+    end
 
     plot(handles.axes28, 1:filas, r, 'r');
     set(handles.axes28, 'XLim', [0 filas]);
