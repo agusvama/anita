@@ -3,10 +3,10 @@ function transPotencial( csv )
   [filas, columnas] = size(dataset);
   v = dataset(1:filas);
   
-  fmuestreo = 1; 
+  %fmuestreo = 1; 
   %frecuencia de muestreo = muestras por segundo tomadas de una señal
   %continua para volverla discreta
-  periodo = 1 / fmuestreo;
+  %periodo = 1 / fmuestreo;
   nuevaLongitud = 2^nextpow2(filas);
   %nueva longitud de la señal
   %para un mejor funcionamiento de fft(), debe ser una potencia de 2

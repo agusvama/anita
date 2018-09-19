@@ -3,8 +3,8 @@ dataset = load(csv);
   [filas, columnas] = size(dataset);
   r = dataset(filas+1:end);
   
-  fmuestreo = 1; %frecuencia de muestreo = duración de la señal
-  periodo = 1 / fmuestreo;
+  %fmuestreo = 1; %frecuencia de muestreo = duración de la señal
+  %periodo = 1 / fmuestreo;
   nuevaLongitud = 2^nextpow2(filas);
   %nueva longitud de la señal
   %para un mejor funcionamiento de fft(), debe ser una potencia de 2
