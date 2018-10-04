@@ -117,8 +117,8 @@ function reading(pArduino, archivo, nombreArchivo, handles)
   warning('');
   try
   while( strcmp(get(handles.statusText, 'String'), 'Leyendo') )
-    try
-      [izq, der] = anita(pArduino);
+    %try
+      [izq, der] = anita(pArduino); %es quien puede generar error y activar el catch
       if(bandera == getIntervalo(get(handles.popupmenu13, 'Value')))
         %escribir información
         escalaV = getScale(get(handles.popV, 'Value'));
@@ -139,28 +139,26 @@ function reading(pArduino, archivo, nombreArchivo, handles)
       %ajustar el tiempo transcurrido
       global horaInicio;
       set(handles.elapsedTimeField, 'String', char(diff([horaInicio datetime('now')])));
-      
-      if( strcmp('Unsuccessful read: A timeout occurred before the Terminator was reached..', lastwarn) )
-        fclose(placa);
-        return;
-      end
-    
-    catch
-      disp('fin de la sesión');
-      clear;
-      return;
-    end
-  end
+  end % end while
+  disp('se ha detenido la lectura');
   catch
-  global placa;
-  global archivo;
-  global nombreArchivo;
-  %salida por cierre inesperado
-  fclose(archivo);
-  fclose(placa);
-  clear global placa;
-  clear global archivo;
-  clear global nombreArchivo;
+    disp('se ha desconectado el arduino');
+    warndlg('Se ha desconectado el arduino, cierre la ventana, vuelva a conectar y abrir su archivo');
+    warning('off','MATLAB:HandleGraphics:ObsoletedProperty:JavaFrame');
+    javaFrame = get(gcf,'JavaFrame');
+    javaFrame.setFigureIcon(javax.swing.ImageIcon('logo/icon.png'));
+    set(handles.pauseButton, 'Enable', 'off');
+    set(handles.stopButton, 'Enable', 'off');
+    
+    global placa;
+    global archivo;
+    global nombreArchivo;
+    
+    fclose(archivo);
+    fclose(placa);
+    clear global placa;
+    clear global archivo;
+    clear global nombreArchivo;
   end
   set(handles.pauseButton, 'String', 'Reanudar');
 end
@@ -181,18 +179,11 @@ function pauseButton_Callback(hObject, eventdata, handles)
 end
 
 function stopButton_Callback(hObject, eventdata, handles)
-  global placa;
-  global archivo;
-  %cerrar conexiones serial y de archivo
-  fclose(archivo);
-  fclose(placa);
-  set(handles.statusText, 'Visible', 'off');
+  set(handles.statusText, 'String', 'Detenido');
   set(handles.pauseButton, 'Enable', 'off');
   set(handles.startButton, 'Enable', 'off');
   set(handles.stopButton, 'Enable', 'off');
-  clear global placa;
-  clear global archivo;
-  clear global nombreArchivo;
+  
   set(handles.loadButton, 'Enable', 'on');
   set(handles.newButton, 'Enable', 'on');
 end
@@ -202,12 +193,6 @@ function pdfButton_Callback(hObject, eventdata, handles)
 end
 
 function fourierButton_Callback(hObject, eventdata, handles)
-  global nombreArchivo;
-  if(length(nombreArchivo) == 0)
-    disp('no hay archivo cargado')
-  else
-    disp('hay un archivo actual');
-  end
   fourierGUI();
 end
 
@@ -337,7 +322,7 @@ function dibujaResistividad(handles, archivo, escalaR)
     r = dataset(filas+1:end);    
     
     if(filas == 0)
-      plot(handles.axes27, [0]);
+      plot(handles.axes28, [0]);
       return;
     end
 

@@ -8,6 +8,9 @@ function transPotencial( csv )
   %continua para volverla discreta
   %periodo = 1 / fmuestreo;
   nuevaLongitud = 2^nextpow2(filas);
+  if(filas == 0)
+    nuevaLongitud = 2;
+  end
   %nueva longitud de la señal
   %para un mejor funcionamiento de fft(), debe ser una potencia de 2
   dt = 1; %delta t

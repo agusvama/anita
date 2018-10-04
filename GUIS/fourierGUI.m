@@ -127,7 +127,7 @@ set(handles.popR, 'Enable', 'on');
 
 close(findobj('Name', 'Transformada de Fourier: Potencial Natural'));
 close(findobj('Name', 'Transformada de Fourier: Resistividad'));
-figure('Name', 'Transformada de Fourier: Potencial Natural', 'Toolbar', 'None',...
+figure('Name', 'Transformada de Fourier: Potencial Natural', 'Toolbar', 'none',...
       'NumberTitle', 'off', 'Menubar', 'None', 'position', [50, 120, 600, 500],...
       'color', [0.463, 0.153, 0.267], 'Tag', 'fourier1');
 warning('off','MATLAB:HandleGraphics:ObsoletedProperty:JavaFrame');
@@ -135,7 +135,7 @@ javaFrame = get(findobj('Tag', 'fourier1'),'JavaFrame');
 javaFrame.setFigureIcon(javax.swing.ImageIcon('logo/icon.png'));
 transPotencial(nombreArchivo);
 
-figure('Name', 'Transformada de Fourier: Resistividad', 'Toolbar', 'None',...
+figure('Name', 'Transformada de Fourier: Resistividad', 'Toolbar', 'none',...
       'NumberTitle', 'off', 'Menubar', 'None', 'position', [700, 120, 600, 500],...
       'color', [0.463, 0.153, 0.267], 'Tag', 'fourier2');
 transResistividad(nombreArchivo);
@@ -187,6 +187,11 @@ function dibujaPotencial(handles, archivo, escalaV)
     dataset = load(archivo);
     [filas, columnas] = size(dataset);
     v = dataset(1:filas);
+    
+    if(filas == 0)
+      plot(handles.axes1, [0]);
+      return;
+    end
 
     plot(handles.axes1, v, 1:filas);
     set(handles.axes1, 'XLim', [0 escalaV]);
@@ -202,6 +207,11 @@ function dibujaResistividad(handles, archivo, escalaR)
     dataset = load(archivo);
     [filas, columnas] = size(dataset);
     r = dataset(filas+1:end);    
+    
+    if(filas == 0)
+      plot(handles.axes4, [0]);
+      return;
+    end
 
     plot(handles.axes4, 1:filas, r, 'r');
     set(handles.axes4, 'XLim', [1 filas]);

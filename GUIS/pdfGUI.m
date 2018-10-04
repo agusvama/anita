@@ -125,14 +125,14 @@ end
 % --- Executes on button press in pushbutton1.
 function pushbutton1_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton1 (see GCBO)
-  global path;
-  global file;
   [file, path] = uigetfile('.csv', 'Abrir archivo de datos');
   if(file == 0) %se hizo clic en cancelar
       return;
   end
-  dibujaPotencial(handles, strcat(path, file), getScale(get(handles.popV, 'Value')));
-  dibujaResistividad(handles, strcat(path, file), getScale(get(handles.popR, 'Value')));
+  global nombreArchivo;
+  nombreArchivo = strcat(path, file);
+  dibujaPotencial(handles, nombreArchivo, getScale(get(handles.popV, 'Value')));
+  dibujaResistividad(handles, nombreArchivo, getScale(get(handles.popR, 'Value')));
   set(handles.popV, 'Enable', 'on');
   set(handles.popR, 'Enable', 'on');
 end
@@ -160,14 +160,15 @@ set(handles.pushbutton3, 'Visible', 'off');
     %del archivo elegido, estos comandos se pueden probar en consola para tener
     %un mejor entendimiento se sus salidas
   end
+  %clear global nombreArchivo;
+  closereq;
 end
 
 
 % --- Executes on selection change in popV.
 function popV_Callback(hObject, eventdata, handles)
-global path;
-global file;
-dibujaPotencial(handles, strcat(path, file), getScale(get(handles.popV, 'Value')));
+global nombreArchivo;
+dibujaPotencial(handles, nombreArchivo, getScale(get(handles.popV, 'Value')));
 end
 
 % --- Executes during object creation, after setting all properties.
@@ -180,9 +181,8 @@ end
 
 % --- Executes on selection change in popR.
 function popR_Callback(hObject, eventdata, handles)
-global path;
-global file;
-dibujaResistividad(handles, strcat(path, file), getScale(get(handles.popR, 'Value')));
+global nombreArchivo;
+dibujaResistividad(handles, nombreArchivo, getScale(get(handles.popR, 'Value')));
 end
 
 
@@ -197,7 +197,12 @@ function dibujaPotencial(handles, archivo, escalaV)
     dataset = load(archivo);
     [filas, columnas] = size(dataset);
     v = dataset(1:filas);
-
+    
+    if(filas == 0)
+      plot(handles.axes4, [0]);
+      return;
+    end
+    
     plot(handles.axes4, v, 1:filas);
     set(handles.axes4, 'XLim', [0 escalaV]);
     set(handles.axes4, 'YLim', [1 filas]);
@@ -211,6 +216,11 @@ function dibujaResistividad(handles, archivo, escalaR)
     dataset = load(archivo);
     [filas, columnas] = size(dataset);
     r = dataset(filas+1:end);    
+    
+    if(filas == 0)
+      plot(handles.axes5, [0]);
+      return;
+    end
 
     plot(handles.axes5, 1:filas, r, 'r');
     set(handles.axes5, 'XLim', [1 filas]);
