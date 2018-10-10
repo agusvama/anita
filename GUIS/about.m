@@ -19,9 +19,9 @@ end
 end
 
 function about_OpeningFcn(hObject, eventdata, handles, varargin)
-imshow('logo/big/ipn.png','Parent', handles.axes1);
-imshow('logo/big/ito.png','Parent', handles.axes3);
-imshow('logo/big/ciidir.png','Parent', handles.axes2);
+imshow('logo/big/bigipn.png','Parent', handles.axes1);
+imshow('logo/big/bigito.png','Parent', handles.axes3);
+imshow('logo/big/bigciidir.png','Parent', handles.axes2);
 
 warning('off','MATLAB:HandleGraphics:ObsoletedProperty:JavaFrame');
 javaFrame = get(hObject,'JavaFrame');
