@@ -49,7 +49,7 @@ end
 function pdfGUI_OpeningFcn(hObject, eventdata, handles, varargin)
 % This function has no output args, see OutputFcn.
 imshow('logo/header.png','Parent', handles.axes6);
-imshow('logo/footer2.png','Parent', handles.axes9);
+imshow('logo/footer.png','Parent', handles.axes9);
 
 set(handles.axes4, 'NextPlot', 'replacechildren');
 set(handles.axes5, 'NextPlot', 'replacechildren');

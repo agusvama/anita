@@ -23,7 +23,7 @@ end
 function GUI_OpeningFcn(hObject, eventdata, handles, varargin)
 % This function has no output args, see OutputFcn.
 imshow('logo/ipn.png','Parent', handles.axes32);
-imshow('logo/ito2.png','Parent', handles.axes33);
+imshow('logo/ito.png','Parent', handles.axes33);
 imshow('logo/ciidir.png','Parent', handles.axes34);
 
 set(handles.axes27, 'NextPlot', 'replacechildren');
@@ -92,9 +92,13 @@ function startButton_Callback(hObject, eventdata, handles)
       return;
     end
     
-    mostrarFecha(handles, fix(clock));
-    global horaInicio;
-    horaInicio = datetime('now');
+    %mostrar en el campo timefield la hora en la que empezó el trabajo
+    fecha = fix(clock);
+    mostrarFecha(handles, fecha);
+    %guardar la hora a la que empezó a correr la lectura
+    global contadorTiempo;
+    %tomamos año, mes y dia de la fecha actual, dejamos en cero las horas
+    contadorTiempo = datetime(fecha(1), fecha(2), fecha(3), 0, 0, 0); %aquí inicia
     
     set(handles.statusText, 'Visible', 'on');
     set(handles.statusText, 'String', 'Leyendo');
@@ -137,8 +141,16 @@ function reading(pArduino, archivo, nombreArchivo, handles)
       dibujaResistividad(handles, nombreArchivo, escalaR);
       pause(.1); %dibujar la gráfica cada .1 segundos
       %ajustar el tiempo transcurrido
-      global horaInicio;
-      set(handles.elapsedTimeField, 'String', char(diff([horaInicio datetime('now')])));
+      global contadorTiempo;
+      %cada que complete un ciclo, aumentamos un segundo,
+      %independientemente de si la lectura se escribió en el archivo o no
+      contadorTiempo = datetime( contadorTiempo.Year, contadorTiempo.Month, ...
+                                 contadorTiempo.Day, contadorTiempo.Hour,...
+                                 contadorTiempo.Minute, contadorTiempo.Second + 1);
+      %procesamos el contadorTiempo con una funcion que nos lo devuelva en
+      %las horas, minutos y segundos en forma de string para poder
+      %mostrarlo en el campo elapsedTimeField
+      set(handles.elapsedTimeField, 'String', getDate(contadorTiempo));
   end % end while
   disp('se ha detenido la lectura');
   catch
