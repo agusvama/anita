@@ -12,7 +12,7 @@ Como resultado del proyecto:
 Diseñado y programado por:<br>
 * Agustin Vásquez Martínez<br>
 > vama.agus@gmail.com<br>
-> [github.com/maldad](github.com/maldad)
+> [github.com/maldad](https://github.com/maldad)
 
 Con ayuda y supervisión de sus asesores:<br>
 * Dr. Salvador I. Belmonte Jiménez
@@ -23,7 +23,7 @@ Este proyecto es parte de la residencia profesional de Agustin Vásquez Martíne
 El Instituto Tecnológico de Oaxaca es una universidad pública que ofrece 10 carreras con grado de Licenciatura.
 
 ## Descargas
-Se pueden descargar versiones compiladas de **anita** en la sección de [releases](github.com/maldad/anita/releases).
+Se pueden descargar versiones compiladas de **anita** en la sección de [releases](https://github.com/maldad/anita/releases).
 
 ## Materiales utilizados para la toma de lecturas
 * Placa arduino (la cual debe grabarse con este [programa](https://github.com/maldad/anita/blob/master/anitaSketch/anitaSketch.ino)).
