@@ -26,8 +26,8 @@ El Instituto Tecnológico de Oaxaca es una universidad pública que ofrece 10 ca
 Se pueden descargar versiones compiladas de **anita** en la sección de [releases](github.com/maldad/anita/releases).
 
 ## Materiales utilizados para la toma de lecturas
-[ ] Placa arduino (la cual debe grabarse con este [programa](https://github.com/maldad/anita/blob/master/anitaSketch/anitaSketch.ino)).
-[ ] Par de sensores HC-SR04
+* Placa arduino (la cual debe grabarse con este [programa](https://github.com/maldad/anita/blob/master/anitaSketch/anitaSketch.ino)).
+* Par de sensores HC-SR04
 
 ## Recursos utilizados
 Lectura del puerto serial con MATLAB encontrado en: [Geeky Theory](https://geekytheory.com/matlab-arduino-serial-port-communication/)
