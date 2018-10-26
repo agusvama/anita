@@ -1,0 +1,3830 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{amsmath}
+\usepackage{amssymb}
+\end_preamble
+\use_default_options true
+\begin_modules
+customHeadersFooters
+initials
+\end_modules
+\maintain_unincluded_children false
+\language spanish-mexico
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "charter" "default"
+\font_sans "helvet" "default"
+\font_typewriter "cmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing double
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize letterpaper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 2.5cm
+\rightmargin 3cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0cm
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Reporte final: Residencia profesional
+\end_layout
+
+\begin_layout Author
+por: Vásquez Martínez Agustin
+\end_layout
+
+\begin_layout Date
+octubre 2018
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+frontmatter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter*
+Resumen
+\end_layout
+
+\begin_layout Standard
+Los registros geofísicos de pozos (RGP) se llevan a cabo para analizar la
+ composición del subsuelo, para obtener estos resultados se utilizan herramienta
+s conocidas como sondas las cuales tienen un malacate el cual se introduce
+ en el pozo emitiendo ciertas señales sobre la pared del mismo y van midiendo
+ su respuesta física, los resultados se van dibujando en una gráfica que
+ está en función de la profundidad del pozo y se conocen como curvas.
+ Los RGP se obtienen en tiempo real y luego de una interpretación de las
+ curvas obtenidas permiten detectar zonas donde seria posible la explotación
+ de agua a mayor escala, llevando a tomar una decisión sobre el futuro del
+ pozo, por ejemplo su expansión.
+\end_layout
+
+\begin_layout Standard
+Las sondas que realizan RGP pueden tener como salida varias curvas, a su
+ vez pueden graficar dichas curvas en papel o en formato digital, todo esto
+ depende de qué tan sofisticadas sean.
+ 
+\end_layout
+
+\begin_layout Standard
+Por lo tanto se propuso un desarrollar un programa de computadora con la
+ capacidad de obtener las curvas y que las fuera graficando en tiempo real
+ dentro de una interfaz de usuario en la computadora, esto elimina la necesidad
+ de tener el papel que utiliza la sonda para hacer el dibujo de las curvas,
+ además al obtener los datos en formato digital se permite guardarlos en
+ archivos los cuales se pueden utilizar posteriormente en reportes o difusión.
+\end_layout
+
+\begin_layout Chapter*
+Agradecimientos
+\end_layout
+
+\begin_layout Standard
+Aquí escribir cosas bonitas sobre la gente que te ayudó en este trabajo
+ :)
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+mainmatter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Introducción
+\end_layout
+
+\begin_layout Section
+Antecedentes
+\end_layout
+
+\begin_layout Initial
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\lang spanish
+lines=3
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+L
+\end_layout
+
+\end_inset
+
+ a geología es una ciencia que se dedica al estudio de la composición superficia
+l e interna del planeta, una de sus disciplinas es la geofísica, que se
+ encarga de estudiar las condiciones físicas de la tierra y sus fenómenos,
+ por ejemplo los sismos, volcanes, oceános e incluso la atmósfera, la ingeniería
+ especializada en geofísica abarca los estudios que permiten la exploración,
+ evaluación y explotación de recursos del subsuelo, dentro de sus actividades
+ están los registros geofísicos de pozos (RGP), los cuales son una manera
+ de analizar la composición del subsuelo que rodea a un pozo para identificar
+ tipos como el arenoso, pedregoso, húmedo, entre otros, también sirven para
+ identificar el grosor de cada una de las capas que lo compone y la variabilidad
+ del almacenamiento de agua subterránea.
+ Los ingenierios geofísicos llevan a cabo estos estudios con la finalidad
+ de conocer las capacidades que tiene la tierra y así determinar si son
+ viables o no para ciertos trabajos.
+ Los RGP son estudios que brindan resultados en tiempo real y para realizarlos
+ se utilizan herramientas conocidas como sondas.
+\end_layout
+
+\begin_layout Standard
+Una sonda está compuesta de un malacate el cual puede variar en longitud,
+ es un material parecido a un cable sin aislante al cual se le inyecta corriente
+ eléctrica la cual viaja hasta el extremo introducido donde un electrodo
+ es responsable de emitir esa corriente en la pared del pozo, después mide
+ la respuesta física del subsuelo y la sonda la va graficando en la superficie,
+ esa gráfica se conoce como 
+\emph on
+curva 
+\emph default
+y corresponde a un parámetro del subsuelo.
+ Para llevar a cabo esta tarea la sonda puede utilizar rollos de papel o
+ computadoras dependiendo de su nivel de fabricación y tecnología.
+\end_layout
+
+\begin_layout Standard
+Dentro del Centro Interdisciplinario de Investigación para el Desarrollo
+ Integral Regional (CIIDIR) Unidad Oaxaca cuentan con una sonda capaz de
+ graficar dos parámetros:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Potencial Espontáneo (SP)
+\series default
+ - Es un registro de fenómenos físicos, que ocurren naturalmente en las
+ rocas de una formación geológica, esta curva registra el potencial eléctrico
+ producido por la interacción con el agua subterrána, el voltaje generado
+ es resultado de una corriente continua que se genera en dichos bordes por
+ la diferencia de salinidad.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SP"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Resistividad (R) 
+\series default
+- Es la capacidad que tienen las rocas de oponerse al paso de corriente
+ eléctrica inducida y varia dependiendo de la sal disuelta en los fluidos
+ presentes en los poros de las rocas, esta curva proporciona evidencias
+ del contenido de fluidos en las rocas.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "R"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dicha sonda utiliza rollos de papel cuadriculado dividido en dos zonas para
+ cada una de las gráficas entregando datos en tiempo real.
+ Fue fabricado por un empresa ya desaparecida la cual también es responsable
+ de la elaboración de los rollos de papel, por lo que se buscó una manera
+ de eliminar la necesidad del mismo, llevando las señales de ambas gráficas
+ hacia una interfaz en una computadora.
+\end_layout
+
+\begin_layout Standard
+Sabiendo esto se propuso diseñar un programa que desde una computadora le
+ permitiera a una persona la capacidad de comunicar y procesar las señales
+ de Potencial Espontáneo y Resistividad, la propuesta se entregó al Instituto
+ Tecnológico de Oaxaca en su Departamento de Sistemas y Computación, dado
+ que los estudiantes de su ingeniería en Sistemas Computacionales tienen
+ los conocimientos y habilidades esenciales para llevar a cabo el desarrollo
+ de programas de computadora, éstos se conocen como software.
+ Durante esta investigación se logró graficar en tiempo real las señales
+ dentro de la interfaz de usuario del software programado, obteniendo los
+ datos en forma totalmente digital.
+ 
+\end_layout
+
+\begin_layout Standard
+Se diseñó el software tal que una vez terminadas las lecturas emita un reporte
+ en formato PDF
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Siglas en inlés de Portable Document Format, es un formato de documentos
+ que puede ser leido en los principales sistemas operativos: GNU/Linux,
+ Windows, MacOS, Unix 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "pdf"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+, además de generar un respaldo en un archivo de valores separados por comas
+ (CSV), cada uno de estos archivos CSV se refiere a una sesión de trabajo
+ y se pueden crear nuevos o abrir uno ya hecho y continuar el trabajo desde
+ ahi.
+\end_layout
+
+\begin_layout Section
+Problemas a resolver
+\end_layout
+
+\begin_layout Standard
+En esta investigación se resuelven los siguientes problemas:
+\end_layout
+
+\begin_layout Enumerate
+El papel que utiliza la sonda para dibujar las gráficas de parámetros del
+ subsuelo ya no se fabrica, es difícil conseguirlo e implica una supervisión
+ constante para no agotar el material y quedarse a medias en el trabajo.
+\end_layout
+
+\begin_layout Enumerate
+Encontrar la señal que la sonda utiliza para dibujar las curvas.
+\end_layout
+
+\begin_layout Enumerate
+Diseñar un módulo de adquisición de datos que permita mandar la señal de
+ la sonda hacia la computadora.
+\end_layout
+
+\begin_layout Enumerate
+Montar el módulo de adquisición de datos en la sonda.
+\end_layout
+
+\begin_layout Enumerate
+Programación de un software con la capacidad de recibir, graficar y procesar
+ las señales que capture el módulo de adquisición de datos.
+\end_layout
+
+\begin_layout Section
+Justificación
+\end_layout
+
+\begin_layout Standard
+El análisis de los RGP da a conocer la estructura y composición del subsuelo
+ y permite determinar variaciones en la cantidad de agua subterránea que
+ rodea a un pozo, durante la perforación de pozos de agua este dato es important
+e porque es un punto de partida a tomar en cuenta durante el trabajo de
+ perforación, puesto que la expansión en anchura y en profundidad depende
+ del análisis de las curvas, continuar la perforación de un pozo sin estos
+ datos es decir, al azar, sería un gasto arriesgado de recursos económicos
+ y de tiempo.
+\end_layout
+
+\begin_layout Standard
+Los equipos de RGP actuales cuestan alrededor de 580,000 MXN
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+MXN = Pesos mexicanos.
+ Se comprueba esta información en el apéndice 
+\begin_inset Quotes fld
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Prueba-de-correo"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+, por lo que al no contar con los recursos económicos para adquirir un equipo
+ moderno ésta es una alternativa que permite reutilizar un equipo antiguo.
+ La captura de información en un medio digital permite reiniciar en cualquier
+ momento el registro sin preocuparse porque el papel ya no se pueda utilizar,
+ con esto se alcanza el beneficio de crear, eliminar o reanudar un registro
+ cuando se desee.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Alcance
+\end_layout
+
+\begin_layout Standard
+En este trabajo se capturan las curvas de Potencial Espontáneo y de Resistividad
+ provenientes de la sonda para dibujar su gráfica en una computadora, por
+ lo que se pone en marcha un software capaz de dibujar estas señales en
+ la pantalla dentro de una interfaz gráfica de usuario, dándole al usuario
+ la capacidad de crear nuevos registros o reanudar los ya existentes, siempre
+ y cuando fueran generados son el software producto de esta investigación.
+ 
+\end_layout
+
+\begin_layout Standard
+El usuario tambien tendrá la posibilidad de controlar el flujo de lecturas,
+ esto quiere decir que puede iniciar el proceso, pausar, reanudar o detenerlo,
+ tambien será posible controlar el intervalo de tiempo que ocurre entre
+ cada una de lectura.
+ A partir de los datos obtenidos se generarán reportes en formato PDF con
+ el encabezado del Instituto Politécnico Nacional y del CIIDIR Oaxaca, el
+ software se distruibuirá bajo una licencia MIT 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MIT"
+literal "false"
+
+\end_inset
+
+ y sus versiones empaquetadas listas para instalar estarán disponibles en
+ un repositorio dentro de Internet.
+ Su código será de libre acceso y no será necesario pagar una licencia para
+ utilizarlo.
+ Finalmente será posible instalarlo en el sistema operativo Windows de 64
+ bits.
+\end_layout
+
+\begin_layout Section
+Hipótesis
+\end_layout
+
+\begin_layout Enumerate
+Con la adquisición de los datos de las curvas en una computadora se tendrá
+ una mejor perspectiva de las gráficas, puesto que cada lectura realizada
+ quedará grabada en un archivo de valores separados por comas.
+\end_layout
+
+\begin_layout Enumerate
+Al obtener un reporte de las curvas en un formato PDF será más sencillo
+ compartir los estudios realizados.
+\end_layout
+
+\begin_layout Section
+Objetivos
+\end_layout
+
+\begin_layout Subsection
+Objetivo General
+\end_layout
+
+\begin_layout Standard
+Diseñar, programar y poner en marcha un software para la comunicación y
+ procesado de señales de Potencial Espontáneo y de Resistividad, producto
+ de las mediciones en el subsuelo a través de un equipo de registros eléctricos.
+\end_layout
+
+\begin_layout Subsection
+Objetivos Específicos
+\end_layout
+
+\begin_layout Itemize
+Estudio del Registro Geofísico de Pozos, de los equipos que utilizan para
+ llevar a cabo los registros y de la graficación de las curvas.
+\end_layout
+
+\begin_layout Itemize
+Inspección de la sonda proporcionada por el CIIDIR con el fin de hallar
+ la señal responsable de dibujar la curva.
+\end_layout
+
+\begin_layout Itemize
+Diseño de un circuito que actúe como módulo de adquisición de datos para
+ transmitir la señal de la sonda hacia la computadora.
+\end_layout
+
+\begin_layout Itemize
+Programación de un software que permita graficar las curvas en tiempo real
+ y genere archivos con sus datos, empaquetarlo y dejarlo listo para su instalaci
+ón en otras computadoras.
+\end_layout
+
+\begin_layout Itemize
+Realizar pruebas con el software y el módulo de adquisición de datos conectado
+ a la sonda.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Metología de la investigación
+\end_layout
+
+\begin_layout Standard
+En este trabajo se requiere primero de una metodología aplicada con la que
+ se buscará una manera de lograr el objetivo de transmitir las curvas desde
+ la sonda hacia la computadora, la metodología aplicada permite enforcarse
+ a la medida abordando un problema en específico, después se requiere de
+ una metodología experimental ya que el software para dibujar y procesar
+ las señales requiere de pruebas dentro de un ambiente controlado llevando
+ a replicar este evento una y otra vez haciendo observación de los resultados
+ obtenidos para realizar ajustes en la programación del software.
+\end_layout
+
+\begin_layout Section
+Estructura del informe
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Describir cada uno de los capítulos a partir del posterior a este (Introducción)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Capítulo 2 - Estado del arte
+\end_layout
+
+\begin_layout Standard
+Describe la forma en que actualmente se llevan a cabo los registros geofísicos
+ de pozos, mostrando ejemplos de un equipo actual y sus características,
+ se explican los parámetros que puede registrar una sonda y se mencionan
+ algunas empresas que brindan el servicio de RGP.
+\end_layout
+
+\begin_layout Subsection
+Capítulo 3 - Marco teórico
+\end_layout
+
+\begin_layout Standard
+Expone los conceptos que se utilizaron durante la investigación.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Chapter
+Estado del arte
+\end_layout
+
+\begin_layout Section
+Equipos para RGP
+\end_layout
+
+\begin_layout Initial
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+lines=3
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+A
+\end_layout
+
+\end_inset
+
+ ctualmente un equipo de RGP como el de Century Geophysical modelo 300M
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "century"
+literal "false"
+
+\end_inset
+
+ en venta al año 2018 está diseñado para montarlo de forma temporal o de
+ forma permanente en un vehículo, tal como se muestra en la siguiente foto.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 3.5cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/IMG_0225.jpg
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+Equipo de RGP montado en un vehículo
+\end_layout
+
+\end_inset
+
+Equipo de RGP montado en un vehículo.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Equipo-de-RGP"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Equipo-de-RGP"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ se puede apreciar un extremo gris, esta parte va por delante y es la primera
+ que va descendiendo por el pozo, está sujeta por un malacate que en la
+ foto se muestra enrollado en un carrete.
+ Este equipo viene provisto de software para el registro, procesado e impresión
+ de las curvas en una computadora, se conecta vía Ethernet
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Tecnología estándar de comunicación cableada en redes de computadoras, explicada
+ en el apéndice 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Ethernet"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ y se aprecia en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Equipo-RGP-computadora"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 3.5cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/IMG_0716.jpg
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Equipo RGP enviando curvas a una computadora
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Equipo-RGP-computadora"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Century Geophysical enlista 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "century"
+literal "false"
+
+\end_inset
+
+ que el software provisto con este equipo es compatible con Windows, también
+ destaca que cuenta con un servicio de ayuda online para la operación del
+ software y manuales para todas las herramientas de registro con las que
+ viene equipado este aparato.
+\end_layout
+
+\begin_layout Section
+Parámetros que registra un RGP
+\end_layout
+
+\begin_layout Standard
+Entre las curvas de parámetros del subsuelo que las sondas pueden graficar
+ están los siguientes: 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "geotem"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Registro Gamma (Gamma)
+\series default
+ - Determina la cantidad de radiación natural que emiten los materiales
+ que se encuentran en el subsuelo proporcionando información para la identificac
+ión de la columna litológica
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Litología: Parte de la geología que estudia las características de las rocas
+\end_layout
+
+\end_inset
+
+ registrada.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Registro de resistividad (R)
+\series default
+ - Mide la resistividad eléctrica de los materiales que circundan el pozo,
+ en función del arreglo electródico, ya sea de 8, 16, 32 o 64 pulgadas variará
+ la profundidad de investigación o penetración hacia la formación, siendo
+ de menor a mayor respectivamente.
+ Este registro aporta información referente a litología y datos para estimacione
+s petrofísicas.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Especialidad que conjuga conocimientos de ingeniería del petróleo, geofísica
+ y geología
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Registro de resistencia eléctrica puntual (SPR) 
+\series default
+- Mide la resistencia eléctrica del medio que rodea a la sonda en el pozo;
+ tiene poca penetración hacia la formación pero es muy resolutivo a cambios
+ litológicos y contrastes de materiales de bajo espesor.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Registro de potencial espontáneo (SP)
+\series default
+ - Mide los potenciales eléctricos naturales originados en el interior del
+ pozo por intercambio iónico entre los fluidos originales contenidos en
+ la formación y el de perforación (que en el mejor de los casos deberá tratarse
+ de un fluido cuya base sea agua dulce), reflejando cualitativamente permeabilid
+ad y cambios litológicos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Registro de temperatura
+\series default
+ - Mide la temperatura del fluido (aire, agua o lodo) en el interior del
+ pozo.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Registro de Resistividad de Fluido
+\series default
+ - Determina la resistividad eléctrica del fluido contenido en el pozo,
+ se define como el inverso de la conductividad eléctrica que se utiliza
+ comúnmente junto con la temperatura como un indicador de la calidad o tipo
+ de fluido.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusiones
+\end_layout
+
+\begin_layout Standard
+La evaluación de los registros geofísicos de pozos es un punto clave durante
+ la exploración del subsuelo, al llevar a cabo estos resultados se obtienen
+ en tiempo real y con mucha precisión datos con los que se puede determinar
+ la localización y la situación de los recursos naturales que se encuentren
+ en el subsuelo, estos pueden ser yacimientos de agua, petróleo o gas.
+ Tener el equipo necesario para realizar este tipo de registros les da a
+ las empresas 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "empresa"
+literal "false"
+
+\end_inset
+
+,
+\begin_inset CommandInset citation
+LatexCommand cite
+key "empresa1"
+literal "false"
+
+\end_inset
+
+,
+\begin_inset CommandInset citation
+LatexCommand cite
+key "empresa2"
+literal "false"
+
+\end_inset
+
+,
+\begin_inset CommandInset citation
+LatexCommand cite
+key "empresa3"
+literal "false"
+
+\end_inset
+
+ una ventaja, ya que previenen la perforación de pozos donde no es necesaria
+ logrando con esto un ahorro en los recursos económicos de sus clientes.
+\end_layout
+
+\begin_layout Chapter
+Marco teórico
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Marco-teórico"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Señales
+\end_layout
+
+\begin_layout Initial
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+lines=3
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+S
+\end_layout
+
+\end_inset
+
+ e conoce como señal a un conjunto de datos que representa información relaciona
+ndo dos variables; una 
+\emph on
+dependiente 
+\emph default
+y otra 
+\emph on
+independiente
+\emph default
+.
+ El primer tipo de variable existe y es correspondida sólo cuando la variable
+ independiente está presente, esto se conoce como 
+\emph on
+estar en función de
+\emph default
+.
+ Un ejemplo básico seria el lanzamiento de una moneda, donde la variable
+ independiente seria el lanzamiento uno, el lanzamiento dos, el lanzamiento
+ tres, el lanzamiento N, mientras tanto la variable dependiente sería un
+ lado u otro de la moneda.
+ Si se colocan el número de lanzamiento en una cuadrícula y se va anotando
+ el resultado, al final se tendrá una señal en donde el resultado está en
+ función del lanzamiento que le corresponda.
+ Como se puede apreciar en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ejemplo-de-señal"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+; la variable dependiente no puede existir sin la variable independiente,
+ en este ejemplo tiene que haber un lanzamiento para que se produzca un
+ resultado por tanto si no existe el lanzamiento número 21, no puede haber
+ un resultado A o B.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 2.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Ejemplo de señal producida por el lanzamiento de una moneda
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ejemplo-de-señal"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tal como se observa en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ejemplo-de-señal"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ se escribió el número de lanzamiento en la parte más horizontal más larga
+ mientras que los resultados se acomodaron en forma vertical, éstos se conocen
+ como ejes y a partir de ahora se les llamará 
+\emph on
+eje de las abscisas 
+\emph default
+o eje 
+\begin_inset Formula $x$
+\end_inset
+
+ al eje horizontal y 
+\emph on
+eje de las ordenadas
+\emph default
+ o eje 
+\begin_inset Formula $y$
+\end_inset
+
+ al eje vertical.
+ Dichos nombres provienen del plano cartesiano el cual se compone de dos
+ rectas perpendiculares cuyo punto que las corta es el origen o el inicio,
+ trasladando esta idea al ejemplo de la moneda el origen sería el lanzamiento
+ cero y el resultado cero.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 4.5cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/planoCartesiano.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Plano cartesiano
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Uno de las características de la variable independiente es la diferencia
+ que existe entre cada valor que toma en el eje de las abscisas, se le conoce
+ como 
+\emph on
+delta
+\emph default
+ y se representa con la letra griega 
+\begin_inset Formula $\Delta$
+\end_inset
+
+.
+ En el ejemplo de la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ejemplo-de-señal"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ el valor de 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ en 
+\begin_inset Formula $x$
+\end_inset
+
+ es de 1.
+ ¿Qué pasaría si en lugar de registrar después de cada lanzamiento se registrara
+ cada dos lanzamientos? En ese caso se tendría un 
+\begin_inset Formula $\Delta x=2$
+\end_inset
+
+ y la señal se vería como en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Señal-del-lanzamiento"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 2.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Señal del lanzamiento de una moneda con 
+\begin_inset Formula $\Delta=2$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Señal-del-lanzamiento"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los valores que una variable pueda tener y representar en sus ejes dan lugar
+ a la clasificación de señales, las cuales se definen a continuación.
+\end_layout
+
+\begin_layout Subsection
+Señal Continua
+\end_layout
+
+\begin_layout Standard
+Este tipo de señal puede tomar cualquier valor a lo largo del eje 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Su gráfica se puede apreciar como una sola línea que no se ve interrumpida
+ a lo largo de toda su duración, ejemplo de estas señales pueden ser: una
+ grabación de sonido, la gráfica de una función trigonométrica seno o coseno,
+ la señal de radio que emite alguna cabina, los movimientos que produce
+ un sismo, la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:senalcontinua"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ muestra un ejemplo de señal continua producto de la función 
+\begin_inset Formula $f(x)=sin(2x)+cos(3x)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+En esta señal se puede apreciar que existen valores en el eje 
+\begin_inset Formula $x$
+\end_inset
+
+ que no están numerados, sin embargo se corresponden con un valor en el
+ eje de las ordenadas, por lo tanto existen haciendo que 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+ tenga un valor muy pequeño.
+ Existe un valor correspondiente en el eje 
+\begin_inset Formula $y$
+\end_inset
+
+ para el valor en 
+\begin_inset Formula $x=3.2$
+\end_inset
+
+ así como existe un valor en 
+\begin_inset Formula $y$
+\end_inset
+
+ para 
+\begin_inset Formula $x=7.1$
+\end_inset
+
+.
+ Por lo tanto una señal continua puede tomar cualquier valor en el eje de
+ las abscisas y obtener un resultado en el eje de las ordenadas.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 2.2cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Gráfica de una señal producida por la función
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+Gráfica de una señal continua
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $f(x)=sin(2x)+cos(3x)$
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:senalcontinua"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Señal Discreta
+\end_layout
+
+\begin_layout Standard
+Una señal discreta tiene valores definidos en el eje de las abscisas, a
+ diferencia de las continuas y haciendo referencia a la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:senalcontinua"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ una señal discreta no podría evaluarse en una 
+\begin_inset Formula $x=2.5$
+\end_inset
+
+.
+ Este tipo de señales tiene un 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ definido el cual nunca cambia a lo largo de toda la duración de la señal.
+ Si se graficara la misma función de la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:senalcontinua"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ tomando 
+\begin_inset Formula $\Delta x=1$
+\end_inset
+
+ luciría como se muestra en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:senalDiscreta"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Como se puede apreciar no toma un valor para 
+\begin_inset Formula $x=3.2$
+\end_inset
+
+ o 
+\begin_inset Formula $x=7.1$
+\end_inset
+
+, sino que sus valores en 
+\begin_inset Formula $x$
+\end_inset
+
+ van aumentando de uno en uno, no hay intermedios y esto es a lo que se
+ refiere el término 
+\emph on
+discretos.
+\end_layout
+
+\begin_layout Standard
+Pero no siempre los valores que una señal discreta puede tomar en su eje
+ 
+\begin_inset Formula $x$
+\end_inset
+
+ son números enteros, todo depende de la 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ que se esté manejando, bien podría ir aumentando en 0.5, en 2, en 0.7, etc.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Gráfica de una señal producida por la función
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Gráfica de una señal discreta
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $f(x)=sin(2x)+cos(3x)$
+\end_inset
+
+ con 
+\begin_inset Formula $\Delta x=1$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:senalDiscreta"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Señal analógica
+\end_layout
+
+\begin_layout Standard
+Para que una señal pueda entrar en esta clasificación se requiere que sus
+ valores en el eje de las ordenadas puedan ser cualesquiera, esto significa
+ que en cada valor de 
+\begin_inset Formula $x$
+\end_inset
+
+ habra un valor que le corresponda en 
+\begin_inset Formula $y$
+\end_inset
+
+ que puede ser un número entero o bien un número con puntos decimales.
+ Las señales analógicas también pueden entrar en la categoría de las continuas
+ o discretas dependiendo de las características que tenga su eje de abscisas.
+ Por lo tanto ejemplos de una señal analógica se pueden apreciar tanto en
+ la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:senalcontinua"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ como en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:senalDiscreta"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ En ambas se puede observa que para 
+\begin_inset Formula $x=0,\ y=1$
+\end_inset
+
+, y que para 
+\begin_inset Formula $x=4,\ y=\sim1.8$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Señal digital
+\end_layout
+
+\begin_layout Standard
+Finalmente este tipo de señal se utiliza mucho en áreas como la electrónica
+ digital y la informática.
+ Las señales digitales se caraterizan por tomar valores en el eje de las
+ ordenadas únicamente de ceros o uno, estos se conocen como valores binarios
+ o valores booleanos, siendo que el cero representa un valor falso mientras
+ que el uno representa un valor verdadero, sus aplicaciones incluyen la
+ representación de información dentro de una computadora, cada valor que
+ contenga la señal representa un bit de memoria, ésta es la unidad mínima
+ que una computadora utiliza para llevar a cabo sus operaciones.
+\end_layout
+
+\begin_layout Standard
+No existen valores intermedios como el 0.2 o el 0.75, los trabajos electrónicos
+ que requieran de una señal digital suelen redondear hacia el cero o hacia
+ el uno para llevar a cabo la conversión.
+ Un ejemplo de señal digital se trató al principio de esta sección, durante
+ el ejemplo de la moneda sólo pueden existir dos valores posibles en el
+ eje 
+\begin_inset Formula $y$
+\end_inset
+
+, el lado de la moneda A o el lado de la moneda B, es como los ceros y unos
+ de una señal digital.
+\end_layout
+
+\begin_layout Standard
+Las señales digitales pueden también ser de tipo contina o discreta, como
+ ya se mencionó anteriormente todo depende de las características que tenga
+ su eje de abscisas, así pues se define el cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Características-que-pueden"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Otra forma de recordar que combinación de clasificaciones puede tomar una
+ señal es pensar en dónde se aplican dichas clasificaciones, no se puede
+ ser discreta y continua al mismo tiempo porque ambas actúan sobre el eje
+ 
+\begin_inset Formula $x$
+\end_inset
+
+, así como no se puede ser analógica y digital al mismo tiempo ya que esas
+ características actúan sobre el eje 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ Dejando claro que un eje sólo puede tener una de ellas.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 5.5cm
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Continua
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Analógica
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Digital
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Discreta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Analógica
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Digital
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Características que pueden combinar las señales
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Características-que-pueden"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Parámetros de una señal
+\end_layout
+
+\begin_layout Standard
+Toda señal sin importar su clasificación tendrá una amplitud, sin embargo
+ no todas las señales son periódicas y dado que las frecuencia está relacionada
+ al periodo de igual manera no todas las señales tendrán una frecuencia
+ definida.
+\end_layout
+
+\begin_layout Subsubsection
+Amplitud
+\end_layout
+
+\begin_layout Standard
+Es la distancia máxima que existe desde el eje de las abscisas hasta el
+ punto más alto que puede alcanzar una señal.
+\end_layout
+
+\begin_layout Subsubsection
+Período
+\end_layout
+
+\begin_layout Standard
+Una señal es periódica cuando repite un patrón una y otra vez, inmediatamente
+ después de terminar un patrón, empieza uno nuevo que es exactamente igual
+ al anterior.
+ Este patrón también se conoce como ciclo y está relacionado con la frecuencia
+ de la siguiente manera.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+T=\frac{1}{f}\label{eq:1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde 
+\begin_inset Formula $T$
+\end_inset
+
+ es el periodo y 
+\begin_inset Formula $f$
+\end_inset
+
+ la frecuencia.
+\end_layout
+
+\begin_layout Subsubsection
+Frecuencia
+\end_layout
+
+\begin_layout Standard
+El número de ciclos que una señal complete en una unidad de tiempo es la
+ frecuencia, su unidad dentro del Sistema Internacional es el 
+\emph on
+hercio
+\emph default
+ y se abrevia 
+\series bold
+Hz
+\series default
+.
+ Tal como lo muestra la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ la frecuencia es el inverso del periodo, esto quiere decir:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f=\frac{1}{T}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si una persona parpadea una vez por segundo, se tendrá una frecuencia de
+ 1 Hz (un ciclo) completado en 
+\begin_inset Formula $T=1$
+\end_inset
+
+ segundo.
+ Si la persona en cambio parpade dos veces por segundo, entonces se tendrá
+ una frecuencia de 2 Hz, (dos ciclos) completados en 
+\begin_inset Formula $T=0.5$
+\end_inset
+
+ segundos.
+\end_layout
+
+\begin_layout Section
+Arduino
+\end_layout
+
+\begin_layout Standard
+Arduino es un
+\emph on
+ 
+\emph default
+conjunto de componentes electrónicos entre los que incluye un microcontrolador,
+ pines de entrada/salida y un puerto serial, también se le conoce como 
+\emph on
+placa de desarrollo.
+
+\emph default
+ Su microcontrolador es útil en proyectos que requieran de procesar instruccione
+s sencillas, por ejemplo juguetes a control remoto, televisiones, controladores
+ de clima automáticos, hornos de microondas.
+ Por otro lado sus pines permiten la conexión de sensores que interactúen
+ con el exterior y de esta manera capten que se necesiten para un proyecto.
+ Las placas arduino son 
+\emph on
+open-source
+\emph default
+ o libres, esto quiere decir que su fabricación no está limitada a una sola
+ marca, persona o empresa.
+ Son multiplataforma llegando a funcionar tanto en Windows como en Linux
+ y en Mac, requieren de una corriente de 5 Volts para operar la cual pueden
+ obtener directamente desde su puerto USB.
+ Éstas placas cuestan alrededor de 600 MXN en su versión original y alrededor
+ de 230 MXN en una versión genérica.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/arduino2.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Placa arduino, modelo 
+\emph on
+UNO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Microcontrolador Atmega328
+\end_layout
+
+\begin_layout Standard
+Es un circuito integrado con la capacidad de almacenar instrucciones en
+ su memoria para luego ejecutarlas, éstas instrucciones se pueden borrar
+ una y otra vez, un programador
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Persona que desarrolla software.
+\end_layout
+
+\end_inset
+
+ puede definir las instrucciones en una computadora mediante un editor de
+ texto, en el caso de arduino se cuenta con un Entorno de Desarrollo Integrado
+ o IDE por sus siglas en inglés
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Integrated Development Environment.
+\end_layout
+
+\end_inset
+
+ que está disponible para su descarga de manera gratuita en el sitio web
+ de arduino 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "arduinoIDE"
+literal "false"
+
+\end_inset
+
+, es multiplataforma y sencillo de utilizar.
+ Dentro del IDE las instrucciones son escritas en el Lenguaje de programación
+ de Arduino 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "arduinoLenguaje"
+literal "false"
+
+\end_inset
+
+, el cual provee funciones para controlar los pines, para enviar un valor
+ como salida por medio del puerto serial, para generar números aleatorios,
+ entre otras.
+\end_layout
+
+\begin_layout Standard
+Una vez que las instrucciones están definidas se procede a grabarlas en
+ el microcontrolador utilizando el IDE, para esto es necesario conectar
+ la placa arduino a la computadora utilizando el conector USB tanto de la
+ placa como de la computadora.
+\end_layout
+
+\begin_layout Subsection
+Pines de entrada/salida
+\end_layout
+
+\begin_layout Standard
+Se tratan de conectores parecidos a un enchufe que interactúan con el exterior
+ y que pueden funcionar como 
+\emph on
+entrada 
+\emph default
+captando datos desde otro componente conectado a dichos pines, o también
+ pueden funcionar como 
+\emph on
+salida 
+\emph default
+dando la posibilidad de enviar datos a través de ellos, los datos pueden
+ ser de tipo analógico o de tipo digital.
+ Dentro del lenguaje de programación de arduino se encuentran instrucciones
+ para configurar los pines modificando su comportamiento ya sea de entrada
+ o salida, también existen instrucciones para leer desde los pines o escribir
+ hacia ellos.
+\end_layout
+
+\begin_layout Subsection
+Conector USB
+\end_layout
+
+\begin_layout Standard
+Todas las placas arduino contienen un puerto 
+\emph on
+serial
+\emph default
+ el cual se encarga de la comunicación con la computadora, en un puerto
+ serial los datos fluyen entre un puerto y otro en función del tiempo de
+ manera que los bits se transmiten de forma independiente uno detrás de
+ otro.
+ Arduino utiliza un puerto serial con el protocolo de comunicación conocido
+ como UART 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Universal Asynchronous Receiver-Transmitter
+\end_layout
+
+\end_inset
+
+.
+ Éste utiliza una línea (o un cable) para enviar información y otro diferente
+ para recibirla, sin embargo en sus siglas define la palabra 
+\emph on
+asíncrono
+\emph default
+, esto significa que UART no envía datos en función del tiempo sino que
+ los envía por bloques, para asegurarse de que no se pierda información
+ entre los bloques se utiliza un bit extra de información que se conoce
+ como 
+\emph on
+bit de paridad
+\emph default
+, este dato debe coincidir entre ambos puertos que se estén comunicando.
+\end_layout
+
+\begin_layout Standard
+El protocolo UART puede enviar varios bits al mismo tiempo pero depende
+ de que ambos puertos estén configurados para enviar y recibir información
+ a la misma velocidad, este parámetro se conoce como 
+\emph on
+baud rate.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/placa.jpg
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Placa arduino UNO conectada a una computadora
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+HC-SR04
+\end_layout
+
+\begin_layout Standard
+Es un sensor que basa su funcionamiento en la emisión de ondas sonoras para
+ detectar los objetos que tenga enfrente, contiene un par de transductores;
+ uno emisor y otro receptor, que son dispositivos capaces de transformar
+ las señales que reciben, un ejemplo cotidiano son las bocinas que utilizan
+ los reproductores de música ya que convierten las frecuencias escritas
+ en una canción no importa que esté almacenada en un formato físico o en
+ uno digital hacia sonido que las personas pueden escuchar, los megáfonos
+ tambien son un buen ejemplo, una persona puede hablar por estas cosas y
+ se le escuchará hasta varios metros de distancia; las ondas sonoras que
+ conformaban su voz fueron amplificadas por un transductor para hacerlas
+ sonar más fuerte.
+\end_layout
+
+\begin_layout Standard
+El sensor HC-SR04 emite a través de uno de sus transductores ondas de sonido
+ ultrasónicas, esto quiere decir que el oído humano no puede percibirlas
+ ya que tienen una frecuencia de 40 KHz, el oído humano sólo puede escuchar
+ frecuencias hasta los 20 KHz.
+ Su trabajo se realiza de la siguiente manera:
+\end_layout
+
+\begin_layout Enumerate
+El transductor emisor emite una onda sonora ultrasónica, se marca el tiempo
+ en que fue emitida.
+\end_layout
+
+\begin_layout Enumerate
+Un objeto se interpone el camino de esas ondas lo que provoca que la onda
+ sea devuelta (se refleja, rebota) hacia donde se originó.
+\end_layout
+
+\begin_layout Enumerate
+El transductor receptor percibe la onda sonora rebotada y se calcula el
+ tiempo que la onda sonora tardó desde ser emitida hasta ser captada de
+ vuelta a su origen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 5.5cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/sensor-ultrasonido-hc-sr04.jpg
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sensor HC-SR04
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El sensor HC-SR04 se comunica a través de 4 pines:
+\end_layout
+
+\begin_layout Itemize
+VCC - Es el que recibe la energía de alimentación (5 Volts) o pin positivo.
+\end_layout
+
+\begin_layout Itemize
+Trig - Entrada que recibe la señal para iniciar la emisión de ondas sonoras.
+\end_layout
+
+\begin_layout Itemize
+Echo - Pin que devuelve el tiempo que la onda sonora viajó, es decir el
+ resultado.
+\end_layout
+
+\begin_layout Itemize
+GND - Es el pin de tierra o negativo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 2.5cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/Ultrasonic-sensor-working.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Esquema del funcionamiento del HC-SR04
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+MATLAB
+\end_layout
+
+\begin_layout Standard
+Es una abreviación para MATrix LABoratory y es un software diseñado para
+ llevar a cabo el cálculo de operaciones matemáticas de forma sencilla y
+ utilizando un lenguaje de programación (llamado lenguaje M).
+ Además permite el procesamiento de datos mediante algoritmos ya que su
+ lenguaje es de tipo 
+\emph on
+script, 
+\emph default
+en este tipo de lenguajes cada línea de código que se escriba se interpreta
+ y se ejecuta antes de la siguiente línea, MATLAB se puede utilizar para
+ el análisis de datos, procesamiento de señales, visión artificial, robótica,
+ finanzas, sistemas de control.
+ Es multiplataforma y de licencia propietaria.
+\end_layout
+
+\begin_layout Standard
+El entorno de desarrollo de esta herramienta permite trabajar sobre una
+ consola que interpreta comandos, archivos de scripts; que son archivos
+ de texto donde cada línea de instrucciónes de ejecuta tras otra como si
+ se escribieran una por una en la consola.
+ Tambien existen archivos de funciones que a diferencia de los scripts pueden
+ recibir parámetros de entrada y devolver parámetros de salida.
+\begin_inset Formula 
+\begin{equation}
+f(x)=2x\label{eq:3}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ el parámetro de entrada es la 
+\begin_inset Formula $x$
+\end_inset
+
+ encerrada entre paréntesis, mientras que el parámetro de salida es el resultado
+ de operar 
+\begin_inset Formula $2*x$
+\end_inset
+
+, es así como también funcionan los archivos de funciones que reciben parámetros
+ de MATLAB.
+ Dentro del entorno tambien se encuentran herramientas para explorar archivos,
+ para ver el historial de comandos y se cuenta con un 
+\emph on
+workspace 
+\emph default
+que básicamente es un espacio donde se muestran los valores que se han asignado
+ a variables y los resultados de operaciones realizadas en la consola, en
+ el apéndice 
+\begin_inset Quotes fld
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Interfaz-de-MATLAB"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Quotes frd
+\end_inset
+
+ se puede apreciar la pantalla principal de MATLAB.
+\end_layout
+
+\begin_layout Standard
+Otra de sus cualidades es la creación de gráficas de manera sencilla y sus
+ múltiples opciones para darles formato, provee también un constructor de
+ interfaces gráficas el cual evita todo el trabajo de crearlas a partir
+ de líneas y líneas de código.
+ 
+\end_layout
+
+\begin_layout Subsection
+MATLAB Runtime
+\end_layout
+
+\begin_layout Standard
+Se trata de un conjunto de librerías esenciales que permiten para la ejecución
+ de aplicaciones MATLAB compiladas en computadoras que no cuentan con una
+ instalación completa de MATLAB.
+ Utilizando el compilador de aplicaciones todos los scripts o archivos utilizado
+s de un proyecto quedan en un solo lugar y son empaquetados generando una
+ versión ejecutable al instante y una versión instalable.
+ El compilador de aplicaciones se ha utilizado en Windows por lo que sus
+ resultados funcionan en este sistema operativo, no se sabe si existe el
+ compilador en las versiones de MATLAB para otros sistemas operativos.
+\end_layout
+
+\begin_layout Standard
+El Runtime puede se puede descargar de forma separada o se puede incluir
+ durante la compilación del proyecto, ésta segunda opción hará que al resultado
+ final se le sumen alrededor de 600 mb pero es útil si no se llega a contar
+ con una conexión a Internet.
+ De esta forma un proyecto se puede compartir, ejecutar e incluso instalar
+ en una computadora distinta a la que fue programado.
+\end_layout
+
+\begin_layout Section
+Git
+\end_layout
+
+\begin_layout Standard
+Es un software de libre distribución y de código abierto 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gitRepo"
+literal "false"
+
+\end_inset
+
+ cuyo uso permite controlar los cambios que vayan realizando en un proyecto
+ de software, fue desarrollado por Linus Torvalds.
+ El flujo de trabajo en Git se basa en el 
+\emph on
+seguimiento
+\emph default
+ de archivos, se utiliza bajo una línea de comandos, cada acción que el
+ usuario quiera realizar se debe escribir en un entorno previamente configurado.
+ Existen programas con interfaz gráfica que facilitan éstas acciones y en
+ lugar de escribir los comandos se pulsan botones o se arrastran archivos.
+\end_layout
+
+\begin_layout Standard
+Cuando Git tiene el seguimiento de un archivo puede detectar si ha sido
+ editado, cambiado de nombre o incluso eliminado, de esta forma el programador
+ sabe que archivos han sido modificados y le permiten confirmar una nueva
+ versión, Git puede recordar todas los cambios confirmados hechos en los
+ archivos que está siguiendo y puede restaurarlos a su estado original aunque
+ hayan pasado 100 versiones.
+ 
+\end_layout
+
+\begin_layout Standard
+Otra de las ventajas de Git es el desarrollo paralelo de software, por ejemplo
+ un programador puede trabajar en una función que lea un archivo de entrada,
+ mientras que otro trabaja en una función que le muestre en pantalla al
+ usuario una calculadora, una vez terminado el trabajo Git se puede encargar
+ de mezclar ambas funciones en una misma versión del proyecto, esto se conoce
+ como 
+\emph on
+ramas.
+\end_layout
+
+\begin_layout Subsection
+Github
+\end_layout
+
+\begin_layout Standard
+En Internet, Github 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "github"
+literal "false"
+
+\end_inset
+
+ es un sitio web donde se almacenan proyectos de software cuyo sistema de
+ control de versiones es Git.
+ El proceso consta de crear un perfil o cuenta personal en Github para lo
+ cual es necesario una dirección de correo electrónico, una vez dentro del
+ perfil personal se pueden crear 
+\emph on
+repositorios
+\emph default
+ dándoles un nombre que los identifique, por ejemplo puede ser el nombre
+ del proyecto.
+ Un repositorio en Github equivale a una carpeta en una computadora, los
+ archivos que Git esté siguiendo dentro de un directorio de trabajo local
+ pueden subirse a Github con el comando adecuado.
+ Con esto se gana una copia del software disponible a través de Internet
+ que se puede descargar desde cualquier parte, ya sea desde el navegador
+ web o desde la línea de comandos de Git.
+ El repositorio sólo puede recibir más versiones del software por parte
+ de la persona que lo creó, a menos que él otorgue permisos a otro usuario
+ dentro de la configuración del repositorio.
+\end_layout
+
+\begin_layout Standard
+Almacenar un repositorio en Github brinda ciertas posibilidades; una de
+ ellas se menciona con anterioridad, esa copia puede servir como respaldo
+ en el extremo caso de que los archivos originales se pierdan o se dañe
+ la computadora con la que se estaba trabajando.
+ Otra posibilidad es el alcance que se gana, al estar accesible a todo público
+ un repositorio puede obtener colaboraciones de otros desarrolladores de
+ software, un repositorio en Github puede crecer de las siguientes maneras:
+\end_layout
+
+\begin_layout Enumerate
+Programadores que trabajen en equipo y suban versiones del software al mismo
+ repositorio, se conocen como 
+\emph on
+colaboradores.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Fork
+\emph default
+, es un clon del repositorio que otro usuario de Github realiza pero hacia
+ su perfil personal, de este modo puede hacer cambios en el proyecto sin
+ alterar el original.
+\end_layout
+
+\begin_layout Enumerate
+Los usuarios que hacen 
+\emph on
+fork
+\emph default
+ de un proyecto tienen la posibilidad de preguntar si sus cambios hechos
+ pueden ser mezclados con el repositorio original, esto se conoce como 
+\emph on
+pull request 
+\emph default
+y sólo el autor original del repositorio puede autorizarlo.
+\end_layout
+
+\begin_layout Chapter
+Prototipo de un software para graficar señales analógicas
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+Prototipo del software
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Prototipo-de-un"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Programación de arduino
+\end_layout
+
+\begin_layout Initial
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+lines=3
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+U
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset space \space{}
+\end_inset
+
+tilizando el IDE de arduino se escribó un programa que leyera el valor que
+ llegaba a uno de sus pines analógicos y transmitiera el resultado a través
+ del puerto serial, la finalidad de este ejercicio fue abrir las puertas
+ del módulo de adquisición de datos.
+ Captar la señal de la corriente que genera uno de los pines de salida del
+ arduino hubiera sido suficiente, ésta señal se dibujaría en pantalla como
+ una línea continua con un mismo valor todo el tiempo (5 volts), sin embargo
+ las curvas no tienen esa característica sino que van cambiando, así que
+ se utilizó un potenciómetro el cual es un dispositivo electrónico capaz
+ de regular la salida de la corriente que se le ingresa dándole una mayor
+ amplitud o una menor, con esto fue posible observar los cambios que se
+ le aplicaban a una corriente y simular los cambios que va teniendo una
+ curva en un RGP.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout LyX-Code
+void setup(){
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Serial.begin(9600); 
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+}
+\end_layout
+
+\begin_layout LyX-Code
+void loop(){
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+//analogRead recibe el número de pin a leer del arduino
+\end_layout
+
+\begin_layout LyX-Code
+Serial.println(analogRead(0));   
+\end_layout
+
+\begin_layout LyX-Code
+delay(100); 
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+}
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Primer programa de arduino, lee una entrada analógica y la transmite por
+ serial.
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+Primer programa de arduino
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 3.5cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/recortes/2018-10-25-142341_271x273_scrot.png
+	scale 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Potenciómetro conectado, guía encontrada en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "geeky"
+literal "false"
+
+\end_inset
+
+.
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Potenciómetro conectado
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Programación de MATLAB
+\end_layout
+
+\begin_layout Standard
+Ésta herramienta cuenta con las funciones necesarias para recibir datos
+ desde un puerto serial, es necesario crear una conexión hacia el puerto
+ y al terminar el trabajo cerrar la misma, esto es posible con tres sencillas
+ instrucciones mostradas en el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Funciones-de-MATLAB"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ La primera función es una estructura de datos que guarda los parámetros
+ de una conexión serial, el parámetro que recibe la función 
+\series bold
+serial 
+\series default
+le indica a MATLAB el puerto serial a utilizar, dentro de Windows los puertos
+ seriales se identifican con los nombres 
+\emph on
+COMx 
+\emph default
+donde 
+\emph on
+x
+\emph default
+ es un número identificador.
+\end_layout
+
+\begin_layout Standard
+La función leer desde el puerto serial contiene dos argumentos, el primero
+ es la conexión serial y el segundo es para darle un formato a los datos
+ leídos, en este caso se utilizó el formato de punto flotante que permite
+ almacenar números con punto decimal.
+ La convención utilizada para dar formato a los datos viene del lenguaje
+ de programación C
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+véase el cuadro en el apéndice 
+\begin_inset Quotes fld
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Formato-de-datos"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Quotes frd
+\end_inset
+
+ para la lista completa de formatos admitidos por C.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Una vez leído el valor del puerto serial se procedió a mostrarlo en una
+ gráfica, efectivamente la acción de mover el potenciómetro se veía reflejada
+ en el dibujo de la gráfica.
+ La figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Prototipo-del-software"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ representa una serie de 100 muestras tomadas mientras el potenciómetro
+ estuvo en un movimiento constante.
+\end_layout
+
+\begin_layout LyX-Code
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout LyX-Code
+placa = serial(port); %variable que guarda la conexión serial
+\end_layout
+
+\begin_layout LyX-Code
+fopen(placa);         %abre la conexión
+\end_layout
+
+\begin_layout LyX-Code
+fscanf(placa, '%f');  %lee desde el puerto serial
+\end_layout
+
+\begin_layout LyX-Code
+fclose(placa);        %cierra la conexión serial
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Funciones de MATLAB para manejar el puerto serial.
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Funciones-de-MATLAB"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+Funciones de MATLAB para serial.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/plots/2018-10-25-205246_980x366_scrot.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Gráfica producida por el prototipo de software
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Prototipo-del-software"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Análisis de la sonda del CIIDIR
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+Analizando la sonda
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Búsqueda de la señal
+\end_layout
+
+\begin_layout Initial
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+lines=3
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+C
+\end_layout
+
+\end_inset
+
+ on el objetivo de obtener las señales que la sonda produce se le hizo un
+ análisis que consistió en abrirla y observar sus componentes electrónicos,
+ el primer acercamiento fue captar la corriente que llegaba a los potenciómetros
+ que la sonda utiliza para normalizar la señal.
+ Cada curva se controla con un par de potenciómetros que regula el dibujo
+ de la curva, uno de ellos controla el valor mínimo que se puede registrar
+ sin salirse de la zona de dibujo y se llama 
+\emph on
+zero
+\emph default
+, mientras que el potenciómetro de 
+\emph on
+span
+\emph default
+ controla el valor máximo o amplitud que la curva puede llegar a alcanzar.
+ Una manera de ejemplificar el span es observando la gráfica de una señal
+ que tenga variaciones muy pequeñas.
+ La figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:span1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ muestra una señal con valores menores a 10 que están en función de 100
+ puntos, dado el límite del eje de las ordenadas que la gráfica posee el
+ cual va de 0 a 100 no se puede apreciar con claridad el valor exacto de
+ cada uno.
+ Mientras tanto en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:span2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ los límites de graficación están del 0 al 10, esto permite observar que
+ los puntos se encuentran entre 3 y 6 proporcionando una mejor perspectiva
+ de los datos, esto es lo que se conoce como span, vulgarmente de puede
+ decir que es como aplicar un zoom en la gráfica.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/sonda/2018-10-24-204503_691x195_scrot.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Potenciómetros de la sonda (vista frontal)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/sonda/2018-10-25-113756_907x173_scrot.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Potenciómetros de la sonda (vista trasera)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 2.7cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/plots/2018-10-25-205801_514x392_scrot.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Ejemplo 1 de span
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:span1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 2.7cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/plots/2018-10-25-205749_494x390_scrot.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Ejemplo 2 de span
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:span2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con ayuda de conectores tipo caimán (figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Puente-utilizando-caimanes"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+)s se hizo un puente entre los pines de un potenciómetro que permitiera
+ conducir la corriente que llegaba a ellos y enviarla al arduino, tal como
+ se esperaba el software mostraba variaciones en el dibujo de las gráficas
+ cuando una persona movia el potenciómetro justo como en el primer ejercicio
+ del capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Prototipo-de-un"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, sin embargo estas mediciones no correspondían a la curva real, ya que
+ las personas que llevan a cabo el RGP y trabajan con la sonda notificaron
+ que el dibujo de la gráfica lo realiza un dispositivo llamado 
+\emph on
+pluma
+\emph default
+, se muestra su fotografía en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Pluma-de-la"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ En esta pequeña especie de pinza roja se monta un plumón el cual va dibujando
+ en el papel tal como la pluma se vaya moviendo, por lo tanto medir la corriente
+ que llega a los potenciómetros no fue satisfactorio, así que se tomó el
+ camino de analizar el movimiento de la pluma.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 2cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/recortes/2018-10-25-212204_689x540_scrot.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Puente de potenciómetro hacia arduino utilizando caimanes
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+Puente utilizando caimanes
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Puente-utilizando-caimanes"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 3.5cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/recortes/2018-10-25-215948_522x490_scrot.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Pluma de la sonda
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Pluma-de-la"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Análisis del movimiento de la pluma
+\end_layout
+
+\begin_layout Standard
+Al explorar la sonda más a fondo se descubrió que el movimiento de las plumas
+ está ligado a los siguientes pasos:
+\end_layout
+
+\begin_layout Chapter
+\start_of_appendix
+Prueba de correo electrónico
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Prueba-de-correo"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename img/emailCentury.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Ethernet
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Ethernet"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename img/ethernet_42.jpg
+	lyxscale 10
+	scale 15
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Interfaz de MATLAB
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Interfaz-de-MATLAB"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Formato de datos en C
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Formato-de-datos"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="13" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%c
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+un char (caracter)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%d
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+un entero con signo en notación de base decimal
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%i
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+un entero con signo
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%e
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+reales en notación científica indicando el exponente con "e"
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%E
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+reales en notación científica indicando el exponente con "E" 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%f
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+formato de punto flotante 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%o
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+un entero sin signo en notación de base octal 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%s
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+una cadena de caracteres 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%u
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+un entero sin signo
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%x
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+entero sin signo en notación de base hexadecimal, minúsculas
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%X
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+un entero sin signo en notación de base hexadecimal, mayúsculas 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%p
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+un puntero
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+%n
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+un puntero a un entero
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "geotem"
+literal "false"
+
+\end_inset
+
+ Registro Geofísico de Pozos - http://www.geotem.com.mx/registro.php
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "century"
+literal "false"
+
+\end_inset
+
+ Equipo RGP de Century Geophisycal - https://www.century-geo.com/drawworks-300m
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "pdf"
+literal "false"
+
+\end_inset
+
+ PDF - https://es.wikipedia.org/wiki/PDF 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "MIT"
+literal "false"
+
+\end_inset
+
+ Licencia del MIT (Massachusetts Institute of Technology) - https://choosealicen
+se.com/licenses/mit/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "SP"
+literal "false"
+
+\end_inset
+
+ Ingeniería de petróleo - http://www.ingenieriadepetroleo.com/registro-sp/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "R"
+literal "false"
+
+\end_inset
+
+ Ingeniería de petróleo 2 - http://www.ingenieriadepetroleo.com/registros-de-resis
+tividad/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "empresa"
+literal "false"
+
+\end_inset
+
+ Exploración Geofísica y Estudios del Subsuelo del Centro S.A.
+ de C.V.
+ - https://www.egyes.mx/nosotros/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "empresa1"
+literal "false"
+
+\end_inset
+
+ Geoelec - http://www.geoelec.com.mx/nosotros.html
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "formatosC"
+literal "false"
+
+\end_inset
+
+ cppReference - https://es.cppreference.com/w/cpp/io/c/printf_format
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "empresa2"
+literal "false"
+
+\end_inset
+
+ Geotem - http://www.geotem.com.mx/nosotros.php
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "empresa3"
+literal "false"
+
+\end_inset
+
+ Exploración, Perforación y Estudios del Subsuelo, S.A.
+ de C.V.
+ - http://epyesa.com/quienes-somos/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "arduinoIDE"
+literal "false"
+
+\end_inset
+
+ Arduino IDE - https://www.arduino.cc/en/Main/Software
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "arduinoLenguaje"
+literal "false"
+
+\end_inset
+
+ Arduino Lenguaje - https://www.arduino.cc/reference/en/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "gitRepo"
+literal "false"
+
+\end_inset
+
+ Repositorio de Git - https://github.com/git/git
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "github"
+literal "false"
+
+\end_inset
+
+ Github - https://github.com/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "geeky"
+literal "false"
+
+\end_inset
+
+ GeekyTheory - https://geekytheory.com/matlab-arduino-serial-port-communication/
+\end_layout
+
+\end_body
+\end_document
