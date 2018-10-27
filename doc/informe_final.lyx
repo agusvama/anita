@@ -169,6 +169,19 @@ Aquí escribir cosas bonitas sobre la gente que te ayudó en este trabajo
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Mencionar a Valdemar y Horacio
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
 
@@ -718,16 +731,16 @@ noprefix "false"
 
 \end_inset
 
- se puede apreciar un extremo gris, esta parte va por delante y es la primera
- que va descendiendo por el pozo, está sujeta por un malacate que en la
- foto se muestra enrollado en un carrete.
+ se puede apreciar un extremo en forma de tubo gris, esta parte va por delante
+ y es la primera que va descendiendo por el pozo, está sujeta por un malacate
+ que en la foto se muestra enrollado en un carrete.
  Este equipo viene provisto de software para el registro, procesado e impresión
  de las curvas en una computadora, se conecta vía Ethernet
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-Tecnología estándar de comunicación cableada en redes de computadoras, explicada
+Tecnología estándar de comunicación cableada en redes de computadoras, detalle
  en el apéndice 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -760,7 +773,7 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset space \hspace{}
@@ -1871,7 +1884,7 @@ Si una persona parpadea una vez por segundo, se tendrá una frecuencia de
 \end_inset
 
  segundo.
- Si la persona en cambio parpade dos veces por segundo, entonces se tendrá
+ Si la persona en cambio parpadea dos veces por segundo, entonces se tendrá
  una frecuencia de 2 Hz, (dos ciclos) completados en 
 \begin_inset Formula $T=0.5$
 \end_inset
@@ -2117,6 +2130,13 @@ Placa arduino UNO conectada a una computadora
 
 \begin_layout Section
 HC-SR04
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:HC-SR04"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2153,8 +2173,14 @@ Un objeto se interpone el camino de esas ondas lo que provoca que la onda
 
 \begin_layout Enumerate
 El transductor receptor percibe la onda sonora rebotada y se calcula el
- tiempo que la onda sonora tardó desde ser emitida hasta ser captada de
- vuelta a su origen.
+ 
+\emph on
+tiempo
+\emph default
+ que la onda sonora tardó desde ser emitida hasta ser captada de vuelta
+ a su origen.
+ Este tiempo es el resultado devuelto por el sensor.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -2203,21 +2229,131 @@ Sensor HC-SR04
 El sensor HC-SR04 se comunica a través de 4 pines:
 \end_layout
 
-\begin_layout Itemize
-VCC - Es el que recibe la energía de alimentación (5 Volts) o pin positivo.
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+VCC
 \end_layout
 
-\begin_layout Itemize
-Trig - Entrada que recibe la señal para iniciar la emisión de ondas sonoras.
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Es el que recibe la energía de alimentación (5 Volts) o pin positivo.
 \end_layout
 
-\begin_layout Itemize
-Echo - Pin que devuelve el tiempo que la onda sonora viajó, es decir el
- resultado.
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Trig
 \end_layout
 
-\begin_layout Itemize
-GND - Es el pin de tierra o negativo.
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Entrada que recibe la señal para iniciar la emisión de ondas sonoras.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Echo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pin que devuelve el tiempo que la onda sonora viajó, es decir el resultado.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+GND
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Es el pin de tierra o negativo.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Funciones de los pines del sensor HC-SR04
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:pinesHC"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2576,12 +2712,10 @@ status open
 void setup(){
 \end_layout
 
-\begin_deeper
 \begin_layout LyX-Code
-Serial.begin(9600); 
+    Serial.begin(9600); 
 \end_layout
 
-\end_deeper
 \begin_layout LyX-Code
 }
 \end_layout
@@ -2590,20 +2724,14 @@ Serial.begin(9600);
 void loop(){
 \end_layout
 
-\begin_deeper
 \begin_layout LyX-Code
-//analogRead recibe el número de pin a leer del arduino
+    Serial.println(analogRead(0)); //número de pin a leer del arduino
 \end_layout
 
 \begin_layout LyX-Code
-Serial.println(analogRead(0));   
+    delay(100); 
 \end_layout
 
-\begin_layout LyX-Code
-delay(100); 
-\end_layout
-
-\end_deeper
 \begin_layout LyX-Code
 }
 \end_layout
@@ -2719,28 +2847,47 @@ noprefix "false"
 \end_inset
 
 .
- La primera función es una estructura de datos que guarda los parámetros
- de una conexión serial, el parámetro que recibe la función 
+ La primera función es un objeto que guarda los parámetros de una conexión
+ serial, el parámetro que recibe
 \series bold
-serial 
+ 
 \series default
-le indica a MATLAB el puerto serial a utilizar, dentro de Windows los puertos
- seriales se identifican con los nombres 
-\emph on
-COMx 
-\emph default
-donde 
-\emph on
-x
-\emph default
- es un número identificador.
+le indica a MATLAB el puerto serial a utilizar.
 \end_layout
 
 \begin_layout Standard
-La función leer desde el puerto serial contiene dos argumentos, el primero
- es la conexión serial y el segundo es para darle un formato a los datos
- leídos, en este caso se utilizó el formato de punto flotante que permite
- almacenar números con punto decimal.
+El nombre del puerto serial depende del sistema operativo, en Windows el
+ puerto por default es 
+\emph on
+COM3
+\emph default
+, pero si ya hubiera un dispositivo utilizando ese puerto el número aumentará
+ siendo ahora 
+\emph on
+COM4,
+\emph default
+ la estructura del objeto se muestra en el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Estructura-de-un"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Por su parte la función 
+\series bold
+fscanf
+\series default
+ recibe dos argumentos, el primero es el objeto que guarda los parámetros
+ de la conexión y el segundo es para darle un formato a los datos leídos,
+ en este caso se utilizó el formato de punto flotante que permite almacenar
+ números con punto decimal.
  La convención utilizada para dar formato a los datos viene del lenguaje
  de programación C
 \begin_inset Foot
@@ -2775,8 +2922,8 @@ noprefix "false"
 
 \begin_layout Standard
 Una vez leído el valor del puerto serial se procedió a mostrarlo en una
- gráfica, efectivamente la acción de mover el potenciómetro se veía reflejada
- en el dibujo de la gráfica.
+ gráfica, el movimiento del potenciómetro se veía reflejado en el dibujo
+ de la gráfica.
  La figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2787,8 +2934,7 @@ noprefix "false"
 
 \end_inset
 
- representa una serie de 100 muestras tomadas mientras el potenciómetro
- estuvo en un movimiento constante.
+ representa una serie de 100 muestras.
 \end_layout
 
 \begin_layout LyX-Code
@@ -2798,7 +2944,7 @@ sideways false
 status open
 
 \begin_layout LyX-Code
-placa = serial(port); %variable que guarda la conexión serial
+placa = serial('COM3'); %variable que guarda la conexión serial
 \end_layout
 
 \begin_layout LyX-Code
@@ -2839,6 +2985,98 @@ Funciones de MATLAB para serial.
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout LyX-Code
+Serial Port Object : Serial-COM3
+\end_layout
+
+\begin_layout LyX-Code
+Communication Settings
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Port: COM3 
+\end_layout
+
+\begin_layout LyX-Code
+BaudRate: 9600 
+\end_layout
+
+\begin_layout LyX-Code
+Terminator: 'CR'
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+Communication State 
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Status: closed 
+\end_layout
+
+\begin_layout LyX-Code
+RecordStatus: off
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+Read/Write State 
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+TransferStatus: idle 
+\end_layout
+
+\begin_layout LyX-Code
+BytesAvailable: 0 
+\end_layout
+
+\begin_layout LyX-Code
+ValuesReceived: 0 
+\end_layout
+
+\begin_layout LyX-Code
+ValuesSent: 0
+\end_layout
+
+\end_deeper
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Estructura de un objeto serial de MATLAB
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Estructura-de-un"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -3151,11 +3389,11 @@ noprefix "false"
 
 \end_inset
 
-)s se hizo un puente entre los pines de un potenciómetro que permitiera
- conducir la corriente que llegaba a ellos y enviarla al arduino, tal como
- se esperaba el software mostraba variaciones en el dibujo de las gráficas
- cuando una persona movia el potenciómetro justo como en el primer ejercicio
- del capítulo 
+) se hizo un puente entre los pines de un potenciómetro que permitiera conducir
+ la corriente que llegaba a ellos y enviarla al arduino, tal como se esperaba
+ el software mostraba variaciones en el dibujo de las gráficas cuando una
+ persona movia el potenciómetro justo como en el primer ejercicio del capítulo
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:Prototipo-de-un"
@@ -3183,7 +3421,7 @@ noprefix "false"
 
 .
  En esta pequeña especie de pinza roja se monta un plumón el cual va dibujando
- en el papel tal como la pluma se vaya moviendo, por lo tanto medir la corriente
+ en el papel tal como la pinza se vaya moviendo, por lo tanto medir la corriente
  que llega a los potenciómetros no fue satisfactorio, así que se tomó el
  camino de analizar el movimiento de la pluma.
 \end_layout
@@ -3202,7 +3440,7 @@ status open
 
 \begin_inset Graphics
 	filename img/recortes/2018-10-25-212204_689x540_scrot.png
-	scale 50
+	scale 48
 
 \end_inset
 
@@ -3255,13 +3493,13 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset space \hspace{}
-\length 3.5cm
+\length 2.2cm
 \end_inset
 
 
 \begin_inset Graphics
 	filename img/recortes/2018-10-25-215948_522x490_scrot.png
-	scale 50
+	scale 62
 
 \end_inset
 
@@ -3303,6 +3541,864 @@ Análisis del movimiento de la pluma
 \begin_layout Standard
 Al explorar la sonda más a fondo se descubrió que el movimiento de las plumas
  está ligado a los siguientes pasos:
+\end_layout
+
+\begin_layout Enumerate
+Una corriente eléctrica llega a un motor ubicado en la parte trasera de
+ la sonda.
+\end_layout
+
+\begin_layout Enumerate
+El motor hace girar unos discos de metal, ya sea a la izquierda o a la derecha.
+\end_layout
+
+\begin_layout Enumerate
+Los discos están envueltos con un alambre muy fino de manera que cuando
+ giran hacen que el alambre también se mueva.
+\end_layout
+
+\begin_layout Enumerate
+Sobre el alambre existe una estructura en la cual se montan las plumas y
+ por lo tanto el movimiento se encadena del motor a los discos, de los discos
+ al alambre y de éste último a las plumas.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/recortes/2018-10-26-120837_587x270_scrot.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Discos, alambre fino y la pluma montada sobre ellos.
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+Discos, alambre fino y pluma
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Conclusión
+\end_layout
+
+\begin_layout Standard
+Después de analizar la situación con ayuda de los operadores de la sonda
+ cuyos nombres son Valdemar y Horacio se decidió utilizar sensores que fueran
+ capaces de captar el movimiento de las plumas, ya que buscar la señal dentro
+ de la estructura electrónica de la sonda sería un camino mucho más largo
+ y complejo.
+\end_layout
+
+\begin_layout Chapter
+Sensores de movimiento
+\end_layout
+
+\begin_layout Initial
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+lines=3
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+S
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+e pensó en una forma de capturar el movimiento de las plumas tal que si
+ se movían a la izquierda el software dibujaría una desviación hacia la
+ izquierda, lo mismo si la pluma se moviera hacia la derecha.
+ La idea era montar sensores en alguna parte de la sonda para que se pudiera
+ registrar ese movimiento, la placa arduino puede trabajar con sensores
+ que detecten la proximidad así que sólo había que encontrar el sensor adecuado.
+\end_layout
+
+\begin_layout Section
+CNY70
+\end_layout
+
+\begin_layout Standard
+La reflexión de la luz es un fenómeno que tiene distintos comportamientos
+ de acuerdo a la superficie donde ocurra, un metal pulido sobre el que se
+ incide luz provocará una reflexión diferente que si se incide luz sobre
+ un metal oxidado, es por eso que existen algunos proyectos 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "decColores"
+literal "false"
+
+\end_inset
+
+ que utilizan este sensor para detectar colores, sin embargo se encontró
+ un ejemplo para medir distancias 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "decDistancias"
+literal "false"
+
+\end_inset
+
+.
+ Era necesario trabajar detectando la distancia ya que la idea principal
+ consistió en colocar los sensores de tal manera que registraran la distancia
+ desde la pluma hasta algún objeto fijo de la sonda, así se iría registrando
+ el movimiento de las plumas el cual quedaría plasmado en el dibujo de las
+ gráficas.
+ Las características del sensor CNY70 son las siguientes:
+\end_layout
+
+\begin_layout Itemize
+Led infrarrojo, responsable de la emisión de luz.
+\end_layout
+
+\begin_layout Itemize
+Foto-transistor, responsable de captar la luz reflejada.
+\end_layout
+
+\begin_layout Itemize
+4 pines, numerados de la siguiente manera:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+1: Alimentación del led
+\end_layout
+
+\begin_layout Itemize
+2: Tierra de led
+\end_layout
+
+\begin_layout Itemize
+3: Alimentación del transistor (en su parte Colector)
+\end_layout
+
+\begin_layout Itemize
+4: Salida
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 4cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/recortes/2018-10-26-141155_500x227_scrot.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sensor CNY70
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Funciona emitiendo un haz de luz infrarroja que el transistor percibe cuando
+ mVes reflejado por alguna superficie, de este modo devuelve un valor a
+ través del pin 4 en la escala de milivolts (mV).
+ En superficies que reflejan mucha luz el valor devuelto será alto (llegando
+ a los 100 mV), mientras que para una superficie negra devolverá cerca de
+ 50 mV.
+ Así que se realizó la conexión de ambos sensores utilizando una protoboard
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Es una placa plástica que permite la comunicación de circuitos electrónicos
+ sin utilizar soldadura
+\end_layout
+
+\end_inset
+
+, se modificó el programa en arduino para que leyera dos entradas desde
+ sus pines analógicos y las transmitiera por el puerto serial.
+ Se utilizó también una parte del papel de la sonda para tener una referencia
+ en cuanto a las distancias medidas, la primera prueba se llevó a cabo colocando
+ superficies cubiertas con cinta de aislar negra simulando los extremos
+ de la sonda donde va puesto el rollo de papel.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 2cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/recortes/2018-10-26-145541_636x493_scrot.png
+	scale 55
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Prueba en laboratorio de los sensores CNY70
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Prueba-en-laboratorio"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las tiras que se observan en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Prueba-en-laboratorio"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ son un acercamiento a las plumas, se requería de una forma de imitar el
+ movimiento de las plumas así que los sensores se montaron sobre de dichas
+ tiras.
+\end_layout
+
+\begin_layout Standard
+Los resultados fueron buenos, las gráficas en pantalla dibujaban el movimiento
+ de las tiras, así que se llevó el prototipo del módulo de adquisición de
+ datos a la sonda para instalarlo y realizarle pruebas con movimiento real.
+ Utilizando cinchos de plástico se sujetaron los sensores a cada una de
+ las plumas y se pegó cinta de aislar negra en la cavidad que soporta al
+ rollo de papel, de este modo los sensores captarían la distancia desde
+ la pluma hacia el extremo de la cavidad.
+\end_layout
+
+\begin_layout Standard
+Sin embargo se notaron varios inconvenientes:
+\end_layout
+
+\begin_layout Enumerate
+Al estar en constante movimiento los cables que conectan a los sensores
+ serían un problema, una mejor opción seria dejar los sensores quietos.
+\end_layout
+
+\begin_layout Enumerate
+Las variaciones de luz ambiental afectaban las lecturas que realizaban los
+ sensores.
+ La incidencia indirecta de otra fuente de luz provocaba que los sensores
+ devolvieran datos fuera del rango establecido.
+ (más allá de los 100 mV).
+\end_layout
+
+\begin_layout Standard
+Por lo tanto no fueron adecuados para realizar el trabajo ya que los trabajos
+ de RGP se llevan a cabo en el exterior donde la luz ambiental suele variar
+ mucho, así que se probó otro tipo de sensor.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/sonda/photo_2018-10-25_14-01-54.jpg
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Prueba en la sonda de los sensores CNY70
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Prueba-en-la"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+HC-SR04
+\end_layout
+
+\begin_layout Standard
+El funcionamiento y la teoría de este sensor quedaron descritos en la sección
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:HC-SR04"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ del capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Marco-teórico"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, se trabajó con un par al igual que en el experimento anterior y se modificó
+ el código arduino para interpretar los resultados devueltos por el sensor.
+ Se encontró que devuelve un tiempo en microsegundos
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Prefijo cuyo símbolo es 
+\begin_inset Formula $\mu$
+\end_inset
+
+, un microsegundo son 1x10
+\begin_inset Formula $^{-6}$
+\end_inset
+
+segundos, es la millonésima parte de un segundo.
+\end_layout
+
+\end_inset
+
+, existe una ecuación que relaciona la distancia y el tiempo; es la de la
+ 
+\emph on
+velocidad:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+v=\frac{d}{t}\label{eq:velocidad}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dado que el sensor utiliza ondas ultrasónicas es posible conocer su velocidad,
+ la cual equivale a la velocidad del sonido y es 
+\begin_inset Formula $343\thinspace\frac{m}{s}$
+\end_inset
+
+, no hay que confundir ultrasónico con la velocidad del sonido, si bien
+ están por encima de la frecuencia que los humanos pueden escuchar siguen
+ siendo ondas sonoras y su velocidad de propagación por el aire es igual
+ a la de las ondas sonoras que el oído humano puede escuchar.
+ Sabiendo esto; sólo queda una variable a conocer en la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:velocidad"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ y es la distancia, así que se realiza un despeje quedando:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+d=v*t\label{eq:distancia}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como primer paso se realizó la conversión de la velocidad del sonido hacia
+ su equivalente en 
+\begin_inset Formula $cm/\mu s$
+\end_inset
+
+, con una regla de tres se resolvió este problema:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{(343\thinspace m\thinspace(1\mu s))}{1s}=343\thinspace\mathrm{x}10^{-3}m
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ésta es la 
+\emph on
+distancia
+\emph default
+ en metros que el sonido recorre en 1
+\begin_inset Formula $\mu s$
+\end_inset
+
+, después se transformó esa longitud a centímetros, quedando:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{343\thinspace\mathrm{x}10^{-3}m\thinspace(100\thinspace cm)}{1\thinspace m}=0.0343\thinspace cm\label{eq:final}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con este resultado final se supo que la velocidad del sonido equivale a
+ 
+\begin_inset Formula $0.0343\thinspace\nicefrac{cm}{\mu s}$
+\end_inset
+
+ así que se procedió a utilizarla dentro del programa de arduino.
+\end_layout
+
+\begin_layout Subsection
+Reprogramación de arduino
+\end_layout
+
+\begin_layout Standard
+Lo primero fue definir algunas variables que indicaran el número de pin
+ arduino a utilizar, se requieren dos para cada sensor, uno para el trigger
+ y otro para el echo.
+ Esto se hizo porque es más sencillo recordar nombres que números.
+\end_layout
+
+\begin_layout LyX-Code
+int echo = 2;
+\end_layout
+
+\begin_layout LyX-Code
+int trigger = 3;
+\end_layout
+
+\begin_layout LyX-Code
+int echo2 = 6;
+\end_layout
+
+\begin_layout LyX-Code
+int trigger2 = 7;
+\end_layout
+
+\begin_layout Standard
+Después se declara una variable que guarde el resultado de la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:final"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ y otras dos que guarden los resultados finales, cada una va almacenar el
+ resultado de un sensor.
+\end_layout
+
+\begin_layout LyX-Code
+double velocidadSonido = 0.0343;
+\end_layout
+
+\begin_layout LyX-Code
+double v = 0.0; 
+\end_layout
+
+\begin_layout LyX-Code
+double r = 0.0;
+\end_layout
+
+\begin_layout Standard
+Luego dentro del apartado de 
+\emph on
+setup
+\emph default
+ se escribió lo siguiente, en el cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:pinesHC"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ se mencionó que el pin de 
+\emph on
+trigger
+\emph default
+ emite las ondas así que se configura como salida mientras que el pin de
+ 
+\emph on
+echo
+\emph default
+ recibe los resultados, por lo tanto se configura como entrada.
+\end_layout
+
+\begin_layout LyX-Code
+void setup() {
+\end_layout
+
+\begin_layout LyX-Code
+    Serial.begin(9600); //indica la velocidad de baudios
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Velocidad con la que se transmiten los datos, debe coincidir con el objeto
+ serial en MATLAB: [
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Estructura-de-un"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+]
+\end_layout
+
+\end_inset
+
+ a utilizar
+\end_layout
+
+\begin_layout LyX-Code
+    pinMode(echo, INPUT);
+\end_layout
+
+\begin_layout LyX-Code
+    pinMode(trigger, OUTPUT);
+\end_layout
+
+\begin_layout LyX-Code
+    pinMode(echo2, INPUT);
+\end_layout
+
+\begin_layout LyX-Code
+    pinMode(trigger2, OUTPUT);
+\end_layout
+
+\begin_layout LyX-Code
+}
+\end_layout
+
+\begin_layout Algorithm
+
+\end_layout
+
+\begin_layout Algorithm
+
+\end_layout
+
+\begin_layout Standard
+Por último y lo más importante, se declararon las instrucciones necesarias
+ para el procesamiento de datos, primero la emisión de ondas con la función
+ 
+\emph on
+digitalWrite
+\emph default
+.
+ Luego con la función 
+\emph on
+pulseIn
+\emph default
+ se obtiene el tiempo que las ondas sonoras tardaron en ir y venir.
+ Esto quiere decir que devuelve el tiempo total que la onda estuvo viajando,
+ si se calculara la distancia con este resultado se obtendría una distancia
+ equivalente al doble de la que realmente separa al sensor del objeto.
+ Pero la solución es simple y basta con dividir entre dos la distancia calculada.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout LyX-Code
+void loop() {
+\end_layout
+
+\begin_layout LyX-Code
+    digitalWrite(trigger, HIGH);
+\end_layout
+
+\begin_layout LyX-Code
+    delayMicroseconds(10);
+\end_layout
+
+\begin_layout LyX-Code
+    digitalWrite(trigger, LOW);
+\end_layout
+
+\begin_layout LyX-Code
+    v = velocidadSonido * pulseIn(echo, HIGH) / 2;
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+    digitalWrite(trigger2, HIGH);
+\end_layout
+
+\begin_layout LyX-Code
+    delayMicroseconds(10);
+\end_layout
+
+\begin_layout LyX-Code
+    digitalWrite(trigger2, LOW);
+\end_layout
+
+\begin_layout LyX-Code
+    r = velocidadSonido * pulseIn(echo2, HIGH) / 2;
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+    Serial.print(v);
+\end_layout
+
+\begin_layout LyX-Code
+    Serial.print(" ");
+\end_layout
+
+\begin_layout LyX-Code
+    Serial.println(r);
+\end_layout
+
+\begin_layout LyX-Code
+    delay(1000);
+\end_layout
+
+\begin_layout LyX-Code
+}
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Procesamiento de los datos en arduino
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Procesamiento-de-los"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El cálculo de 
+\emph on
+v 
+\emph default
+y de 
+\emph on
+r
+\emph default
+ está dado por la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:distancia"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ la cual multiplica la velocidad del sonido por el tiempo que estuvo viajando
+ y finalmente se aplica una división entre 2 para compensar el problema
+ que se mencionó en la página anterior de la distancia doble.
+\end_layout
+
+\begin_layout Standard
+Finalmente se transmiten ambas distancias calculadas, 
+\emph on
+v 
+\emph default
+y 
+\emph on
+r
+\emph default
+ por medio del puerto serial con la instrucción 
+\emph on
+Serial.print
+\emph default
+.
+ La penúltima línea del algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Procesamiento-de-los"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ es para pausar la ejecución del programa durante 1000 milisegundos, esto
+ equivale a 1 segundo y quiere decir que cada distancia obtenida por los
+ sensores se calcula cada segundo.
+\end_layout
+
+\begin_layout Subsection
+Reprogramación de MATLAB
+\end_layout
+
+\begin_layout LyX-Code
+
 \end_layout
 
 \begin_layout Chapter
@@ -3824,6 +4920,28 @@ literal "false"
 \end_inset
 
  GeekyTheory - https://geekytheory.com/matlab-arduino-serial-port-communication/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "decColores"
+literal "false"
+
+\end_inset
+
+ Detección de colores - https://www.youtube.com/watch?v=DKhTtNc3eoQ&t=11s
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "decDistancias"
+literal "false"
+
+\end_inset
+
+ Detección de distancias - https://www.youtube.com/watch?v=NseZfzIwO_s
 \end_layout
 
 \end_body
