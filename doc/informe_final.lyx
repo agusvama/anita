@@ -937,6 +937,11 @@ Registro de Resistividad de Fluido
 \end_layout
 
 \begin_layout Standard
+Las curvas se dibujan en forma vertical de arriba hacia abajo y en función
+ de la profundidad.
+\end_layout
+
+\begin_layout Standard
 \begin_inset VSpace vfill
 \end_inset
 
@@ -3145,6 +3150,13 @@ Analizando la sonda
 
 \begin_layout Section
 Búsqueda de la señal
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Búsqueda-de-la"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Initial
@@ -4081,6 +4093,55 @@ Con este resultado final se supo que la velocidad del sonido equivale a
  así que se procedió a utilizarla dentro del programa de arduino.
 \end_layout
 
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 2cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/2018-10-27-201012_872x421_scrot.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sensores HC-SR04 conectados al arduino
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Reprogramación de arduino
 \end_layout
@@ -4089,7 +4150,6 @@ Reprogramación de arduino
 Lo primero fue definir algunas variables que indicaran el número de pin
  arduino a utilizar, se requieren dos para cada sensor, uno para el trigger
  y otro para el echo.
- Esto se hizo porque es más sencillo recordar nombres que números.
 \end_layout
 
 \begin_layout LyX-Code
@@ -4360,8 +4420,8 @@ noprefix "false"
 \end_inset
 
  la cual multiplica la velocidad del sonido por el tiempo que estuvo viajando
- y finalmente se aplica una división entre 2 para compensar el problema
- que se mencionó en la página anterior de la distancia doble.
+ con el agregado de una división entre 2 para compensar el problema que
+ se mencionó en la página anterior de la distancia doble.
 \end_layout
 
 \begin_layout Standard
@@ -4397,8 +4457,985 @@ noprefix "false"
 Reprogramación de MATLAB
 \end_layout
 
-\begin_layout LyX-Code
+\begin_layout Standard
+Dentro de MATLAB se estableció la función 
+\emph on
+anita
+\emph default
+ mostada en el algoritmo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Función-anita-programada"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
+
+ la cual recibe como parámetro de entrada el objeto que guarda la conexión
+ serial hacia la placa arduino.
+ MATLAB tiene una característica especial en sus funciones y es que permite
+ la devolución de más de un parámetro como salida, esto es curioso ya que
+ la mayoría de los lenguajes de programación sólo permiten regresar uno
+ y sólo un parámetro, en la función 
+\emph on
+anita 
+\emph default
+los resultados quedan guardados en las variables 
+\emph on
+sensorIzq 
+\emph default
+y 
+\emph on
+sensorDer
+\emph default
+, haciendo referencia a la colocación de los mismos; uno a la izquierda
+ y otro a la derecha del rollo de papel de la sonda.
+\end_layout
+
+\begin_layout Standard
+Dado que las funciones pueden devolver múltiples resultados es posible almacenar
+los de la siguiente manera en MATLAB:
+\end_layout
+
+\begin_layout LyX-Code
+[izq, der] = anita(placa);
+\end_layout
+
+\begin_layout Standard
+Después fue necesario hacer algunos ajustes al valor leído, se llevaron
+ a cabo mediciones en la sonda y en el papel que utiliza determinando que
+ las zonas de dibujo tienen una londitud de 
+\begin_inset Formula $7.7\thinspace cm$
+\end_inset
+
+ para el potencial espontáneo y 
+\begin_inset Formula $15.2\thinspace cm$
+\end_inset
+
+ para la resistividad, el primer ajuste consistió en eliminar una parte
+ de la distancia leída la cual corresponde a una pequeña zona vacía existente
+ entre la posición del sensor y el inicio del área para dibujar, consta
+ de 
+\begin_inset Formula $4\thinspace cm$
+\end_inset
+
+ y se muestra en el esquema de la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-del-área"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout LyX-Code
+function [sensorIzq, sensorDer] = anita(placa)
+\end_layout
+
+\begin_layout LyX-Code
+    lectura = fscanf(placa, '%f');
+\end_layout
+
+\begin_layout LyX-Code
+    sensorIzq = lectura(1);
+\end_layout
+
+\begin_layout LyX-Code
+    sensorDer = lectura(2);
+\end_layout
+
+\begin_layout LyX-Code
+end
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Función 
+\emph on
+anita
+\emph default
+ programada en MATLAB
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Función-anita-programada"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 1cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/material/photo_2018-10-25_13-59-51.jpg
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Midiendo las zonas de dibujo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/esquema.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Esquema del área de dibujo del potencial espontáneo
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Esquema-del-área"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Suponiendo que el punto central fuera la posición de la pluma el sensor
+ estaría registrando la distancia 
+\begin_inset Formula $\overleftrightarrow{B}$
+\end_inset
+
+ más 
+\begin_inset Formula $4\thinspace cm$
+\end_inset
+
+ extra.
+ La curva además registra en el caso del potencial espontáneo los valores
+ menores a la derecha y los mayores a la izquierda, esto quiere decir que
+ el cero está en el límite lateral derecho y el máximo en el lado contrario.
+ Este fue un problema ya que el sensor se ubicó en una zona donde la distancia
+ que estaba midiendo ocurría de izquierda a derecha, totalmente al revés
+ de como acomoda sus valores máximos y mínimos la curva.
+\end_layout
+
+\begin_layout Standard
+Pero se encontró una solución sencilla cuyos pasos se enumeran a continuación:
+\end_layout
+
+\begin_layout Enumerate
+Restar 
+\begin_inset Formula $4\thinspace cm$
+\end_inset
+
+ a la distancia registrada por el sensor, con esto se obtiene el segmento
+ 
+\begin_inset Formula $\overleftrightarrow{B}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Obtener el segmento 
+\begin_inset Formula $\overleftrightarrow{A}$
+\end_inset
+
+ el cual surge a partir de: 
+\begin_inset Formula $\overleftrightarrow{A}=7.7\thinspace cm-B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Utilizar esa distancia en la conversión hacia las unidades del potencial
+ espontáneo.
+\end_layout
+
+\begin_layout Standard
+Con estos simples pasos se logró obtener el valor de 
+\begin_inset Formula $\overleftrightarrow{A}$
+\end_inset
+
+ que va desde el extremo derecho hasta el supuesto punto central mostrado
+ en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Esquema-del-área"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Lo siguiente es convertirlo a sus unidades correspondientes en milivolts;
+ donde la derecha corresponde a cero y la izquierda al valor máximo que
+ puede variar según la escala o span mencionado en la sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Búsqueda-de-la"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+?\thinspace mV=\frac{\overleftrightarrow{A}(10\thinspace mV)}{7.7\thinspace cm}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hay que tener en cuenta que el valor de 
+\begin_inset Formula $10\thinspace mV$
+\end_inset
+
+ es un ejemplo ya corresponde al dado por el span y puede cambiar, se configuró
+ el programa de MATLAB adecuadamente para que capturara este valor cada
+ que cambiara dentro de la interfaz de usuario; los valores son ajustables
+ tal como en el potenciómetro de la máquina y son: 5, 10, 20, 50 y 100 milivolts.
+ Ésta solución fue implementada de igual manera para la curva de resistividad;
+ con unas pequeñas variaciones ya que el máximo en ese caso está a la derecha
+ y el mínimo a la izquierda.
+\end_layout
+
+\begin_layout Section
+Resultados del sensor
+\end_layout
+
+\begin_layout Standard
+A diferencia del CNY70 el sensor HC-SR04 brindó resultados con bastante
+ precisión y no se veía alterado por factores ambientales, se utilizaron
+ objetos planos en forma de tarjeta para simular el movimiento de las plumas
+ y se concluyó que estos sensores se utilizarían para el desarrollo del
+ módulo de adquisición de datos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/interfaces/viejaInterfaz.PNG
+	lyxscale 50
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Interfaz del software usando los sensores HC-SR04
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Módulo de adquisición de datos
+\end_layout
+
+\begin_layout Initial
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+lines=3
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+P
+\end_layout
+
+\end_inset
+
+ ara eliminar el uso de la protoboard y comprimir todos los cables utilizados
+ se procedió a buscar componentes que le dieran una mejor presentación al
+ hardware.
+ Fueron conseguidos en una tienda local 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "aragon"
+literal "false"
+
+\end_inset
+
+ con el respaldo económico del CIIDIR.
+\end_layout
+
+\begin_layout Section
+Materiales
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+✔
+\end_layout
+
+\end_inset
+
+ Chasis plástico
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+✔
+\end_layout
+
+\end_inset
+
+ Cautin Steren
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+✔
+\end_layout
+
+\end_inset
+
+ Pasta para soldar Soldek (roja)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+✔
+\end_layout
+
+\end_inset
+
+ Placa fenólica CL-003
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+✔
+\end_layout
+
+\end_inset
+
+ 2 metros de cable categoría 5
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+✔
+\end_layout
+
+\end_inset
+
+ 1 metro de soldadura
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+✔
+\end_layout
+
+\end_inset
+
+ Placa arduino UNO R3 genérica
+\end_layout
+
+\begin_layout Section
+Construcción
+\end_layout
+
+\begin_layout Standard
+El primer paso consistió en dejar sólo cuatro de los ocho hilos que tiene
+ por dentro el cable categoría 5, de esta forma no estaría tan grueso y
+ sería más fácil doblarlo y adaptarlo a la forma de la sonda.
+ Para ello es necesario extraer los cuatro pares, desenredar los hilos a
+ utilizar y volver a insertarlos en la funda aislante.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 6cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/recortes/2018-10-27-213003_330x488_scrot.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Hilos originales organizados en pares
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 5cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/recortes/2018-10-27-213202_629x412_scrot.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Hilos utilizados en el módulo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Después se soldaron en los pines de ambos sensores las puntas de cada hilo
+ utilizando un pedacito de placa fenólica, soldadura, pasta y el cautín,
+ el color que corresponde a cada pin está anotado en el cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Cableado-de-los"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 4.5cm
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Color de cable
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pin del HC-SR04
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Naranja
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+GND
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Café
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+VCC
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Verde
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Echo
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Azul
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Trigger
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Cableado de los sensores
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Cableado-de-los"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Cables soldados al sensor
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Mientras tanto en el chasis se realizaron tres agujeros que funcionaran
+ como sujetadores de dos tramos de cable categoría 5 y del cable que utiliza
+ la placa arduino para comunicarse con la computadora.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 1.5cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/resultado/photo_2018-10-25_13-55-16.jpg
+	lyxscale 20
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Cables para cada uno de los sensores
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 1.5cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/resultado/photo_2018-10-25_13-55-20.jpg
+	lyxscale 20
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Agujero para el puerto serial del arduino
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dentro del chasis la placa arduino se fijó con pegamento y para la alimentación
+ de ambos sensores se utilizó una pequeña tira de protoboard de únicamente
+ dos canales; a esta tira llegan la corriente de 5 volts producida por la
+ placa así como su aterrizaje a tierra.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 4cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/resultado/photo_2018-10-25_13-55-26.jpg
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Interior del chasis
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finalmente se construyó un par de cajitas con cartón que sirvieran de contenedor
+es para cada sensor, el chasis se cierra utilizando tornillos y el resultado
+ final queda en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Resultado-final,-módulo"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Resultado final, módulo de adquisición de datos
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Resultado-final,-módulo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Programación del software
 \end_layout
 
 \begin_layout Chapter
@@ -4942,6 +5979,17 @@ literal "false"
 \end_inset
 
  Detección de distancias - https://www.youtube.com/watch?v=NseZfzIwO_s
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "aragon"
+literal "false"
+
+\end_inset
+
+ Electrónica Aragón (ubicación) - https://goo.gl/maps/knEwGfg12Qk
 \end_layout
 
 \end_body
