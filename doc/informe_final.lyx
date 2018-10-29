@@ -99,15 +99,24 @@ initials
 \begin_body
 
 \begin_layout Title
-Reporte final: Residencia profesional
+\begin_inset Formula $\mathfrak{\mathfrak{reporte}\thinspace\thinspace final}$
+\end_inset
+
+: Residencia profesional
 \end_layout
 
 \begin_layout Author
-por: Vásquez Martínez Agustin
+\begin_inset Formula $\mathfrak{presenta}$
+\end_inset
+
+: Vásquez Martínez Agustin
 \end_layout
 
 \begin_layout Date
-octubre 2018
+\begin_inset Formula $\mathfrak{octubre\thinspace\thinspace2018}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -589,19 +598,6 @@ En este trabajo se requiere primero de una metodología aplicada con la que
 Estructura del informe
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Describir cada uno de los capítulos a partir del posterior a este (Introducción)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 Capítulo 2 - Estado del arte
 \end_layout
@@ -618,11 +614,65 @@ Capítulo 3 - Marco teórico
 \end_layout
 
 \begin_layout Standard
-Expone los conceptos que se utilizaron durante la investigación.
+Expone los conceptos que se utilizaron durante la investigación cuyo dominio
+ necesitó ser esencial.
+\end_layout
+
+\begin_layout Subsection
+Capítulo 4 - Prototipo del software
 \end_layout
 
 \begin_layout Standard
+Muestra el primer acercamiento a la graficación de señales analógicas captadas
+ por un dispositivo físico y recibidas a través del puerto serial utilizando
+ arduino y MATLAB.
+\end_layout
 
+\begin_layout Subsection
+Capítulo 5 - Análisis de la sonda
+\end_layout
+
+\begin_layout Standard
+Documenta las observaciones que se llevaron a cabo en la sonda de RGP con
+ el fin de conocer de dónde proviene la señal que luego se dibuja en las
+ gráficas.
+\end_layout
+
+\begin_layout Subsection
+Capítulo 6 - Sensores de movimiento
+\end_layout
+
+\begin_layout Standard
+Nombra los tipos de sensores que se utilizaron así como los experimentos
+ realizados en el prototipo del módulo de adquisición de datos.
+\end_layout
+
+\begin_layout Subsection
+Capítulo 7 - Módulo de adquisición de datos
+\end_layout
+
+\begin_layout Standard
+Muestra el desarrollo y construcción con fotos del módulo de adquisición
+ de datos.
+\end_layout
+
+\begin_layout Subsection
+Capítulo 8 - Programación del software
+\end_layout
+
+\begin_layout Standard
+Documentación acerca del software anita, desarrollado para cumplir los objetivos
+ de esta investigación.
+\end_layout
+
+\begin_layout Subsection
+Capítulo 9 - Conclusiones
+\end_layout
+
+\begin_layout Standard
+Capítulo final donde se presenta los problemas resueltos con esta investigación,
+ también se proponen mejoras hacia el software conociendo los alcances que
+ tuvo el presente proyecto.
 \end_layout
 
 \begin_layout Chapter
@@ -2500,6 +2550,13 @@ Otra de sus cualidades es la creación de gráficas de manera sencilla y sus
 
 \begin_layout Subsection
 MATLAB Runtime
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:MATLAB-Runtime"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3142,6 +3199,13 @@ status collapsed
 \begin_layout Plain Layout
 Analizando la sonda
 \end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Análisis-de-la"
 
 \end_inset
 
@@ -4271,14 +4335,6 @@ noprefix "false"
 }
 \end_layout
 
-\begin_layout Algorithm
-
-\end_layout
-
-\begin_layout Algorithm
-
-\end_layout
-
 \begin_layout Standard
 Por último y lo más importante, se declararon las instrucciones necesarias
  para el procesamiento de datos, primero la emisión de ondas con la función
@@ -4455,6 +4511,13 @@ noprefix "false"
 
 \begin_layout Subsection
 Reprogramación de MATLAB
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Reprogramación-de-MATLAB"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4758,7 +4821,7 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-?\thinspace mV=\frac{\overleftrightarrow{A}(10\thinspace mV)}{7.7\thinspace cm}
+?\thinspace mV=\frac{\overleftrightarrow{A}(10\thinspace mV)}{7.7\thinspace cm}\label{eq:valorGuardado}
 \end{equation}
 
 \end_inset
@@ -4828,6 +4891,13 @@ Interfaz del software usando los sensores HC-SR04
 
 \begin_layout Chapter
 Módulo de adquisición de datos
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Módulo-de-adquisición"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Initial
@@ -4979,7 +5049,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset space \hspace{}
-\length 6cm
+\length 4.5cm
 \end_inset
 
 
@@ -5021,13 +5091,13 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset space \hspace{}
-\length 5cm
+\length 4.5cm
 \end_inset
 
 
 \begin_inset Graphics
 	filename img/recortes/2018-10-27-213202_629x412_scrot.png
-	scale 30
+	scale 31
 
 \end_inset
 
@@ -5226,6 +5296,22 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 3cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/resultado/photo_2018-10-28_07-17-49.jpg
+	lyxscale 50
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -5260,14 +5346,14 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset space \hspace{}
-\length 1.5cm
+\length 3cm
 \end_inset
 
 
 \begin_inset Graphics
 	filename img/resultado/photo_2018-10-25_13-55-16.jpg
 	lyxscale 20
-	scale 40
+	scale 30
 
 \end_inset
 
@@ -5299,14 +5385,14 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset space \hspace{}
-\length 1.5cm
+\length 3cm
 \end_inset
 
 
 \begin_inset Graphics
 	filename img/resultado/photo_2018-10-25_13-55-20.jpg
 	lyxscale 20
-	scale 40
+	scale 30
 
 \end_inset
 
@@ -5338,7 +5424,17 @@ Agujero para el puerto serial del arduino
 Dentro del chasis la placa arduino se fijó con pegamento y para la alimentación
  de ambos sensores se utilizó una pequeña tira de protoboard de únicamente
  dos canales; a esta tira llegan la corriente de 5 volts producida por la
- placa así como su aterrizaje a tierra.
+ placa así como su aterrizaje a tierra (figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Interior-del-chasis"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -5349,14 +5445,14 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset space \hspace{}
-\length 4cm
+\length 3cm
 \end_inset
 
 
 \begin_inset Graphics
 	filename img/resultado/photo_2018-10-25_13-55-26.jpg
 	lyxscale 40
-	scale 40
+	scale 22.5
 
 \end_inset
 
@@ -5368,6 +5464,13 @@ status open
 
 \begin_layout Plain Layout
 Interior del chasis
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Interior-del-chasis"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -5407,6 +5510,22 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 0.7cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/resultado/photo_2018-10-28_07-55-12.jpg
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -5438,6 +5557,1219 @@ name "fig:Resultado-final,-módulo"
 Programación del software
 \end_layout
 
+\begin_layout Initial
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+lines=3
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+E
+\end_layout
+
+\end_inset
+
+ l software desarrollado durante presente investigación se denomina 
+\series bold
+\emph on
+anita
+\series default
+\emph default
+, su finalidad es la visualización y procesado de señales geofísicas del
+ subsuelo de la sonda explicada en el capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Análisis-de-la"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ utilizando para ello el módulo de adquisición de datos construido en el
+ capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Módulo-de-adquisición"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Fue diseñado y programado en el entorno de desarrollo de MATLAB ya que
+ los investigadores del CIIDIR tienen familiaridad, conocen esta herramienta
+ y la utilizan a menudo.
+ Se continúa el desarrollo a partir del prototipo de la sección 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Reprogramación-de-MATLAB"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+; el cual ya contaba con la capacidad de dibujar las curvas correspondientes
+ a dos valores recibidos desde los sensores HC-SR04 a través del puerto
+ serial.
+ Posee control de versiones usando Git y repositorio en Github 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "anitarepo"
+literal "false"
+
+\end_inset
+
+ para su almacenamiento seguro.
+\end_layout
+
+\begin_layout Section
+Archivos CSV
+\end_layout
+
+\begin_layout Standard
+Son archivos que guardan datos y separan cada uno mediante comas ( , );
+ de ahi el nombre en inglés 
+\emph on
+Comma-Separated Values
+\emph default
+, este tipo de archivos se organiza en estructuras llamadas columnas y cada
+ una puede agrupar a una categoría; es decir que pueden tener nombre.
+\end_layout
+
+\begin_layout Standard
+Los datos obtenidos en cada lectura se programaron para ser escritos en
+ un archivo CSV guardado de modo local, preguntando al usuario qué nombre
+ debería tener ese archivo, esto se logra con la instrucción:
+\end_layout
+
+\begin_layout LyX-Code
+uiputfile('*.csv', 'Guardar datos como...');
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Guardando nuevo archivo CSV
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La cual abre un cuadro de diálogo y espera recibir un nombre de archivo
+ para guardar ahi los datos.
+ Hecho esto y una vez que inicia el ciclo de trabajo se guardaron en una
+ columna los datos del sensor izquierdo; correspondientes a la curva de
+ potencial espontáneo y en otra columna los datos del sensor derecho; correspond
+ientes a la curva de resistividad.
+ Para escribir cada uno de los valores leídos se utiliza la instrucción
+ de MATLAB:
+\end_layout
+
+\begin_layout LyX-Code
+disV = 7.7;
+\end_layout
+
+\begin_layout LyX-Code
+disI = 15.2;
+\end_layout
+
+\begin_layout LyX-Code
+fprintf(archivo, '%.3f,
+\backslash
+t', (disV - (izq - 4))*escalaV / disV);
+\end_layout
+
+\begin_layout LyX-Code
+fprintf(archivo, '%.3f
+\backslash
+r
+\backslash
+n', (disI - (der - 4))*escalaR / disI);
+\end_layout
+
+\begin_layout Standard
+Donde 
+\emph on
+archivo
+\emph default
+ es un apuntador que está conectado al archivo local y le permite saber
+ dónde escribir los datos, 
+\emph on
+%.3f
+\emph default
+ 
+\begin_inset space \thinspace{}
+\end_inset
+
+significa que únicamente va a guardar el valor entero junto con tres decimales,
+ 
+\emph on
+/t, /r, /n
+\emph default
+ son instrucciones especiales que indican dejar una tabulación de espacio
+ y bajar un renglón respectivamente.
+\end_layout
+
+\begin_layout Standard
+La variable 
+\emph on
+izq
+\emph default
+ es el valor leído, nótese que se aplican algunas operaciones matemáticas,
+ esto corresponde a la resta de 
+\begin_inset Formula $4\thinspace cm$
+\end_inset
+
+ del espacio entre el sensor y el inicio de la zona de lecturas; luego 
+\emph on
+disV
+\emph default
+ y 
+\emph on
+disI 
+\emph default
+son longitudes correspondientes a la zona de dibujo de las curvas.
+ Finalmente se aplica la regla de 3 tal como se hizo en la ecuación 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:valorGuardado"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 6.5cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/recortes/2018-10-28-115911_175x376_scrot.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Estructura de archivo CSV generado por anita
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+Estructura de archivo CSV
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Después de grabar los datos se programaron las instrucciones necesarias
+ para dibujar las gráficas, MATLAB contiene la función 
+\emph on
+plot
+\emph default
+ cuyo parámetro de entrada es un conjunto de datos y sirve para graficarlos
+ en pantalla; ya se tenia el conjunto de datos y sólo hacia falta ocuparlo
+ dentro del programa, esto se logró con la instrucción:
+\end_layout
+
+\begin_layout LyX-Code
+dataset = load(archivo);
+\end_layout
+
+\begin_layout Standard
+Donde 
+\emph on
+dataset
+\emph default
+ es la variable que guarda todos los datos que estén contenidos en 
+\emph on
+archivo
+\emph default
+, se espera que ésto último sea un nombre de archivo existente ya que de
+ otra forma se producirá un error.
+\end_layout
+
+\begin_layout Standard
+Cada vez que un nuevo dato se graba; se ejecutan las funciones necesarias
+ para que se vuelva a cargar el archivo dentro de MATLAB, se actualice la
+ variable 
+\emph on
+dataset
+\emph default
+ y dibuje el nuevo conjunto de datos, con esto se alcanzó la característica
+ de graficar los datos en tiempo real.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Interfaz principal de anita graficando datos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Control del trabajo
+\end_layout
+
+\begin_layout Standard
+Se implementó una forma en la que se pueden crear nuevos archivos o reanudar
+ los que han sido guardados con anterioridad, el flujo de las lecturas también
+ se puede controlar mediante tres botones colocados en la interfaz gráfica
+ de usuario.
+ permitiendo iniciar, pausar/reanudar y detener la captura de nuevos datos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Botones para archivos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Botones para el control de lecturas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Diseño de la interfaz gráfica de usuario
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Interfaz gráfica
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Elementos
+\end_layout
+
+\begin_layout Standard
+Se diseñó de tal manera que se mostrara el dibujo de las gráficas en tiempo
+ real en dos conjuntos de ejes designados; uno para la curva de potencial
+ espontáneo colocado a la izquierda y otro para la curva de resistividad
+ colocado a la derecha, cada que se toma una nueva lectura el dibujo en
+ pantalla se actualiza, se agruparon los botones respecto a su categoría:
+\end_layout
+
+\begin_layout Itemize
+Archivos: Permite crear nuevos archivos CSV o abrir archivos existentes
+\end_layout
+
+\begin_layout Itemize
+Control: Son los botones que manejan la toma de lecturas
+\end_layout
+
+\begin_layout Itemize
+Reportes: Pueden generar un documento en PDF del archivo actual o de otro
+ ya existente
+\end_layout
+
+\begin_layout Standard
+Anita contiene un letrero cambiante donde es posible verificar el estado
+ actual de las lecturas, éste letrero puede contener tres valores posibles:
+ 
+\emph on
+Leyendo, Pausado 
+\emph default
+y
+\emph on
+ Detenido.
+ 
+\emph default
+Cuando se llega a éste último estado el archivo actual se cierra y al mismo
+ tiempo los botones que controlan el flujo de lecturas se bloquean, esto
+ quiere decir que no es posible escribir más en ese archivo a menos que
+ se vuelva abrir.
+ Los controles de lecturas se desbloquearán únicamente con la creación de
+ un nuevo archivo o con la apertura de uno existente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Etiqueta que muestra el estado de las lecturas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+También se colocaron controles en forma de lista desplegable que permiten
+ modificar el límite máximo (span) de cada una de las curvas, el cuadriculado
+ de las gráficas no se ve influido y siempre serán diez divisiones a lo
+ largo del eje horizontal.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Controles de span
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las etiquetas en el lado derecho de las gráficas indican el valor máximo
+ y mínimo leído de entre todos los valores ya tomados.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Etiquetas de máximos y mínimos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Otro control que se configura mediante una lista deplegable es el intervalo
+ que hay entre una lectura y otra, puede variar desde uno hasta diez segundos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Control de intervalo de lecturas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finalmente se colocaron campos que indican la hora en que se inició el trabajo;
+ este dato se toma desde la hora que tenga el sistema operativo, se colocó
+ además un campo que indica en formato de horas, minutos y segundos el tiempo
+ que ha transcurrido mientras se toman lecturas, si el trabajo se llegase
+ a pausar; éste tiempo también se detiene y se reanuda en caso de retomar
+ el trabajo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Etiquetas para visualizar el tiempo de trabajo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Colores
+\end_layout
+
+\begin_layout Standard
+Se eligieron los colores representativos del Instituto Politécnico Nacional
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Guinda y blanco
+\end_layout
+
+\end_inset
+
+ para el fondo de la interfaz gráfica de usuario principal, también se agregaron
+ los emblemas del CIIDIR, IPN e ITO.
+ Los colores fueron puestos mediante formato RGB
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Es un formato que combina los colores rojo (R), verde (G) y azul (B) en
+ una escala de 1 a 255.
+\end_layout
+
+\end_inset
+
+ en la siguiente escala:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Color
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Valor
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Red
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Green
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Blue
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Combinación RGB del color guinda
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Interfaz gráfica de usuario de anita
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En cuanto al icono del software, representa al programador y autor de esta
+ investigación; es un dibujo de su autoría.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/maldad/repos/anita/logo/logoVector.PNG
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Icono de anita
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Manejo de excepciones
+\end_layout
+
+\begin_layout Standard
+Existen ocasiones en las que por descuido se olvide el flujo de trabajo
+ y se quiera realizar una acción no programada, MATLAB puede manejar esto
+ de la siguiente manera:
+\end_layout
+
+\begin_layout LyX-Code
+try
+\end_layout
+
+\begin_layout LyX-Code
+    
+\emph on
+conjunto de instrucciones que puedan generar una excepcion
+\end_layout
+
+\begin_layout LyX-Code
+catch    
+\end_layout
+
+\begin_layout LyX-Code
+    
+\emph on
+instrucciones a ejecutar en caso de producirse un error
+\end_layout
+
+\begin_layout LyX-Code
+end
+\end_layout
+
+\begin_layout Subsection
+Inicio de lecturas sin el módulo conectado
+\end_layout
+
+\begin_layout Standard
+Otra causa común de excepción es querer iniciar la toma de lecturas sin
+ haber conectado el puerto serial del módulo a la computadora, cuando se
+ crea un archivo nuevo o se abre uno existente; el botón 
+\emph on
+Iniciar 
+\emph default
+se desbloquea permitiendo la ejecución de las funciones para llevar a cabo
+ la lectura del puerto serial, sin embargo si el módulo no está conectado
+ se le muestra una alerta al usuario para proceda.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Alerta cuando el módulo no está conectado
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Desconexión del módulo de adquisición de datos
+\end_layout
+
+\begin_layout Standard
+Una de las excepciones con las que cuenta anita es la suspensión del trabajo
+ y cierre de archivos con los que se estén trabajando en caso de que no
+ se encuentre una respuesta por parte del puerto serial, principalmente
+ porque ha sido desconectado y no existen datos en transmisión.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Alerta de desconexión repentina del módulo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Eventos
+\end_layout
+
+\begin_layout Standard
+Éstos últimos consisten en la correcta ejecución de los pasos para el inicio
+ de un nuevo trabajo:
+\end_layout
+
+\begin_layout Enumerate
+Conectar el módulo de adquisición de datos.
+\end_layout
+
+\begin_layout Enumerate
+Crear o abrir un archivo
+\end_layout
+
+\begin_layout Enumerate
+Iniciar la toma de lecturas
+\end_layout
+
+\begin_layout Standard
+Iniciar un nuevo ciclo de lecturas bloquea los controles para abrir o crear
+ un nuevo archivo y desbloquea los botones que controlan la pausa y el detenimie
+nto de lecturas.
+ 
+\end_layout
+
+\begin_layout Section
+Reportes en PDF
+\end_layout
+
+\begin_layout Standard
+Se colocó un botón que abre una nueva interfaz; en ésta es posible cargar
+ un archivo de datos CSV generado por anita para exportarlo en un documento
+ PDF, se agregó un encabezado con la decoración de los documentos oficiales
+ del CIIDIR.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Interfaz para la generación de reportes en PDF
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La interfaz permite visualizar el dibujo de las gráficas antes de generar
+ el reporte, también es posible ajustar su span y escribir datos como el
+ lugar donde se realizó el RGP, la profundidad que el pozo tiene, la fecha
+ en que fue realizado y la hora.
+ El documento se genera en una sola página y se anexa un ejemplo de un reporte
+ al final de este documento.
+\end_layout
+
+\begin_layout Section
+Empaquetado
+\end_layout
+
+\begin_layout Standard
+Para la distribución del software se utilizó la herramienta de compilación
+ de aplicaciones de incluida en MATLAB, se generó un archivo que es instalable
+ en sistemas operativos Windows 7 o superior en versiones de 64 bits.
+ Se compiló una versión que incluye el MATLAB Runtime mencionado en la sección
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:MATLAB-Runtime"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ y una que no lo incluye, ambas quedan disponibles para su descarga en la
+ sección 
+\emph on
+releases
+\emph default
+ de su repositorio en Github 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "anitareleases"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Software empaquetado para su distribución
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Resultados
+\end_layout
+
+\begin_layout Section
+Conclusiones
+\end_layout
+
+\begin_layout Initial
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+lines=3
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+S
+\end_layout
+
+\end_inset
+
+ e ha resuelto la situación para dibujar las gráficas en un entorno digital
+ eliminando así la necesidad de papel, el software programado para esta
+ tarea es capaz de recibir, graficar y procesar las señales que genera la
+ sonda de RGP, el software va dibujando en tiempo real y además indica la
+ duración el trabajo, algo con lo que la sonda no cuenta.
+ Se cumple el objetivo de poner e marcha un software para la comunicación
+ y procesamiento de señales de Potencial Espontáneo y de Resistividad, producto
+ de las mediciones en el subsuelo a través de un equipo de registros eléctricos.
+\end_layout
+
+\begin_layout Standard
+Se acepta la primera hipótesis la cual menciona que se tendrá una mejor
+ perspectiva de las gráficas al grabar cada lectura en un archivo CSV, ahora
+ no sólo se pueden observar las gráficas sino que además se pueden consultar
+ sus archivos fuente para saber cuánto vale cada punto de ellas.
+\end_layout
+
+\begin_layout Standard
+Se acepta también la segunda hipótesis que habla de la facilidad para compartir
+ los estudios realizados, el documento generado en formato PDF puede imprimirse
+ o ser enviado mediante correo electrónico.
+\end_layout
+
+\begin_layout Section
+Trabajo a futuro
+\end_layout
+
+\begin_layout Standard
+Se propone las siguientes mejoras en el software:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+❏
+\end_layout
+
+\end_inset
+
+ Respaldar los archivos en una base de datos.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+❏
+\end_layout
+
+\end_inset
+
+ Programar el envio de los estudios a través de Internet en un esquema de
+ cliente (toda aquella persona que utilice el software anita) y servidor
+ (la base de datos).
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+❏
+\end_layout
+
+\end_inset
+
+ Establecer una API (Interfaz de Programación de Aplicaciones) que permita
+ explotar la información obtenida en la base de datos para generar conocimiento
+ a través de minería de datos.
+\end_layout
+
 \begin_layout Chapter
 \start_of_appendix
 Prueba de correo electrónico
@@ -5451,8 +6783,36 @@ name "chap:Prueba-de-correo"
 \end_layout
 
 \begin_layout Standard
+Utilizando el formulario encontrado en la página web
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+https://www.century-geo.com/
+\end_layout
+
+\end_inset
+
+ de este distribuidor de equipos para estudios geofísicos se preguntó acerca
+ del equipo 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "century"
+literal "false"
+
+\end_inset
+
+, obteniendo la respuesta unas horas después.
+\begin_inset VSpace 1.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Graphics
 	filename img/emailCentury.png
+	lyxscale 20
 	scale 45
 
 \end_inset
@@ -5472,14 +6832,86 @@ name "chap:Ethernet"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 5cm
+\end_inset
+
+
 \begin_inset Graphics
 	filename img/ethernet_42.jpg
 	lyxscale 10
-	scale 15
+	scale 5
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Puerto Ethernet y un cable
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Puerto-Ethernet-y"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es una tecnología para la comunicación entre dispositivos en redes de computador
+as, utiliza un cable llamado 
+\emph on
+categoría 6
+\emph default
+, aunque también se encuentra la categoría 5 que es un cable menos robusto
+ que el 6 y la categoría blindada que cuenta con protección en los 8 hilos
+ internos.
+ Dentro del aislante se pueden encontrar ocho cables de cobre organizados
+ en pares cuyos colores son:
+\end_layout
+
+\begin_layout Itemize
+Verde y Blanco con verde
+\end_layout
+
+\begin_layout Itemize
+Azul y Blanco con azul
+\end_layout
+
+\begin_layout Itemize
+Café y Blanco con café
+\end_layout
+
+\begin_layout Itemize
+Naranja y Blanco con naranja
 \end_layout
 
 \begin_layout Chapter
@@ -5990,6 +7422,28 @@ literal "false"
 \end_inset
 
  Electrónica Aragón (ubicación) - https://goo.gl/maps/knEwGfg12Qk
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "anitarepo"
+literal "false"
+
+\end_inset
+
+ anita repo - https://github.com/maldad/anita/
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "anitareleases"
+literal "false"
+
+\end_inset
+
+ anita releases - https://github.com/maldad/anita/releases
 \end_layout
 
 \end_body
