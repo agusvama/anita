@@ -1058,6 +1058,138 @@ name "chap:Marco-teórico"
 
 \end_layout
 
+\begin_layout Initial
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+lines=3
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+E
+\end_layout
+
+\end_inset
+
+ l uso de herramientas de RGP tiene un vocabulario propio; una aplicación
+ de la sonda cuando va bajando por el pozo se denomina 
+\emph on
+corrida 
+\emph default
+y no importa si el electrodo está viajando hacia arriba o hacia abajo, mientras
+ se estén capturando mediciones para el registro la corrida estará activa
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tesis2"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La zona dondse se lleva a cabo el dibujo de las gráficas se conoce como
+ 
+\emph on
+carril
+\emph default
+, está dividida en diez secciones y el valor de cada división depende de
+ la escala que se esté usando.
+ En esta zona el eje vertical corresponde a la profundidad y el eje horizontal
+ varia de acuerdo al tipo de parámetro o curva que se esté registrando.
+\end_layout
+
+\begin_layout Standard
+Por ejemplo para el potencial natural (figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ejemplo-de-registro"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) se utilizan milivolts, la escala más utilizada es de 10 o 20, esto quiere
+ decir que cada división del carril valdrá 10 o 20 milivolts respectivamente,
+ dando un máximo valor de 100 o 200 milivolts 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tesis2"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 6cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/recortes/2018-11-05-080213_327x638_scrot.png
+	lyxscale 50
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Ejemplo de registro SP
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ejemplo-de-registro"
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tesis2"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Parámetros que registra un RGP
 \end_layout
@@ -1170,27 +1302,8 @@ Las curvas se dibujan en forma vertical de arriba hacia abajo y en función
 Señales
 \end_layout
 
-\begin_layout Initial
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-lines=3
-\end_layout
-
-\end_inset
-
-
-\begin_inset Argument 2
-status open
-
-\begin_layout Plain Layout
-S
-\end_layout
-
-\end_inset
-
- e conoce como señal a un conjunto de datos que representa información relaciona
+\begin_layout Standard
+Se conoce como señal a un conjunto de datos que representa información relaciona
 ndo dos variables; una 
 \emph on
 dependiente 
@@ -1465,11 +1578,20 @@ Este tipo de señal puede tomar cualquier valor a lo largo del eje
 \end_inset
 
 .
- Su gráfica se puede apreciar como una sola línea que no se ve interrumpida
- a lo largo de toda su duración, ejemplo de estas señales pueden ser: una
- grabación de sonido, la gráfica de una función trigonométrica seno o coseno,
- la señal de radio que emite alguna cabina, los movimientos que produce
- un sismo, la figura 
+ Esto quiere decir que su variable independiente está definida en culquier
+ punto 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "señalesLibro"
+literal "false"
+
+\end_inset
+
+; por lo tanto su gráfica se puede apreciar como una sola línea que no se
+ ve interrumpida a lo largo de toda su duración, ejemplo de estas señales
+ pueden ser: una grabación de sonido, la gráfica de una función trigonométrica
+ seno o coseno, la señal de radio que emite alguna cabina, los movimientos
+ que produce un sismo, la figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:senalcontinua"
@@ -1479,11 +1601,15 @@ noprefix "false"
 
 \end_inset
 
- muestra un ejemplo de señal continua producto de la función 
-\begin_inset Formula $f(x)=sin(2x)+cos(3x)$
+ muestra un ejemplo de señal continua producto de la función:
+\begin_inset Formula 
+\[
+f(x)=sin(2x)+cos(3x)
+\]
+
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Standard
@@ -1539,7 +1665,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Gráfica de una señal producida por la función
+Gráfica de una señal producida por la función:
 \begin_inset Argument 1
 status collapsed
 
@@ -1597,8 +1723,23 @@ noprefix "false"
 \begin_inset Formula $x=2.5$
 \end_inset
 
-.
- Este tipo de señales tiene un 
+, tal como define 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "señalesLibro"
+literal "false"
+
+\end_inset
+
+ una señal discreta está definida 
+\emph on
+sólo 
+\emph default
+para valores enteros de la variable independiente.
+\end_layout
+
+\begin_layout Standard
+Este tipo de señales tiene un 
 \begin_inset Formula $\Delta$
 \end_inset
 
@@ -1644,19 +1785,14 @@ noprefix "false"
  refiere el término 
 \emph on
 discretos.
-\end_layout
-
-\begin_layout Standard
-Pero no siempre los valores que una señal discreta puede tomar en su eje
  
-\begin_inset Formula $x$
-\end_inset
-
- son números enteros, todo depende de la 
-\begin_inset Formula $\Delta$
-\end_inset
-
- que se esté manejando, bien podría ir aumentando en 0.5, en 2, en 0.7, etc.
+\emph default
+El 
+\series bold
+muestreo 
+\series default
+de señales continuas es una técnica que permite convertirlas a su equivalente
+ en señal discreta.
 \end_layout
 
 \begin_layout Standard
@@ -1680,9 +1816,9 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Gráfica de una señal producida por la función
+Gráfica de una señal discreta producida por el muestreo de la función
 \begin_inset Argument 1
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Gráfica de una señal discreta
@@ -1724,18 +1860,18 @@ Señal analógica
 
 \begin_layout Standard
 Para que una señal pueda entrar en esta clasificación se requiere que sus
- valores en el eje de las ordenadas puedan ser cualesquiera, esto significa
- que en cada valor de 
+ valores en el eje de las ordenadas no sean discretos, esto significa que
+ en cada valor de 
 \begin_inset Formula $x$
 \end_inset
 
- habra un valor que le corresponda en 
+ habrá un valor que le corresponda en 
 \begin_inset Formula $y$
 \end_inset
 
  que puede ser un número entero o bien un número con puntos decimales.
- Las señales analógicas también pueden entrar en la categoría de las continuas
- o discretas dependiendo de las características que tenga su eje de abscisas.
+ Las señales analógicas también pueden ser continuas o discretas dependiendo
+ de las características que tenga su eje de abscisas.
  Por lo tanto ejemplos de una señal analógica se pueden apreciar tanto en
  la figura 
 \begin_inset CommandInset ref
@@ -1758,15 +1894,15 @@ noprefix "false"
 \end_inset
 
 .
- En ambas se puede observa que para 
-\begin_inset Formula $x=0,\ y=1$
+ En ambas se puede observar que los valores en 
+\begin_inset Formula $y$
 \end_inset
 
-, y que para 
-\begin_inset Formula $x=4,\ y=\sim1.8$
+ no siguen un 
+\begin_inset Formula $\Delta$
 \end_inset
 
-.
+ definido.
 \end_layout
 
 \begin_layout Subsection
@@ -1777,12 +1913,29 @@ Señal digital
 Finalmente este tipo de señal se utiliza mucho en áreas como la electrónica
  digital y la informática.
  Las señales digitales se caraterizan por tomar valores en el eje de las
- ordenadas únicamente de ceros o uno, estos se conocen como valores binarios
- o valores booleanos, siendo que el cero representa un valor falso mientras
- que el uno representa un valor verdadero, sus aplicaciones incluyen la
- representación de información dentro de una computadora, cada valor que
- contenga la señal representa un bit de memoria, ésta es la unidad mínima
- que una computadora utiliza para llevar a cabo sus operaciones.
+ ordenadas completamente discretos, a menudo tan simples como unos y ceros
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "forouzan"
+literal "false"
+
+\end_inset
+
+, éstos se conocen como valores binarios o valores booleanos, siendo que
+ el uno representa un valor verdadero o voltaje positivo; mientras que el
+ cero representa un valor falso o voltaje cero 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "forouzan"
+literal "false"
+
+\end_inset
+
+.
+ Cada valor representado en el eje vertical se conoce como 
+\emph on
+bit.
 \end_layout
 
 \begin_layout Standard
@@ -1807,6 +1960,13 @@ status open
 
 \begin_layout Plain Layout
 Señal digital
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Señal-digital"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1834,7 +1994,17 @@ No existen valores intermedios como el 0.2 o el 0.75, los trabajos electrónicos
 \end_inset
 
 , el lado de la moneda A o el lado de la moneda B, es como los ceros y unos
- de una señal digital.
+ de una señal digital (figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Señal-digital"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -2018,20 +2188,72 @@ Amplitud
 \end_layout
 
 \begin_layout Standard
-Es la distancia máxima que existe desde el eje de las abscisas hasta el
- punto más alto que puede alcanzar una señal.
+Es el valor de la distancia vertical desde cualquier punto de la onda hasta
+ el eje horizontal 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "forouzan"
+literal "false"
+
+\end_inset
+
+, puede definirse también como la altura de la señal.
+ La altura máxima que una señal puede alcanzar se conoce como 
+\emph on
+amplitud máxima, 
+\emph default
+mientras que si se toma en cualquier valor del eje horizontal se conoce
+ como 
+\emph on
+amplitud en el instante.
+ 
+\emph default
+El ejemplo se encuentra ilustrado en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:amplitud"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsubsection
-Período
+Periodo
 \end_layout
 
 \begin_layout Standard
-Una señal es periódica cuando repite un patrón una y otra vez, inmediatamente
+Una señal es periódica cuando repite un patrón una y otra vez; inmediatamente
  después de terminar un patrón, empieza uno nuevo que es exactamente igual
- al anterior.
- Este patrón también se conoce como ciclo y está relacionado con la frecuencia
- de la siguiente manera.
+ al anterior (figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:periodo"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ Este patrón también se conoce como 
+\emph on
+ciclo
+\emph default
+ y la cantidad de tiempo en segundos que necesita una señal para completarlo
+ se conoce como periodo 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "forouzan"
+literal "false"
+
+\end_inset
+
+.
+ Está relacionado con la frecuencia de la siguiente manera.
 \end_layout
 
 \begin_layout Standard
@@ -2062,8 +2284,16 @@ Frecuencia
 \end_layout
 
 \begin_layout Standard
-El número de ciclos que una señal complete en una unidad de tiempo es la
- frecuencia, su unidad dentro del Sistema Internacional es el 
+El número de ciclos que una señal complete en un segundo es la frecuencia
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "forouzan"
+literal "false"
+
+\end_inset
+
+, su unidad dentro del Sistema Internacional es el 
 \emph on
 hercio
 \emph default
@@ -2097,22 +2327,49 @@ f=\frac{1}{T}
 \end_layout
 
 \begin_layout Standard
-Si una persona parpadea una vez por segundo, se tendrá una frecuencia de
- 1 Hz (un ciclo) completado en 
-\begin_inset Formula $T=1$
+En la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:frecuencia"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
- segundo.
- Si la persona en cambio parpadea dos veces por segundo, entonces se tendrá
- una frecuencia de 2 Hz, (dos ciclos) completados en 
-\begin_inset Formula $T=0.5$
+ se pueden observar dos señales que completan un número distinto de ciclos
+ en un segundo, esto quiere decir que una tiene mayor frecuencia que la
+ otra.
+\end_layout
+
+\begin_layout Subsection
+Parámetros en una señal digital
+\end_layout
+
+\begin_layout Standard
+Las definiciones de periodo y frecuencia no siempre son apropiadas en señales
+ digitales, en su lugar se utilizan el término 
+\emph on
+intervalo de bit
+\emph default
+ para referirse al tiempo requerido para representar un único bit y es el
+ equivalente al periodo de una señal analógica.
+\end_layout
+
+\begin_layout Standard
+En lugar de la frecuencia se utiliza el término 
+\emph on
+tasa de bit, 
+\emph default
+la cual se define como el número de bits enviados por segundo 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "forouzan"
+literal "false"
+
 \end_inset
 
- segundos.
-\begin_inset VSpace vfill
-\end_inset
-
-
+.
 \end_layout
 
 \begin_layout Standard
@@ -2137,6 +2394,13 @@ status open
 
 \begin_layout Plain Layout
 Señales con diferentes amplitudes
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:amplitud"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2174,7 +2438,14 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Señal con periodo definido
+Señal con periodo definido (periódica)
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:periodo"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2212,7 +2483,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Señal con periodo no definido
+Señal con periodo no definido (aperiódica)
 \end_layout
 
 \end_inset
@@ -2250,7 +2521,14 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Señales con diferentes frecuencias
+Señales con diferentes frecuencias 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:frecuencia"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2946,20 +3224,19 @@ tilizando el IDE de arduino se escribó un programa que leyera el valor que
  amplitud o una menor, con esto fue posible observar los cambios que se
  le aplicaban a una corriente y simular los cambios que va teniendo una
  curva en un RGP.
-\end_layout
+ El programa se muestra a continuación:
+\begin_inset VSpace vfill
+\end_inset
 
-\begin_layout Standard
-\begin_inset Float algorithm
-wide false
-sideways false
-status open
+
+\end_layout
 
 \begin_layout LyX-Code
 void setup(){
 \end_layout
 
 \begin_layout LyX-Code
-    Serial.begin(9600); 
+    Serial.begin(9600); //tasa de baudios
 \end_layout
 
 \begin_layout LyX-Code
@@ -2975,40 +3252,56 @@ void loop(){
 \end_layout
 
 \begin_layout LyX-Code
-    delay(100); 
+    delay(100); //retardo en milisegundos entre cada lectura
 \end_layout
 
 \begin_layout LyX-Code
 }
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Primer programa de arduino, lee una entrada analógica y la transmite por
- serial.
-\begin_inset Argument 1
-status collapsed
-
-\begin_layout Plain Layout
-Primer programa de arduino
-\end_layout
-
+\begin_layout Standard
+\begin_inset VSpace smallskip
 \end_inset
 
 
 \end_layout
 
+\begin_layout Standard
+La tasa de baudios es un parámetro que indica la velocidad de transmisión
+ de datos, en el libro de Forouzan 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "forouzan"
+literal "false"
+
 \end_inset
 
+ se define como 
+\begin_inset Quotes fls
+\end_inset
 
+el número de unidades de señal por segundo
+\begin_inset Quotes frs
+\end_inset
+
+.
+ Hay un ejemplo más sencillo y didáctico que consiste en lo siguiente:
 \end_layout
 
-\begin_layout Plain Layout
-
+\begin_layout Standard
+Si los bits fueran personas viajando dentro de vehículos en una carretera
+ de 4 carriles y pasan por un punto de control cada segundo, entonces la
+ tasa de bits es igual a todas las personas que pasaron por el punto de
+ control en un segundo, suponiendo que los vehículos contienen a 5 personas
+ siempre, entonces la tasa de bits es igual a 20.
 \end_layout
 
+\begin_layout Standard
+Mientras tanto la tasa de baudios son los bits que cada elemento de la señal
+ transporta, en el ejemplo esto se ve reflejado en los vehículos, suponiendo
+ que siempre viajan alineados y siempre pasan en grupos de 4 por el punto
+ de control, entonces la tasa de baudios es igual a 4.
+\begin_inset VSpace vfill
 \end_inset
 
 
@@ -3082,18 +3375,27 @@ Programación de MATLAB
 Ésta herramienta cuenta con las funciones necesarias para recibir datos
  desde un puerto serial, es necesario crear una conexión hacia el puerto
  y al terminar el trabajo cerrar la misma, esto es posible con tres sencillas
- instrucciones mostradas en el algoritmo 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "alg:Funciones-de-MATLAB"
-plural "false"
-caps "false"
-noprefix "false"
+ instrucciones mostradas aquí:
+\end_layout
 
-\end_inset
+\begin_layout LyX-Code
+placa = serial('COM3'); %variable que guarda la conexión serial
+\end_layout
 
-.
- La primera función es un objeto que guarda los parámetros de una conexión
+\begin_layout LyX-Code
+fopen(placa);         %abre la conexión
+\end_layout
+
+\begin_layout LyX-Code
+fscanf(placa, '%f');  %lee desde el puerto serial
+\end_layout
+
+\begin_layout LyX-Code
+fclose(placa);        %cierra la conexión serial
+\end_layout
+
+\begin_layout Standard
+La primera función es un objeto que guarda los parámetros de una conexión
  serial, el parámetro que recibe
 \series bold
  
@@ -3112,7 +3414,7 @@ COM3
 \emph on
 COM4,
 \emph default
- la estructura del objeto se muestra en el algoritmo 
+ la estructura del objeto se muestra en el cuadro 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:Estructura-de-un"
@@ -3184,63 +3486,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout LyX-Code
-\begin_inset Float algorithm
-wide false
-sideways false
-status open
-
-\begin_layout LyX-Code
-placa = serial('COM3'); %variable que guarda la conexión serial
-\end_layout
-
-\begin_layout LyX-Code
-fopen(placa);         %abre la conexión
-\end_layout
-
-\begin_layout LyX-Code
-fscanf(placa, '%f');  %lee desde el puerto serial
-\end_layout
-
-\begin_layout LyX-Code
-fclose(placa);        %cierra la conexión serial
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Funciones de MATLAB para manejar el puerto serial.
-\begin_inset CommandInset label
-LatexCommand label
-name "alg:Funciones-de-MATLAB"
-
-\end_inset
-
-
-\begin_inset Argument 1
-status collapsed
-
-\begin_layout Plain Layout
-Funciones de MATLAB para serial.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout LyX-Code
-\begin_inset Float algorithm
+\begin_inset Float table
 wide false
 sideways false
 status open
@@ -3338,9 +3584,14 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 3cm
+\end_inset
+
+
 \begin_inset Graphics
 	filename img/plots/2018-10-25-205246_980x366_scrot.png
-	scale 45
+	scale 30
 
 \end_inset
 
@@ -7557,6 +7808,84 @@ un puntero a un entero
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "tesis"
+literal "false"
+
+\end_inset
+
+ Flores Roa, Alberto.
+ 2012.
+ Sistema de software y hardware para la adquisición de registros de pruebas
+ de presión en pozos petroleros.
+ Tesis de maestría.
+ https://tesis.ipn.mx/handle/123456789/10609
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "forouzan"
+literal "false"
+
+\end_inset
+
+ Forouzan, Behrouz A.
+ 2007.
+ Transmisión de datos y redes de comunicaciones.
+ Edit.
+ McGraw-Hill.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tesis1"
+literal "false"
+
+\end_inset
+
+ Kielanowski Sierminska, Julia María; Salazar Buendía, Iván Alberto.
+ 2016.
+ KISA Desarrollo de software utilizando en la interpretación de registros
+ geofísicos de pozo, para la obtención de parámetros petrofísicos.
+ Tesis de licenciatura.
+ https://tesis.ipn.mx/handle/123456789/15830
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tesis2"
+literal "false"
+
+\end_inset
+
+ Moreno Gallegos, Edgar Giovanni.
+ 2015.
+ Evaluación de formaciones usando registros geofísicos de pozo y software
+ comercial, un caso práctico.
+ Tesis de licenciatura https://tesis.ipn.mx/handle/123456789/15184
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "señalesLibro"
+literal "false"
+
+\end_inset
+
+ Oppenheim Alan V., Willsky Alan S., Nawab S.
+ Hamid.
+ 1998.
+ Señales y sistemas.
+ Edit.
+ Pearson Educación
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "geotem"
 literal "false"
 
@@ -7703,43 +8032,6 @@ literal "false"
 \end_inset
 
  Detección de distancias con CNY70- https://www.youtube.com/watch?v=NseZfzIwO_s
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "tesis"
-literal "false"
-
-\end_inset
-
- Sistema de software y hardware para la adquisición de registros de pruebas
- de presión en pozos petroleros - https://tesis.ipn.mx/handle/123456789/10609
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "tesis1"
-literal "false"
-
-\end_inset
-
- KISA Desarrollo de software utilizando en la interpretación de registros
- geofísicos de pozo, para la obtención de parámetros petrofísicos - https://tesi
-s.ipn.mx/handle/123456789/15830
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "tesis2"
-literal "false"
-
-\end_inset
-
- Evaluación de formaciones usando registros geofísicos de pozo y software
- comercial, un caso práctico - https://tesis.ipn.mx/handle/123456789/15184
 \end_layout
 
 \end_body
