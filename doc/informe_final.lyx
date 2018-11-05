@@ -155,14 +155,14 @@ s conocidas como sondas las cuales tienen un malacate el cual se introduce
 \begin_layout Standard
 Las sondas que realizan RGP pueden tener como salida varias curvas, a su
  vez pueden graficar dichas curvas en papel o en formato digital, todo esto
- depende de qué tan sofisticadas sean.
+ depende de qué tan sofisticada sea la tecnología de las sonda.
  
 \end_layout
 
 \begin_layout Standard
-Por lo tanto se propuso un desarrollar un programa de computadora con la
- capacidad de obtener las curvas y que las fuera graficando en tiempo real
- dentro de una interfaz de usuario en la computadora, esto elimina la necesidad
+Por lo tanto se propuso desarrollar un programa de computadora con la capacidad
+ de obtener las curvas y que las fuera graficando en tiempo real dentro
+ de una interfaz de usuario en la computadora, esto elimina la necesidad
  de tener el papel que utiliza la sonda para hacer el dibujo de las curvas,
  además al obtener los datos en formato digital se permite guardarlos en
  archivos los cuales se pueden utilizar posteriormente en reportes o difusión.
@@ -598,81 +598,26 @@ En este trabajo se requiere primero de una metodología aplicada con la que
 Estructura del informe
 \end_layout
 
-\begin_layout Subsection
-Capítulo 2 - Estado del arte
+\begin_layout Standard
+El capítulo 1 es la introducción al trabajo realizado, después en el capítulo
+ 2 se describe el estado del arte, abarcando la forma en que actualmente
+ se llevan a cabo los registros geofísicos de pozos, mostrando ejemplos
+ de un equipo actual y sus características, se explican los parámetros que
+ puede registrar una sonda y se mencionan algunas empresas que brindan el
+ servicio de RGP.
+ En el capítulo del marco teórico se exponen los conceptos esenciales cuyo
+ dominio permitió llevar a cabo esta investigación.
 \end_layout
 
 \begin_layout Standard
-Describe la forma en que actualmente se llevan a cabo los registros geofísicos
- de pozos, mostrando ejemplos de un equipo actual y sus características,
- se explican los parámetros que puede registrar una sonda y se mencionan
- algunas empresas que brindan el servicio de RGP.
-\end_layout
-
-\begin_layout Subsection
-Capítulo 3 - Marco teórico
-\end_layout
-
-\begin_layout Standard
-Expone los conceptos que se utilizaron durante la investigación cuyo dominio
- necesitó ser esencial.
-\end_layout
-
-\begin_layout Subsection
-Capítulo 4 - Prototipo del software
-\end_layout
-
-\begin_layout Standard
-Muestra el primer acercamiento a la graficación de señales analógicas captadas
- por un dispositivo físico y recibidas a través del puerto serial utilizando
- arduino y MATLAB.
-\end_layout
-
-\begin_layout Subsection
-Capítulo 5 - Análisis de la sonda
-\end_layout
-
-\begin_layout Standard
-Documenta las observaciones que se llevaron a cabo en la sonda de RGP con
- el fin de conocer de dónde proviene la señal que luego se dibuja en las
- gráficas.
-\end_layout
-
-\begin_layout Subsection
-Capítulo 6 - Sensores de movimiento
-\end_layout
-
-\begin_layout Standard
-Nombra los tipos de sensores que se utilizaron así como los experimentos
- realizados en el prototipo del módulo de adquisición de datos.
-\end_layout
-
-\begin_layout Subsection
-Capítulo 7 - Módulo de adquisición de datos
-\end_layout
-
-\begin_layout Standard
-Muestra el desarrollo y construcción con fotos del módulo de adquisición
- de datos.
-\end_layout
-
-\begin_layout Subsection
-Capítulo 8 - Programación del software
-\end_layout
-
-\begin_layout Standard
-Documentación acerca del software anita, desarrollado para cumplir los objetivos
- de esta investigación.
-\end_layout
-
-\begin_layout Subsection
-Capítulo 9 - Conclusiones
-\end_layout
-
-\begin_layout Standard
-Capítulo final donde se presenta los problemas resueltos con esta investigación,
- también se proponen mejoras hacia el software conociendo los alcances que
- tuvo el presente proyecto.
+En el capítulo 4 y 5 se trata el primer acercamiento que se tuvo con la
+ graficacion de señales en la computadora y con la sonda, el capítulo 6
+ y 7 expone los experimentos realizados con distintos sensores encontrando
+ el que fuera adecuado para este trabajo y se muestra la construcción del
+ módulo de adquisición de datos.
+ Durante el capítulo 8 se documenta el desarrollo del software que se utilizó
+ para cumplir los objetivos de esta investigación.
+ Finalmente el capítulo 9 contiene las conclusiones del trabajo.
 \end_layout
 
 \begin_layout Chapter
@@ -787,11 +732,11 @@ noprefix "false"
  Este equipo viene provisto de software para el registro, procesado e impresión
  de las curvas en una computadora, se conecta vía Ethernet
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
-Tecnología estándar de comunicación cableada en redes de computadoras, detalle
- en el apéndice 
+Tecnología de comunicación cableada en redes de computadoras, detalle en
+ el apéndice 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:Ethernet"
@@ -881,6 +826,236 @@ literal "false"
  destaca que cuenta con un servicio de ayuda online para la operación del
  software y manuales para todas las herramientas de registro con las que
  viene equipado este aparato.
+\end_layout
+
+\begin_layout Section
+Empresas que trabajan con RGP
+\end_layout
+
+\begin_layout Standard
+La evaluación de los registros geofísicos de pozos es un punto clave durante
+ la exploración del subsuelo, al llevar a cabo estos resultados se obtienen
+ en tiempo real y con mucha precisión datos con los que se puede determinar
+ la localización y la situación de los recursos naturales que se encuentren
+ en el subsuelo, estos pueden ser yacimientos de agua, petróleo o gas.
+ Tener el equipo necesario para realizar este tipo de registros les da a
+ las empresas 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "empresa"
+literal "false"
+
+\end_inset
+
+,
+\begin_inset CommandInset citation
+LatexCommand cite
+key "empresa1"
+literal "false"
+
+\end_inset
+
+,
+\begin_inset CommandInset citation
+LatexCommand cite
+key "empresa2"
+literal "false"
+
+\end_inset
+
+,
+\begin_inset CommandInset citation
+LatexCommand cite
+key "empresa3"
+literal "false"
+
+\end_inset
+
+ una ventaja, ya que previenen la perforación de pozos donde no es necesaria
+ logrando con esto un ahorro en los recursos económicos de sus clientes.
+\end_layout
+
+\begin_layout Section
+Trabajos relacionados
+\end_layout
+
+\begin_layout Standard
+En el año 2005 Kielanowski Sierminska Julia María y Salazar Buendía Iván
+ Alberto 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tesis1"
+literal "false"
+
+\end_inset
+
+ desarrollaron un software (KiSa) capaz de analizar registros geofísicos
+ de pozos; su funcionamiento consiste en elegir un archivo de texto que
+ contenga los datos, puede estar en formato 
+\emph on
+.las 
+\emph default
+o 
+\emph on
+.txt
+\emph default
+, después el programa dibuja las gráficas basándose en el archivo de entrada.
+\end_layout
+
+\begin_layout Standard
+Fue desarrollado para brindar un complemento hacia los estudiantes y maestros
+ de las clases de registros geofísicos; siendo software libre es tambien
+ una alternativa al software comercial que los susodichos utilizan en sus
+ clases para interpretar los parámetros de un RGP.
+ KiSa es un software que funciona en el sistema operativo Windows XP y fue
+ desarrollado en lenguaje Visual Basic y se muestra su módulo de graficación
+ de curvas en la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:KiSa---Módulo"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/recortes/2018-11-04-231239_915x650_scrot.png
+	lyxscale 50
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+KiSa - Módulo de graficación de curvas
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:KiSa---Módulo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La ventaja que tiene KiSa en palabras de sus autores es que no requiere
+ de conocimientos de lenguajes especiales para su uso como sucede en otros
+ programas y que los resultados obtenidos se presentan en forma visual como
+ gráficas, las cuales son cualitativas y fáciles de analizar; haciéndolo
+ una herramienta para la evaluación de pozos de forma confiable y accesible.
+\end_layout
+
+\begin_layout Standard
+En el año 2006; Flores Roa Alberto desarrolló un Sistema de Medición de
+ Pruebas de Presión (SIMPP) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tesis"
+literal "false"
+
+\end_inset
+
+
+\emph on
+ 
+\emph default
+como una solución para Petróleos Mexicanos (PEMEX), este sistema consta
+ de hardware y software para llevar a cabo el monitoreo de pruebas de presión
+ en un pozo pretrolero, Flores Roa menciona:
+\end_layout
+
+\begin_layout Quotation
+"La creación del SIMPP ha permitido a PEMEX realizar los registros de pruebas
+ de presión de pozo utilizando su propia infraestructura y capital humano,
+ contribuyendo a evitar la dependencia tecnológica de compañías extranjeras
+ y las pérdidas de divisas que esto genera."
+\end_layout
+
+\begin_layout Standard
+El sistema fue desarrollado a la medida; esto quiere decir que contiene
+ características personalizadas que otros equipos comerciales no ofrecen.
+ Se utilizaron microcontroladores para el hardware los cuales se pueden
+ programar, hay entornos de desarrollo que permiten realizar la programación
+ en lenguaje C y luego generan el código a bajo nivel que se guarda en el
+ microcontrolador; éstos componentes son bajos de precio y para comunicarlos
+ con una computadora se utilizó un protocolo RS-232.
+ La parte del software fue desarrollada en C usando el entorno de LabWindows/CVI
+, funciona en el sistema operativo Windows XP o superiores.
+\end_layout
+
+\begin_layout Standard
+Ambas partes se comunican, siendo el hardware el responsable de la adquisición
+ de información y el software el que se encarga de procesar dichos datos,
+ el usuario puede elegir el archivo donde quedará guardada la información
+ adquirida, puede iniciar o detener el registro y configurar las gráficas.
+ El sistema procesa la información en tiempo real además de almacenarla.
+\end_layout
+
+\begin_layout Standard
+Ambos trabajos demuestran que el análisis de pozos es de vital importancia
+ en los estudios geofísicos pero a veces no se cuenta con la infraestructura
+ necesaria para llevarlos a cabo o ésta es comercial.
+ La combinación de disciplinas como la electrónica y la computación permiten
+ desarrollar soluciones accesibles que proveen resultados idénticos.
+\end_layout
+
+\begin_layout Standard
+Otro software utilizado para el análisis de RGP tiene por nombre PowerLog,
+ el cual es de licencia comercial y fue utilizado en el trabajo de Edgar
+ Giovanni Moreno Gallegos 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tesis2"
+literal "false"
+
+\end_inset
+
+, en el que se analizaron datos contenidos en archivos con el formato LAS
+ (Log ASCII Standard) pertenecientes a 15 curvas de registros geofísicos
+ de pozos.
+ PowerLog provee la capacidad de dibujar las curvas y puede exportarlas
+ hacia algunos formatos de imagen.
+\end_layout
+
+\begin_layout Chapter
+Marco teórico
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Marco-teórico"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -991,71 +1166,6 @@ Las curvas se dibujan en forma vertical de arriba hacia abajo y en función
  de la profundidad.
 \end_layout
 
-\begin_layout Standard
-\begin_inset VSpace vfill
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Conclusiones
-\end_layout
-
-\begin_layout Standard
-La evaluación de los registros geofísicos de pozos es un punto clave durante
- la exploración del subsuelo, al llevar a cabo estos resultados se obtienen
- en tiempo real y con mucha precisión datos con los que se puede determinar
- la localización y la situación de los recursos naturales que se encuentren
- en el subsuelo, estos pueden ser yacimientos de agua, petróleo o gas.
- Tener el equipo necesario para realizar este tipo de registros les da a
- las empresas 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "empresa"
-literal "false"
-
-\end_inset
-
-,
-\begin_inset CommandInset citation
-LatexCommand cite
-key "empresa1"
-literal "false"
-
-\end_inset
-
-,
-\begin_inset CommandInset citation
-LatexCommand cite
-key "empresa2"
-literal "false"
-
-\end_inset
-
-,
-\begin_inset CommandInset citation
-LatexCommand cite
-key "empresa3"
-literal "false"
-
-\end_inset
-
- una ventaja, ya que previenen la perforación de pozos donde no es necesaria
- logrando con esto un ahorro en los recursos económicos de sus clientes.
-\end_layout
-
-\begin_layout Chapter
-Marco teórico
-\begin_inset CommandInset label
-LatexCommand label
-name "chap:Marco-teórico"
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Señales
 \end_layout
@@ -1126,8 +1236,11 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset space \hspace{}
-\length 2.5cm
+\begin_inset Graphics
+	filename img_/plots/20 lanzamientos.png
+	lyxscale 50
+	scale 45
+
 \end_inset
 
 
@@ -1295,8 +1408,11 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset space \hspace{}
-\length 2.5cm
+\begin_inset Graphics
+	filename img_/plots/20 lanzamientos(2).png
+	lyxscale 45
+	scale 45
+
 \end_inset
 
 
@@ -1307,7 +1423,7 @@ status open
 
 \begin_layout Plain Layout
 Señal del lanzamiento de una moneda con 
-\begin_inset Formula $\Delta=2$
+\begin_inset Formula $\Delta x=2$
 \end_inset
 
  
@@ -1375,8 +1491,8 @@ En esta señal se puede apreciar que existen valores en el eje
 \begin_inset Formula $x$
 \end_inset
 
- que no están numerados, sin embargo se corresponden con un valor en el
- eje de las ordenadas, por lo tanto existen haciendo que 
+ con puntos decimales, sin embargo se corresponden con un valor en el eje
+ de las ordenadas, por lo tanto existen haciendo que 
 \begin_inset Formula $\Delta x$
 \end_inset
 
@@ -1409,8 +1525,11 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset space \hspace{}
-\length 2.2cm
+\begin_inset Graphics
+	filename img_/plots/continua.png
+	lyxscale 45
+	scale 45
+
 \end_inset
 
 
@@ -1547,6 +1666,13 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename img_/plots/discreta.png
+	lyxscale 45
+	scale 45
+
+\end_inset
+
 
 \end_layout
 
@@ -1657,6 +1783,44 @@ Finalmente este tipo de señal se utiliza mucho en áreas como la electrónica
  representación de información dentro de una computadora, cada valor que
  contenga la señal representa un bit de memoria, ésta es la unidad mínima
  que una computadora utiliza para llevar a cabo sus operaciones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img_/plots/digital.png
+	lyxscale 45
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Señal digital
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1945,6 +2109,162 @@ Si una persona parpadea una vez por segundo, se tendrá una frecuencia de
 \end_inset
 
  segundos.
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img_/plots/amplitudes.png
+	lyxscale 45
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Señales con diferentes amplitudes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img_/plots/periodo.png
+	lyxscale 45
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Señal con periodo definido
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img_/plots/noPeriodo.png
+	lyxscale 45
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Señal con periodo no definido
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img_/plots/frecuencias.png
+	lyxscale 45
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Señales con diferentes frecuencias
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2045,27 +2365,11 @@ Integrated Development Environment.
 \end_inset
 
  que está disponible para su descarga de manera gratuita en el sitio web
- de arduino 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "arduinoIDE"
-literal "false"
-
-\end_inset
-
-, es multiplataforma y sencillo de utilizar.
+ de arduino, es multiplataforma y sencillo de utilizar.
  Dentro del IDE las instrucciones son escritas en el Lenguaje de programación
- de Arduino 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "arduinoLenguaje"
-literal "false"
-
-\end_inset
-
-, el cual provee funciones para controlar los pines, para enviar un valor
- como salida por medio del puerto serial, para generar números aleatorios,
- entre otras.
+ de Arduino, el cual provee funciones para controlar los pines, para enviar
+ un valor como salida por medio del puerto serial, para generar números
+ aleatorios, entre otras.
 \end_layout
 
 \begin_layout Standard
@@ -2578,126 +2882,6 @@ El Runtime puede se puede descargar de forma separada o se puede incluir
  con una conexión a Internet.
  De esta forma un proyecto se puede compartir, ejecutar e incluso instalar
  en una computadora distinta a la que fue programado.
-\end_layout
-
-\begin_layout Section
-Git
-\end_layout
-
-\begin_layout Standard
-Es un software de libre distribución y de código abierto 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "gitRepo"
-literal "false"
-
-\end_inset
-
- cuyo uso permite controlar los cambios que vayan realizando en un proyecto
- de software, fue desarrollado por Linus Torvalds.
- El flujo de trabajo en Git se basa en el 
-\emph on
-seguimiento
-\emph default
- de archivos, se utiliza bajo una línea de comandos, cada acción que el
- usuario quiera realizar se debe escribir en un entorno previamente configurado.
- Existen programas con interfaz gráfica que facilitan éstas acciones y en
- lugar de escribir los comandos se pulsan botones o se arrastran archivos.
-\end_layout
-
-\begin_layout Standard
-Cuando Git tiene el seguimiento de un archivo puede detectar si ha sido
- editado, cambiado de nombre o incluso eliminado, de esta forma el programador
- sabe que archivos han sido modificados y le permiten confirmar una nueva
- versión, Git puede recordar todas los cambios confirmados hechos en los
- archivos que está siguiendo y puede restaurarlos a su estado original aunque
- hayan pasado 100 versiones.
- 
-\end_layout
-
-\begin_layout Standard
-Otra de las ventajas de Git es el desarrollo paralelo de software, por ejemplo
- un programador puede trabajar en una función que lea un archivo de entrada,
- mientras que otro trabaja en una función que le muestre en pantalla al
- usuario una calculadora, una vez terminado el trabajo Git se puede encargar
- de mezclar ambas funciones en una misma versión del proyecto, esto se conoce
- como 
-\emph on
-ramas.
-\end_layout
-
-\begin_layout Subsection
-Github
-\end_layout
-
-\begin_layout Standard
-En Internet, Github 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "github"
-literal "false"
-
-\end_inset
-
- es un sitio web donde se almacenan proyectos de software cuyo sistema de
- control de versiones es Git.
- El proceso consta de crear un perfil o cuenta personal en Github para lo
- cual es necesario una dirección de correo electrónico, una vez dentro del
- perfil personal se pueden crear 
-\emph on
-repositorios
-\emph default
- dándoles un nombre que los identifique, por ejemplo puede ser el nombre
- del proyecto.
- Un repositorio en Github equivale a una carpeta en una computadora, los
- archivos que Git esté siguiendo dentro de un directorio de trabajo local
- pueden subirse a Github con el comando adecuado.
- Con esto se gana una copia del software disponible a través de Internet
- que se puede descargar desde cualquier parte, ya sea desde el navegador
- web o desde la línea de comandos de Git.
- El repositorio sólo puede recibir más versiones del software por parte
- de la persona que lo creó, a menos que él otorgue permisos a otro usuario
- dentro de la configuración del repositorio.
-\end_layout
-
-\begin_layout Standard
-Almacenar un repositorio en Github brinda ciertas posibilidades; una de
- ellas se menciona con anterioridad, esa copia puede servir como respaldo
- en el extremo caso de que los archivos originales se pierdan o se dañe
- la computadora con la que se estaba trabajando.
- Otra posibilidad es el alcance que se gana, al estar accesible a todo público
- un repositorio puede obtener colaboraciones de otros desarrolladores de
- software, un repositorio en Github puede crecer de las siguientes maneras:
-\end_layout
-
-\begin_layout Enumerate
-Programadores que trabajen en equipo y suban versiones del software al mismo
- repositorio, se conocen como 
-\emph on
-colaboradores.
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-Fork
-\emph default
-, es un clon del repositorio que otro usuario de Github realiza pero hacia
- su perfil personal, de este modo puede hacer cambios en el proyecto sin
- alterar el original.
-\end_layout
-
-\begin_layout Enumerate
-Los usuarios que hacen 
-\emph on
-fork
-\emph default
- de un proyecto tienen la posibilidad de preguntar si sus cambios hechos
- pueden ser mezclados con el repositorio original, esto se conoce como 
-\emph on
-pull request 
-\emph default
-y sólo el autor original del repositorio puede autorizarlo.
 \end_layout
 
 \begin_layout Chapter
@@ -4923,15 +5107,7 @@ P
  ara eliminar el uso de la protoboard y comprimir todos los cables utilizados
  se procedió a buscar componentes que le dieran una mejor presentación al
  hardware.
- Fueron conseguidos en una tienda local 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "aragon"
-literal "false"
-
-\end_inset
-
- con el respaldo económico del CIIDIR.
+ Fueron conseguidos en una tienda local con el respaldo económico del CIIDIR.
 \end_layout
 
 \begin_layout Section
@@ -5622,15 +5798,8 @@ noprefix "false"
 ; el cual ya contaba con la capacidad de dibujar las curvas correspondientes
  a dos valores recibidos desde los sensores HC-SR04 a través del puerto
  serial.
- Posee control de versiones usando Git y repositorio en Github 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "anitarepo"
-literal "false"
-
-\end_inset
-
- para su almacenamiento seguro.
+ Posee control de versiones usando Git y repositorio en Github para su almacenam
+iento seguro.
 \end_layout
 
 \begin_layout Section
@@ -5664,6 +5833,18 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 1.5cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img_/screens/nuevoArchivo.PNG
+	lyxscale 50
+	scale 70
+
+\end_inset
+
 
 \end_layout
 
@@ -5874,6 +6055,22 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 2cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img_/screens/anita.PNG
+	lyxscale 45
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -5913,6 +6110,21 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 5cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img_/screens/archivo.PNG
+	lyxscale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -5938,6 +6150,21 @@ Botones para archivos
 wide false
 sideways false
 status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 1.5cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img_/screens/controlLecturas.PNG
+	lyxscale 45
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6026,6 +6253,39 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename img_/screens/est1.PNG
+	lyxscale 45
+	scale 50
+
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 2.5cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img_/screens/est2.PNG
+	lyxscale 45
+	scale 50
+
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 2.5cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img_/screens/est3.PNG
+	lyxscale 45
+	scale 50
+
+\end_inset
+
 
 \end_layout
 
@@ -6064,6 +6324,17 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 6cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img_/screens/span.PNG
+	lyxscale 45
+
+\end_inset
+
 
 \end_layout
 
@@ -6096,6 +6367,18 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 6.2cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img_/2018-10-29-070438_160x195_scrot.png
+	lyxscale 45
+	scale 60
+
+\end_inset
+
 
 \end_layout
 
@@ -6132,6 +6415,17 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 6cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img_/screens/intervalo.PNG
+	lyxscale 45
+
+\end_inset
+
 
 \end_layout
 
@@ -6172,6 +6466,18 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 6cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img_/screens/tiempo.PNG
+	lyxscale 45
+	scale 80
+
+\end_inset
+
 
 \end_layout
 
@@ -6224,7 +6530,17 @@ Es un formato que combina los colores rojo (R), verde (G) y azul (B) en
 
 \end_inset
 
- en la siguiente escala:
+ en la escala establecida en el cuadro 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Combinación-RGB-del"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -6234,6 +6550,11 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 6.4cm
+\end_inset
+
+
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="2">
 <features tabularvalignment="middle">
@@ -6273,7 +6594,7 @@ Red
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+118
 \end_layout
 
 \end_inset
@@ -6293,7 +6614,7 @@ Green
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+39
 \end_layout
 
 \end_inset
@@ -6313,7 +6634,7 @@ Blue
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+68
 \end_layout
 
 \end_inset
@@ -6331,6 +6652,13 @@ Blue
 
 \begin_layout Plain Layout
 Combinación RGB del color guinda
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Combinación-RGB-del"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -6344,7 +6672,8 @@ Combinación RGB del color guinda
 
 \end_inset
 
-
+En cuanto al icono del software, representa al programador y autor de esta
+ investigación; es un dibujo de su autoría.
 \end_layout
 
 \begin_layout Standard
@@ -6354,40 +6683,14 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Interfaz gráfica de usuario de anita
-\end_layout
-
+\begin_inset space \hspace{}
+\length 5.5cm
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-En cuanto al icono del software, representa al programador y autor de esta
- investigación; es un dibujo de su autoría.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
 \begin_inset Graphics
 	filename /home/maldad/repos/anita/logo/logoVector.PNG
+	lyxscale 45
 	scale 40
 
 \end_inset
@@ -6431,9 +6734,7 @@ try
 \end_layout
 
 \begin_layout LyX-Code
-    
-\emph on
-conjunto de instrucciones que puedan generar una excepcion
+    conjunto de instrucciones que puedan generar una excepcion
 \end_layout
 
 \begin_layout LyX-Code
@@ -6441,9 +6742,7 @@ catch
 \end_layout
 
 \begin_layout LyX-Code
-    
-\emph on
-instrucciones a ejecutar en caso de producirse un error
+    instrucciones a ejecutar en caso de producirse un error
 \end_layout
 
 \begin_layout LyX-Code
@@ -6473,6 +6772,18 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 3cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img_/screens/noConectado.PNG
+	lyxscale 45
+	scale 80
+
+\end_inset
+
 
 \end_layout
 
@@ -6485,10 +6796,6 @@ Alerta cuando el módulo no está conectado
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -6515,6 +6822,18 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 3cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img_/screens/desconectado.PNG
+	lyxscale 45
+	scale 80
+
+\end_inset
+
 
 \end_layout
 
@@ -6522,7 +6841,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Alerta de desconexión repentina del módulo
+Alerta por desconexión repentina del módulo
 \end_layout
 
 \end_inset
@@ -6581,6 +6900,18 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 1.7cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img_/screens/pdf.PNG
+	lyxscale 45
+	scale 50
+
+\end_inset
+
 
 \end_layout
 
@@ -6634,15 +6965,7 @@ noprefix "false"
 \emph on
 releases
 \emph default
- de su repositorio en Github 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "anitareleases"
-literal "false"
-
-\end_inset
-
-.
+ de su repositorio en Github.
 \end_layout
 
 \begin_layout Standard
@@ -6650,6 +6973,21 @@ literal "false"
 wide false
 sideways false
 status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 4cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename img_/screens/empaquetado.PNG
+	lyxscale 45
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6838,10 +7176,6 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset space \hspace{}
 \length 5cm
 \end_inset
@@ -6919,6 +7253,17 @@ Interfaz de MATLAB
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:Interfaz-de-MATLAB"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename img_/screens/matlab.PNG
+	lyxscale 45
+	scale 45
 
 \end_inset
 
@@ -7228,7 +7573,7 @@ literal "false"
 
 \end_inset
 
- Equipo RGP de Century Geophisycal - https://www.century-geo.com/drawworks-300m
+ Equipo RGP de Century Geophysical - https://www.century-geo.com/drawworks-300
 \end_layout
 
 \begin_layout Bibliography
@@ -7262,7 +7607,8 @@ literal "false"
 
 \end_inset
 
- Ingeniería de petróleo - http://www.ingenieriadepetroleo.com/registro-sp/
+ Ingeniería de petróleo, Registros de potencial espontáneo - http://www.ingenieri
+adepetroleo.com/registro-sp/
 \end_layout
 
 \begin_layout Bibliography
@@ -7273,8 +7619,8 @@ literal "false"
 
 \end_inset
 
- Ingeniería de petróleo 2 - http://www.ingenieriadepetroleo.com/registros-de-resis
-tividad/
+ Ingeniería de petróleo, Registros de resistividad - http://www.ingenieriadepetro
+leo.com/registros-de-resistividad/
 \end_layout
 
 \begin_layout Bibliography
@@ -7304,17 +7650,6 @@ literal "false"
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "formatosC"
-literal "false"
-
-\end_inset
-
- cppReference - https://es.cppreference.com/w/cpp/io/c/printf_format
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
 key "empresa2"
 literal "false"
 
@@ -7339,56 +7674,13 @@ literal "false"
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "arduinoIDE"
-literal "false"
-
-\end_inset
-
- Arduino IDE - https://www.arduino.cc/en/Main/Software
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "arduinoLenguaje"
-literal "false"
-
-\end_inset
-
- Arduino Lenguaje - https://www.arduino.cc/reference/en/
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "gitRepo"
-literal "false"
-
-\end_inset
-
- Repositorio de Git - https://github.com/git/git
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "github"
-literal "false"
-
-\end_inset
-
- Github - https://github.com/
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
 key "geeky"
 literal "false"
 
 \end_inset
 
- GeekyTheory - https://geekytheory.com/matlab-arduino-serial-port-communication/
+ GeekyTheory, MATLAB + Arduino: Serial Port Communication - https://geekytheory.c
+om/matlab-arduino-serial-port-communication/
 \end_layout
 
 \begin_layout Bibliography
@@ -7399,7 +7691,7 @@ literal "false"
 
 \end_inset
 
- Detección de colores - https://www.youtube.com/watch?v=DKhTtNc3eoQ&t=11s
+ Detección de colores con CNY70- https://www.youtube.com/watch?v=DKhTtNc3eoQ&t=11s
 \end_layout
 
 \begin_layout Bibliography
@@ -7410,40 +7702,44 @@ literal "false"
 
 \end_inset
 
- Detección de distancias - https://www.youtube.com/watch?v=NseZfzIwO_s
+ Detección de distancias con CNY70- https://www.youtube.com/watch?v=NseZfzIwO_s
 \end_layout
 
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "aragon"
+key "tesis"
 literal "false"
 
 \end_inset
 
- Electrónica Aragón (ubicación) - https://goo.gl/maps/knEwGfg12Qk
+ Sistema de software y hardware para la adquisición de registros de pruebas
+ de presión en pozos petroleros - https://tesis.ipn.mx/handle/123456789/10609
 \end_layout
 
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "anitarepo"
+key "tesis1"
 literal "false"
 
 \end_inset
 
- anita repo - https://github.com/maldad/anita/
+ KISA Desarrollo de software utilizando en la interpretación de registros
+ geofísicos de pozo, para la obtención de parámetros petrofísicos - https://tesi
+s.ipn.mx/handle/123456789/15830
 \end_layout
 
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "anitareleases"
+key "tesis2"
 literal "false"
 
 \end_inset
 
- anita releases - https://github.com/maldad/anita/releases
+ Evaluación de formaciones usando registros geofísicos de pozo y software
+ comercial, un caso práctico - https://tesis.ipn.mx/handle/123456789/15184
 \end_layout
 
 \end_body
