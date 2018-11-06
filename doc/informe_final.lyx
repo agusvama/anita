@@ -99,24 +99,15 @@ initials
 \begin_body
 
 \begin_layout Title
-\begin_inset Formula $\mathfrak{\mathfrak{reporte}\thinspace\thinspace final}$
-\end_inset
-
-: Residencia profesional
+Reporte de Residencia profesional
 \end_layout
 
 \begin_layout Author
-\begin_inset Formula $\mathfrak{presenta}$
-\end_inset
-
-: Vásquez Martínez Agustin
+presenta : Vásquez Martínez Agustin
 \end_layout
 
 \begin_layout Date
-\begin_inset Formula $\mathfrak{octubre\thinspace\thinspace2018}$
-\end_inset
-
-
+Instituto Tecnológico de Oaxaca, 2018
 \end_layout
 
 \begin_layout Standard
@@ -173,8 +164,7 @@ Agradecimientos
 \end_layout
 
 \begin_layout Standard
-Aquí escribir cosas bonitas sobre la gente que te ayudó en este trabajo
- :)
+Escribir antes de imprimir
 \end_layout
 
 \begin_layout Standard
@@ -1665,21 +1655,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Gráfica de una señal producida por la función:
-\begin_inset Argument 1
-status collapsed
-
-\begin_layout Plain Layout
-Gráfica de una señal continua
-\end_layout
-
-\end_inset
-
- 
-\begin_inset Formula $f(x)=sin(2x)+cos(3x)$
-\end_inset
-
- 
+Gráfica de una señal continua 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:senalcontinua"
@@ -1803,7 +1779,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename img_/plots/discreta.png
+	filename newImg/discreta.png
 	lyxscale 45
 	scale 45
 
@@ -1816,25 +1792,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Gráfica de una señal discreta producida por el muestreo de la función
-\begin_inset Argument 1
-status collapsed
-
-\begin_layout Plain Layout
 Gráfica de una señal discreta
-\end_layout
-
-\end_inset
-
- 
-\begin_inset Formula $f(x)=sin(2x)+cos(3x)$
-\end_inset
-
- con 
-\begin_inset Formula $\Delta x=1$
-\end_inset
-
-.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:senalDiscreta"
@@ -2228,17 +2186,7 @@ Periodo
 \begin_layout Standard
 Una señal es periódica cuando repite un patrón una y otra vez; inmediatamente
  después de terminar un patrón, empieza uno nuevo que es exactamente igual
- al anterior (figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:periodo"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-).
+ al anterior.
  Este patrón también se conoce como 
 \emph on
 ciclo
@@ -2277,6 +2225,18 @@ Donde
 \end_inset
 
  la frecuencia.
+ En la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:frecuencia"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ se muestra un ejemplo en el que una señal tiene un periodo más amplio que
+ otra, es decir; se tarda más tiempo en completar un ciclo.
 \end_layout
 
 \begin_layout Subsubsection
@@ -2373,14 +2333,33 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
+En la figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Parámetros-de-señal"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ se encuentran ilustrados el intervalo de bit y la tasa de bit.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 2cm
+\end_inset
+
+
 \begin_inset Graphics
-	filename img_/plots/amplitudes.png
+	filename newImg/amplitud.png
 	lyxscale 45
 	scale 45
 
@@ -2397,51 +2376,6 @@ Señales con diferentes amplitudes
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:amplitud"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename img_/plots/periodo.png
-	lyxscale 45
-	scale 45
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Señal con periodo definido (periódica)
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:periodo"
 
 \end_inset
 
@@ -2507,8 +2441,13 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 2cm
+\end_inset
+
+
 \begin_inset Graphics
-	filename img_/plots/frecuencias.png
+	filename newImg/frecuencia.png
 	lyxscale 45
 	scale 45
 
@@ -2525,6 +2464,56 @@ Señales con diferentes frecuencias
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:frecuencia"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 2cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename newImg/digital.png
+	lyxscale 50
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Parámetros de señal digital 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Parámetros-de-señal"
 
 \end_inset
 
@@ -6985,7 +6974,7 @@ try
 \end_layout
 
 \begin_layout LyX-Code
-    conjunto de instrucciones que puedan generar una excepcion
+    %conjunto de instrucciones que puedan generar una excepcion
 \end_layout
 
 \begin_layout LyX-Code
@@ -6993,7 +6982,7 @@ catch
 \end_layout
 
 \begin_layout LyX-Code
-    instrucciones a ejecutar en caso de producirse un error
+    %instrucciones a ejecutar en caso de producirse un error
 \end_layout
 
 \begin_layout LyX-Code
@@ -7216,7 +7205,23 @@ noprefix "false"
 \emph on
 releases
 \emph default
- de su repositorio en Github.
+ de su repositorio en Github: 
+\emph on
+https://github.com/maldad/anita/releases.
+ 
+\emph default
+Se anexa un diagrama de flujo que muestra el funcionamiento de anita en
+ el apéndice 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Diagrama-de-flujo"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -7361,6 +7366,28 @@ status open
 
 \begin_layout Chapter
 \start_of_appendix
+Diagrama de flujo de anita
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Diagrama-de-flujo"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Diagram1.png
+	lyxscale 45
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
 Prueba de correo electrónico
 \begin_inset CommandInset label
 LatexCommand label
