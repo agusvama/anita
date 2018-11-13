@@ -192,7 +192,8 @@ También agradezco al Instituto Tecnológico de Oaxaca, sus docentes y a quien
 \begin_layout Standard
 Al CIIDIR por haberme recibido de manera muy amable en sus instalaciones
  y por el proyecto Análisis de señales gravimétricas para evaluar la evolución
- piezométrica de un acuífero en el estado de Oaxaca (SIP 20181176), al Dr.
+ piezométrica de acuífero granular en Valles Centrales de Oaxaca (SIP 20181176),
+ al Dr.
  Salvador Belmonte director de la institución y mi asesor, al ingeniero
  César Hernández por su conocimiento y la introducción al Politécnico y
  al Dr.
@@ -7336,7 +7337,7 @@ S
  tarea es capaz de recibir, graficar y procesar las señales que genera la
  sonda de RGP, el software va dibujando en tiempo real y además indica la
  duración el trabajo, algo con lo que la sonda no cuenta.
- Se cumple el objetivo de poner e marcha un software para la comunicación
+ Se cumple el objetivo de poner en marcha un software para la comunicación
  y procesamiento de señales de Potencial Espontáneo y de Resistividad, producto
  de las mediciones en el subsuelo a través de un equipo de registros eléctricos.
 \end_layout
