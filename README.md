@@ -16,7 +16,7 @@ Diseñado y programado por:<br>
 
 Con ayuda y supervisión de sus asesores:<br>
 * Dr. Salvador I. Belmonte Jiménez
-* M.C.C. Idarh C. Matadamas Ortiz
+* M.C.I.C. Idarh C. Matadamas Ortiz
 
 Este proyecto es parte de la residencia profesional de Agustin Vásquez Martínez, estudiante del [Instituto Tecnológico de Oaxaca](https://goo.gl/maps/qRoBwtpc7G52) de la Ingeniería en Sistemas Computacionales.
 
@@ -28,6 +28,9 @@ Se pueden descargar versiones compiladas de **anita** en la sección de [release
 ## Materiales utilizados para la toma de lecturas
 * Placa arduino (la cual debe grabarse con este [programa](https://github.com/maldad/anita/blob/master/anitaSketch/anitaSketch.ino)).
 * Par de sensores HC-SR04
+
+## Interfaz
+![anitaInterfaz](https://raw.githubusercontent.com/maldad/anita/master/anita.PNG)
 
 ## Recursos utilizados
 Lectura del puerto serial con MATLAB encontrado en: [Geeky Theory](https://geekytheory.com/matlab-arduino-serial-port-communication/)
